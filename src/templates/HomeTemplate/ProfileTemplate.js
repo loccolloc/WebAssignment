@@ -41,7 +41,7 @@ export const ProfileTemplate = (props) => { //path, exact, Component
         </h3>
       </div>
       <List>
-        <NavLink to='profile' className="text-dark">
+        <NavLink to='admin' className="text-dark">
             <ListItem key='profile' disablePadding>
             <ListItemButton>
                 <ListItemIcon>
@@ -115,7 +115,7 @@ export const ProfileTemplate = (props) => { //path, exact, Component
           >
             <MenuIcon />
           </IconButton>
-            <NavLink to='/profile' className="flex">
+            <NavLink to='admin' className="flex">
                   <a href="#" aria-label="Back to homepage" className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                       <img src={logo} alt="cyberlearn.vn" />
                   </a>

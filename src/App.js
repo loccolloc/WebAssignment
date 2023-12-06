@@ -39,11 +39,11 @@ export const history = createBrowserHistory();
 function App() {
   return (
     <Router history={history}>
-      <Route path="/admin">
+      {/* <Route path="/admin">
         <Admin />
-      </Route>
+      </Route> */}
       <Switch>
-        <ProfileTemplate path='/profile' exact Component={Profile} />
+        <ProfileTemplate path='/admin' exact Component={Profile} />
         <ProfileTemplate path='/manageUsers' exact Component={ManageUser} />
         <ProfileTemplate path='/manageProducts' exact Component={ManageProducts} />
 
