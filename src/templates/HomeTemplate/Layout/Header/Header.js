@@ -49,14 +49,14 @@ export default function Header(props) {
         i18n.changeLanguage(value)
     }
     return (
-        <header className="p-4 bg-coolGray-100 text-coolGray-800 bg-opacity-40 bg-black text-white fixed w-full z-10" >
-            <div className="container flex justify-between h-16 mx-auto">
+        <header id="header-container"  className="md:p-4 bg-coolGray-100 text-coolGray-800 bg-opacity-40 bg-black text-white fixed w-full z-50 h-fit flex items-center top-0" >
+            <div  className="container flex justify-between h-16 mx-auto">
                 <a item="menu-icon" className='flex items-center md:hidden' onClick={(e)=>handleToggle(e)}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                   </svg>
                 </a>
-                <NavLink to='/home'>
+                <NavLink to='/home' className="flex">
                   <a href="#" aria-label="Back to homepage" className="flex items-center p-2">
                       <img src={logo} alt="cyberlearn.vn" />
                   </a>
@@ -64,26 +64,27 @@ export default function Header(props) {
                 {showMenu &&
                 (
                       <>
-                      <ul id='nav-list' className=" bg-coolGray-100 text-coolGray-800 bg-opacity-40	items-stretch md:hidden m-0 ">                         <li className="flex">
-                              <NavLink to="/home" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('home')}</NavLink>
-                          </li>
-                          <li className="flex">
-                              <NavLink to="/about" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('about')}</NavLink>
-                          </li>
-                          <li className="flex">
-                              <NavLink to="/contact" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('contact')}</NavLink>
-                          </li>
-                          <li className="flex">
-                              <NavLink to="/news" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('news')}</NavLink>
-                          </li>
-                          <li className="flex">
+                        <ul id='nav-list' className=" bg-coolGray-100 text-coolGray-800 bg-opacity-40	items-stretch md:hidden m-0 ">                         
+                            <li className="flex" onClick={handleToggle}>
+                              <NavLink to="/home" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('home')} </NavLink>
+                            </li>
+                            <li className="flex" onClick={handleToggle}>
+                                <NavLink to="/about" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('about')} </NavLink>
+                            </li>
+                            <li className="flex" onClick={handleToggle}>
+                                <NavLink to="/contact" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('contact')} </NavLink>
+                            </li>
+                            <li className="flex" onClick={handleToggle}>
+                                <NavLink to="/news" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('news')} </NavLink>
+                            </li>
+                            <li className="flex">
                             <Select defaultValue="vi" className='mx-4' style={{ width: 70 }} onChange={handleChange}>
                                 <Option value="vi">Vi</Option>
                                 <Option value="en">Eng</Option>
                                 <Option value="chi">Chi</Option>
                             </Select>
                           </li>
-                      </ul>
+                        </ul>
                       </>)
                 }
                 <ul className="items-stretch  m-0 hidden lg:flex">

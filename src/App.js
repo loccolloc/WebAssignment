@@ -5,6 +5,7 @@ import { createBrowserHistory } from 'history';
 import { Router, Switch, Route } from 'react-router';
 
 import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
+import { ProfileTemplate } from './templates/HomeTemplate/ProfileTemplate'
 import Home from './pages/Home/Home';
 import News from './pages/News/News';
 import Contact from './pages/Contact/Contact';
@@ -23,7 +24,15 @@ import Admin from "./pages/Admin/Admin";
 import Register1 from './pages/Register/Register1';
 import Adduser from './pages/Test/Adduser';
 import Addproduct from './pages/Test/Addproduct';
-import ProductList from "./pages/Test/ProductList"
+import ProductList from "./pages/Test/ProductList";
+
+
+// PROFILE OF ADMIN
+import Profile from './pages/profile/Profile';
+import ManageUser from './pages/ManageUsers/ManageUsers';
+import ManageProducts from './pages/ManageProducts/ManageProducts';
+
+
 export const history = createBrowserHistory();
 
 function App() {
@@ -33,6 +42,11 @@ function App() {
         <Admin />
       </Route>
       <Switch>
+        <ProfileTemplate path='/profile' exact Component={Profile} />
+        <ProfileTemplate path='/manageUsers' exact Component={ManageUser} />
+        <ProfileTemplate path='/manageProducts' exact Component={ManageProducts} />
+
+
         <HomeTemplate path="/home" exact Component={Home} />
         <HomeTemplate path="/about" exact Component={About} />
         <HomeTemplate path="/contact" exact Component={Contact} />

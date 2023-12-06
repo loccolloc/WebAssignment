@@ -1,8 +1,13 @@
-@media (min-width: 374px) and (max-width: 767px) {
+@media (max-width: 767px) {
+  #header-container {
+    height: 60px;
+    padding: 10px 0;
+  }
   #nav-list{
     position:absolute;
-    top:112px;
-    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);
+    top:60px;
+    /* background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%); */
+    background-color: rgba(0, 0, 0, 0.4);
     width: 100%;
     left: 0;
     display: hidden;
@@ -10,11 +15,5 @@
   }
   #nav-list li {
     padding: 12px;
-  }
-  #menu-icon:focus  .nav-list {
-    display: block;
-  }
-  header {
-    opacity: 1;
   }
 }
