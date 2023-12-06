@@ -51,7 +51,7 @@ const Home = (props) => {
                 </div>
             </section>
 
-            <div className="mx-36">
+            <div className="mx-0 md:mx-18 lg:mx-36 pb-5">
                 <HomeMenu />
             </div>
         </div>

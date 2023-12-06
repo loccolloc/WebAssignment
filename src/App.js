@@ -26,6 +26,7 @@ import Adduser from './pages/Test/Adduser';
 import Addproduct from './pages/Test/Addproduct';
 import ProductList from "./pages/Test/ProductList";
 
+import Article from './pages/Article/Article';
 
 // PROFILE OF ADMIN
 import Profile from './pages/profile/Profile';
@@ -46,7 +47,8 @@ function App() {
         <ProfileTemplate path='/manageUsers' exact Component={ManageUser} />
         <ProfileTemplate path='/manageProducts' exact Component={ManageProducts} />
 
-
+        <HomeTemplate path="/article" exact Component={Article} />
+        <Route path="/article" element={<Article/>} />
         <HomeTemplate path="/home" exact Component={Home} />
         <HomeTemplate path="/about" exact Component={About} />
         <HomeTemplate path="/contact" exact Component={Contact} />

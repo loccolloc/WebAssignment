@@ -6,7 +6,7 @@ export default function About() {
             <section className="dark:dark:bg-gray-800 dark:dark:text-gray-100">
                 <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
                     <div>
-                        <h2 className="text-3xl font-bold tracki text-center sm:text-5xl dark:dark:text-gray-50">Về Phone Store</h2>
+                        <h2 className="text-2xl md:text-4xl font-bold leadi text-center sm:text-5xl dark:dark:text-gray-50 uppercase">Về Phone Store</h2>
                         <p className="max-w-3xl mx-auto mt-4 text-xl text-center dark:dark:text-gray-400">Đam mê công nghệ và sự tiện lợi, Phone Store tự hào là điểm đến chính thức cho những người yêu thích sản phẩm của Apple.</p>
                     </div>
                     <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
@@ -161,9 +161,9 @@ export default function About() {
                 </div>
             </section>
 
-            <section className="my-8 dark:dark:bg-gray-800 dark:dark:text-gray-100">
+            <section className="-my-1 dark:dark:bg-gray-800 dark:dark:text-gray-100">
                 <div className="container flex flex-col items-center mx-auto mb-12 md:p-10 md:px-12">
-                    <h1 className="p-4 text-4xl font-semibold leadi text-center">Nhận xét của khách hàng</h1>
+                    <h1 className="text-xl md:text-4xl font-bold leadi text-center sm:text-5xl dark:dark:text-gray-50 uppercase">Nhận xét của khách hàng</h1>
                 </div>
                 <div className="container flex flex-col items-center justify-center mx-auto lg:flex-row lg:flex-wrap lg:justify-evenly lg:px-10">
                     <div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
@@ -249,8 +249,7 @@ export default function About() {
 
             <section className="py-6 dark:dark:bg-gray-800 dark:dark:text-gray-100">
                 <div className="container flex flex-col items-center justify-center p-4 mx-auto sm:p-10">
-                    <p className="p-2 text-sm font-medium tracki text-center uppercase">Đội ngũ phát triển trang web</p>
-                    <h1 className="text-4xl font-bold leadi text-center sm:text-5xl">Những người tài năng đứng sau hậu trường</h1>
+                    <h1 className="text-xl md:text-4xl font-bold leadi text-center sm:text-5xl dark:dark:text-gray-50 uppercase">Đội ngũ phát triển trang web</h1>
                     <div className="flex flex-row flex-wrap-reverse justify-center mt-8">
                         <div className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 dark:dark:bg-gray-100 dark:dark:text-gray-800">
                             <img alt className="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full dark:dark:bg-gray-500" src="https://source.unsplash.com/100x100/?portrait?0" />

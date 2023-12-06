@@ -4,7 +4,6 @@ const withMT = require("@material-tailwind/react/utils/withMT");
 module.exports =  withMT({
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/flowbite/**/*.js"
   ],
   presets: [],
   darkMode: 'media', // or 'class'
@@ -996,6 +995,5 @@ module.exports =  withMT({
     },
   },
   plugins: [
-        require('flowbite/plugin')
     ],
 });

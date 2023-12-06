@@ -3,20 +3,19 @@ import { Carousel } from 'antd';
 import { useSelector } from 'react-redux'
 import './HomeCarousel.css';
 // import axios from 'axios';
-const contentStyle = {
-    height: '600px',
-    color: '#fff',
-    lineHeight: '160px',
-    textAlign: 'center',
-    backgroundPosition: 'center',
-    backgroundSize: '100%',
-    backgroundRepeat: 'no-repeat'
-};
+// const contentStyle = {
+//     height: '600px',
+//     color: '#fff',
+//     lineHeight: '160px',
+//     textAlign: 'center',
+//     backgroundPosition: 'center',
+//     backgroundSize: '100%',
+//     backgroundRepeat: 'no-repeat'
+// };
 
 
 export default function HomeCarousel(props) {
     const { arrImg } = useSelector(state => state.CarouselReducer)
-
 
     // const dispatch = useDispatch();
     // useEffect(() => {
@@ -46,14 +45,29 @@ export default function HomeCarousel(props) {
 
 
     // }, []);
+
+//     <div style={{backgroundImage: `url(${item.hinhAnh})` }}>
+//     {/* <img src={item.hinhAnh} className=" opacity-0" alt={item.hinhAnh} /> */}
+// </div>
     const renderImg = () => {
         return arrImg.map((item, index) => {
+            var coursel_img = {
+                backgroundImage:`url(${item.hinhAnh})`,       
+                color: '#fff',
+                lineHeight: '160px',
+                textAlign: 'center',
+                backgroundPosition: 'center',
+                backgroundSize: '100%',
+                backgroundRepeat: 'no-repeat',
+                backgroundAtachment: 'fixed'
+            }
+            
             return <div key={index}>
-                <div style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})` }}>
-                    <img src={item.hinhAnh} className=" opacity-0" alt={item.hinhAnh} />
-                </div>
-            </div>
-        })
+                        <div className='content_carousel' style={coursel_img}>
+                                {/* <img src={item.hinhAnh} className=" opacity-0" alt={item.hinhAnh} /> */}
+                        </div>
+                    </div>
+                   })
     }
 
     return (

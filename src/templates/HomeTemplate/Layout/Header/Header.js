@@ -5,8 +5,9 @@ import { history } from '../../../../App';
 import { Select } from 'antd';
 import { useTranslation } from 'react-i18next';
 import './Header.css';
-const { Option } = Select;
+import { Button } from '@material-tailwind/react';
 
+const { Option } = Select;
 
 export default function Header(props) {
     const [auth, setAuth] = useState('');
@@ -64,7 +65,20 @@ export default function Header(props) {
                 {showMenu &&
                 (
                       <>
-                        <ul id='nav-list' className=" bg-coolGray-100 text-coolGray-800 bg-opacity-40	items-stretch md:hidden m-0 ">                         
+                        <ul id='nav-list' className=" bg-coolGray-100 text-coolGray-800 bg-opacity-40	items-stretch md:hidden m-0 ">  
+                            <li className='flex gap-x-5' style={{marginLeft:'15px'}}>
+                                <Button onClick={
+                                    () => {
+                                        history.push('/login');
+                                    }} className="self-center px-2 md:px-4 lg:px-8 py-3 rounded ">{t('signin')}</Button>
+                                <Button
+                                    onClick={
+                                        () => {
+                                            history.push('/register');
+                                        }}
+                                    className="self-center px-2 md:px-4 lg:px-8 py-3 rounded  ">{t('signup')}</Button>
+                            </li>
+
                             <li className="flex" onClick={handleToggle}>
                               <NavLink to="/home" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('home')} </NavLink>
                             </li>
@@ -77,41 +91,42 @@ export default function Header(props) {
                             <li className="flex" onClick={handleToggle}>
                                 <NavLink to="/news" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('news')} </NavLink>
                             </li>
-                            <li className="flex">
-                            <Select defaultValue="vi" className='mx-4' style={{ width: 70 }} onChange={handleChange}>
-                                <Option value="vi">Vi</Option>
-                                <Option value="en">Eng</Option>
-                                <Option value="chi">Chi</Option>
-                            </Select>
-                          </li>
+                            
+                            <li className='flex'>
+                                <Select defaultValue="vi" className='mx-4' style={{ width: 70 }} onChange={handleChange}>
+                                    <Option value="vi">Vi</Option>
+                                    <Option value="en">Eng</Option>
+                                    <Option value="chi">Chi</Option>
+                                </Select>
+                            </li>
                         </ul>
                       </>)
                 }
-                <ul className="items-stretch  m-0 hidden lg:flex">
+                <ul className="items-stretch  m-0 hidden md:flex">
                     <li className="flex">
-                        <NavLink to="/home" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('home')}</NavLink>
+                        <NavLink to="/home" className="flex items-center -mb-0.5 border-b-2 md:px-1 lg:px-4 border-transparent text-white md:text-sm" activeClassName="md:border-b-2 md:border-white">{t('home')}</NavLink>
                     </li>
                     <li className="flex">
-                        <NavLink to="/about" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('about')}</NavLink>
+                        <NavLink to="/about" className="flex items-center -mb-0.5 border-b-2 md:px-1 lg:px-4 border-transparent text-white md:text-sm" activeClassName="md:border-b-2 md:border-white">{t('about')}</NavLink>
                     </li>
                     <li className="flex">
-                        <NavLink to="/contact" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('contact')}</NavLink>
+                        <NavLink to="/contact" className="flex items-center -mb-0.5 border-b-2 md:px-1 lg:px-4 border-transparent text-white md:text-sm" activeClassName="md:border-b-2 md:border-white">{t('contact')}</NavLink>
                     </li>
                     <li className="flex">
-                        <NavLink to="/news" className="flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="md:border-b-2 md:border-white">{t('news')}</NavLink>
+                        <NavLink to="/news" className="flex items-center -mb-0.5 border-b-2 md:px-1 lg:px-4 border-transparent text-white md:text-sm" activeClassName="md:border-b-2 md:border-white">{t('news')}</NavLink>
                     </li>
                 </ul>
-                <div className="flex items-center flex-shrink-0 lg:flex">
+                <div className="flex items-center flex-shrink-0 md:flex">
                     <button onClick={
                         () => {
                             history.push('/login');
-                        }} className="self-center px-8 py-3 rounded hidden md:block">{t('signin')}</button>
+                        }} className="self-center px-2 md:px-4 lg:px-8 py-3 rounded hidden md:block">{t('signin')}</button>
                     <button
                         onClick={
                             () => {
                                 history.push('/register');
                             }}
-                        className="self-center px-8 py-3 rounded  hidden md:block">{t('signup')}</button>
+                        className="self-center px-2 md:px-4 lg:px-8 py-3 rounded  hidden md:block">{t('signup')}</button>
                     <div className='hidden md:block'>
                       <Select defaultValue="vi" className='' style={{ width: 70 }} onChange={handleChange}>
                           <Option value="vi">Vi</Option>
@@ -132,7 +147,7 @@ export default function Header(props) {
                     {LogoutButton()}
 
                 </div>
-                <button className="p-4 hidden lg:hidden">
+                <button className="p-4 hidden md:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="w-6 h-6 text-coolGray-800">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                     </svg>

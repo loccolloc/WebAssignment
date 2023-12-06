@@ -1,0 +1,19 @@
+.header{
+    /* color: red; */
+}
+.main_content1 .sidebar-item span:hover {
+    background-color: #3b5999;
+    border: none; 
+    cursor: pointer;
+    color: white;
+}
+
+.sidebar-img{
+    border-bottom:  2px solid #ccc;
+}
+
+.header-sidebar {
+    display: inline-block;
+    border-bottom: 2px solid rgb(205, 101, 9);
+}
+
