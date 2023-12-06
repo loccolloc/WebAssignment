@@ -41,11 +41,7 @@ function App() {
         <HomeTemplate path="/add" exact Component={Adduser} />
         <HomeTemplate path="/addp" exact Component={Addproduct} />
         <HomeTemplate path="/product" exact Component={ProductList} />
-
-
-
         {/* <HomeTemplate path="/admin" exact Component={Admin} /> */}
-
         {/* <HomeTemplate path="/admin" Component={AdminTemplate} /> */}
         <HomeTemplate path="/detail/:id" exact Component={Detail} />
         <HomeTemplate path="/cart" exact Component={Cart} />

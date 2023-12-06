@@ -53,7 +53,6 @@ const Home = (props) => {
 
             <div className="mx-36">
                 <HomeMenu />
-
             </div>
         </div>
     )

@@ -48,7 +48,6 @@ export default function HomeCarousel(props) {
     // }, []);
     const renderImg = () => {
         return arrImg.map((item, index) => {
-            // console.log("ketqua: ", item.ten);
             return <div key={index}>
                 <div style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})` }}>
                     <img src={item.hinhAnh} className=" opacity-0" alt={item.hinhAnh} />
@@ -59,9 +58,10 @@ export default function HomeCarousel(props) {
 
     return (
 
-        <Carousel effect="fade" style={{ width: '100%', padding: 0, margin: 0 }} >
+        <Carousel effect="fade" style={{ width: '100%', padding: 0, margin: 0 }} 
+         autoplay={true} autoplaySpeed={3000} infinite easing
+        >
             {renderImg()}
-
         </Carousel>
     )
 }

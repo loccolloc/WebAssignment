@@ -1,0 +1,20 @@
+@media (min-width: 374px) and (max-width: 767px) {
+  #nav-list{
+    position:absolute;
+    top:112px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);
+    width: 100%;
+    left: 0;
+    display: hidden;
+    transition: all .5s ease;
+  }
+  #nav-list li {
+    padding: 12px;
+  }
+  #menu-icon:focus  .nav-list {
+    display: block;
+  }
+  header {
+    opacity: 1;
+  }
+}
