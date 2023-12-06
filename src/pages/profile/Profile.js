@@ -27,7 +27,7 @@ const Profile = () => {
     setOnEdit(!onEdit)
   }
   return (
-    <div className="grid mx-4 gap-y-4  md:mt-28">
+    <div className="grid m-4 gap-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div 
         

@@ -85,7 +85,7 @@ const ManageUsers = () => {
   ];
 
   return (
-    <div className="grid mx-4 gap-y-4  md:mt-28 overflow-x-scroll">
+    <div className="grid mx-4 gap-y-4  md:mt-28" style={{marginTop:'70px'}}>
       <div style={{display:'flex',justifyContent:'space-between'}}>
         <div 
         
@@ -94,7 +94,12 @@ const ManageUsers = () => {
         >
           Danh sách người dùng
         </div>
-        <ToggleCreate/>
+        <div className="hidden md:block">
+          <ToggleCreate/>
+        </div>
+      </div>
+      <div className="block md:hidden">
+        <ToggleCreate />
       </div>
       <div
         m="40px 0 0 0"
@@ -116,7 +121,7 @@ const ManageUsers = () => {
           rows={userData}
           columns={columns}
           rowHeight={100}
-          style={{minWidth:'1200px'}}
+          style={{minWidth:'1000px'}}
         />
       </div>
     </div>

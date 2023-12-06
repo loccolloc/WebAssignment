@@ -97,14 +97,14 @@ const ManageProducts = () => {
   ];
 
   return (
-    <div className="grid mx-4 gap-y-4  md:mt-28">
+    <div className="grid mx-4 gap-y-4  md:mt-28" style={{marginTop:'70px'}}>
       <div className="" style={{display:'flex',justifyContent:'space-between'}}>
         <div 
         
           className="text-3xl md:text-5xl font-semibold"
           sx={{ m: "0 0 5px 0" }}
         >
-          Danh sách người dùng
+          Danh sách sản phẩm
         </div>
         <div className="hidden md:block">
           <ToggleCreate/>
@@ -133,7 +133,7 @@ const ManageProducts = () => {
           rows={productData}
           columns={columns}
           rowHeight={100}
-          style={{minWidth:'1200px'}}
+          style={{minWidth:'1000px'}}
         />
       </div>
     </div>
