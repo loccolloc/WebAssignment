@@ -8,8 +8,8 @@
     // include_once("../config/Database.php");
     // include_once("../models/User.php");
 
-    require_once("D:\BTL_LTW\LTW_MANAGER\BE\config\Database.php");
-    require_once("D:\BTL_LTW\LTW_MANAGER\BE\models\User.php");
+    require_once("C:\Users\Vu\Workspace\Phone_Store\BE\config\Database.php");
+    require_once("C:\Users\Vu\Workspace\Phone_Store\BE\models\User.php");
 
     class UserController 
     {

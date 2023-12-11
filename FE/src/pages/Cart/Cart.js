@@ -74,10 +74,9 @@ export default function Cart() {
                                 </button>
                             </div>
                             
-                            <label className='inline-block m-0 md:hidden'>Đơn giá</label>
-                            <span className="text-center w-10/12 md:w-1/5 font-semibold text-sm">$400.00</span>
-                            <label className='inline-block m-0 md:hidden'>Tổng</label>
-                            <span className="text-center w-10/12 md:w-1/5 font-semibold text-sm">$400.00</span>
+                            
+                            <span className="text-center w-full md:w-1/5 font-semibold text-sm flex justify-between md:justify-center"><label className='inline-block m-0 md:hidden'>Đơn giá</label>$400.00</span>
+                            <span className="text-center w-full md:w-1/5 font-semibold text-sm flex justify-between md:justify-center"><label className='inline-block m-0 md:hidden'>Tổng</label>$400.00</span>
                         </div>
                     </div>
                     <div id="summary" className="w-full md:w-1/4 px-8 py-10">
