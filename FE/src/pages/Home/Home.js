@@ -59,7 +59,7 @@ const Home = (props) => {
                             // dispatch(action);
                         }}>Iphone SE series</button>
                     </div>
-                    <h1 style={{ fontSize: "30px", textAlign: "center" }}>Điện thoại</h1>
+                    <h1 style={{ fontSize: "30px", textAlign: "center",width:'100%' }}>Điện thoại</h1>
                     <div className="flex flex-wrap -m-4 " style={{ justifyContent: 'center' }}>
                         {renderFilms()}
                     </div>
