@@ -12,7 +12,7 @@ export default function News() {
                 </div>
 
                 <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
-                    <NavLink to='/article'>
+                    <NavLink to='/article' className="flex flex-col">
                         <a rel="noopener noreferrer" href="#" className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:dark:bg-gray-900">
                             <img src="https://source.unsplash.com/random/480x360" alt className="object-cover w-full h-64 rounded sm:h-96 lg:col-span-7 dark:dark:bg-gray-500" />
                             <div className="p-6 space-y-2 lg:col-span-5">
@@ -23,8 +23,8 @@ export default function News() {
                         </a>
                     </NavLink>
                     <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                        <NavLink to='/article'>
-                            <a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:dark:bg-gray-900 hidden sm:block">
+                        <NavLink to='/article' className="flex flex-col">
+                            <a rel="noopener noreferrer" style={{height:'100%'}} href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:dark:bg-gray-900 hidden sm:block">
                                 <img role="presentation" className="object-cover w-full rounded h-44 dark:dark:bg-gray-500" src="https://source.unsplash.com/random/480x360?1" />
                                 <div className="p-6 space-y-2">
                                     <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline dark:dark:text-gray-400">Apple Tăng Cường Bảo Mật: Cập Nhật iOS Mới Nhất
@@ -37,8 +37,8 @@ export default function News() {
                                 </div>
                             </a>
                         </NavLink>
-                        <NavLink to='/article'>  
-                            <a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:dark:bg-gray-900 hidden sm:block">
+                        <NavLink to='/article' className="flex flex-col">  
+                            <a rel="noopener noreferrer" style={{height:'100%'}} href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:dark:bg-gray-900 hidden sm:block">
                                 <img role="presentation" className="object-cover w-full rounded h-44 dark:dark:bg-gray-500" src="https://source.unsplash.com/random/480x360?2" />
                                 <div className="p-6 space-y-2">
                                     <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline dark:dark:text-gray-400">Sự Kiện Ra Mắt: Hãy Chờ Đón Những Mẫu iPhone Mới Nhất!</h3>
@@ -47,8 +47,8 @@ export default function News() {
                                 </div>
                             </a>
                         </NavLink>
-                        <NavLink to='/article'>  
-                            <a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:dark:bg-gray-900 hidden sm:block">
+                        <NavLink to='/article' className="flex flex-col">  
+                            <a rel="noopener noreferrer" style={{height:'100%'}} href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:dark:bg-gray-900 hidden sm:block">
                                 <img role="presentation" className="object-cover w-full rounded h-44 dark:dark:bg-gray-500" src="https://source.unsplash.com/random/480x360?3" />
                                 <div className="p-6 space-y-2">
                                     <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline  dark:dark:text-gray-400">Đánh Giá và So Sánh: iPhone 14 Pro Max vs. iPhone 13 Pro Max</h3>
@@ -57,8 +57,8 @@ export default function News() {
                                 </div>
                             </a>
                         </NavLink>
-                        <NavLink to='/article'>  
-                            <a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:dark:bg-gray-900 hidden sm:block">
+                        <NavLink to='/article' className="flex flex-col">  
+                            <a rel="noopener noreferrer" style={{height:'100%'}} href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:dark:bg-gray-900 hidden sm:block">
                                 <img role="presentation" className="object-cover w-full rounded h-44 dark:dark:bg-gray-500" src="https://source.unsplash.com/random/480x360?4" />
                                 <div className="p-6 space-y-2">
                                     <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline dark:dark:text-gray-400">Giải Đáp Thắc Mắc: Những Câu Hỏi Thường Gặp Khi Sử Dụng iPhone</h3>
@@ -67,8 +67,8 @@ export default function News() {
                                 </div>
                             </a>
                         </NavLink>
-                        <NavLink to='/article'>  
-                            <a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:dark:bg-gray-900 hidden sm:block">
+                        <NavLink to='/article' className="flex flex-col">  
+                            <a rel="noopener noreferrer" style={{height:'100%'}} href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:dark:bg-gray-900 hidden sm:block">
                                 <img role="presentation" className="object-cover w-full rounded h-44 dark:dark:bg-gray-500" src="https://source.unsplash.com/random/480x360?5" />
                                 <div className="p-6 space-y-2">
                                     <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline dark:dark:text-gray-400">Cập Nhật Sản Phẩm: Phiên Bản Màu Sắc Mới Của iPhone 14 Đã Sẵn Sàng</h3>
@@ -77,8 +77,8 @@ export default function News() {
                                 </div>
                             </a>
                         </NavLink>
-                        <NavLink to='/article'>  
-                            <a rel="noopener noreferrer" href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:dark:bg-gray-900 hidden sm:block">
+                        <NavLink to='/article' className="flex flex-col">  
+                            <a rel="noopener noreferrer" style={{height:'100%'}} href="#" className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:dark:bg-gray-900 hidden sm:block">
                                 <img role="presentation" className="object-cover w-full rounded h-44 dark:dark:bg-gray-500" src="https://source.unsplash.com/random/480x360?6" />
                                 <div className="p-6 space-y-2">
                                     <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline dark:dark:text-gray-400">Tư Vấn Mua Sắm: Làm Thế Nào Để Chọn iPhone Phù Hợp Với Nhu Cầu Của Bạn</h3>
