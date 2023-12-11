@@ -2,15 +2,28 @@ import { useState } from "react";
 import { Button, Input } from "@material-tailwind/react";
 import EditPassword from './EditPassword'
 import EditUsername from './EditUsername'
-
+import axios from "axios";
+import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
 const Profile = () => {
-  // const [username, setUsername] = useState("VuLee");
-  // const [password, setPassword] = useState("********");
-  const [fullname, setFullname] = useState("Lê Hoàng Anh Vũ");
-  const [email, setEmail] = useState("levu132003@gmail.com ");
-  const [phoneNumber, setPhoneNumber] = useState("0935680614");
-  const [address, setAddress] = useState("Bụi đời");
-  const [onEdit, setOnEdit] = useState (false);
+  
+  const [fullname, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
+  const [onEdit, setOnEdit] = useState(false);
+  useEffect(() => {
+    axios.post("http://localhost/WebAssignment/BE/index.php", {
+      id: 6,
+      action: "getUser",
+    }).then((res) => {
+      setFullname(res.data[0]["full_name"]);
+      setEmail(res.data[0]["email"]);
+      setPhoneNumber(res.data[0]["phone_number"]);
+      setAddress(res.data[0]["address"]);
+    });
+  }, []);
+
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -22,10 +35,33 @@ const Profile = () => {
     console.log("Phone Number:", phoneNumber);
     console.log("Address:", address);
   };
-  const handleEditInfo = (e) => {
+  
+  const handleEditInfo = async (e) => {
     e.preventDefault();
-    setOnEdit(!onEdit)
-  }
+    setOnEdit(!onEdit);
+
+    await axios
+      .post("http://localhost/WebAssignment/BE/index.php", {
+        id: 6,
+        full_name: fullname,
+        email: email,
+        phone_number: phoneNumber,
+        address: address,
+        action: "updateInfo",
+      })
+      .then((res) => {
+        if (res.data) {
+          toast.success("Update Info successfully!!!", {
+            position: toast.POSITION.TOP_CENTER,
+          });
+        } else {
+          toast.warning("Update failed!!!", {
+            position: toast.POSITION.TOP_CENTER,
+          });
+        }
+      });
+  };
+
   return (
     <div className="grid m-4 gap-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -41,30 +77,8 @@ const Profile = () => {
           <EditPassword/>
         </div>
       </div>
-      <form>
+      <form onSubmit={(e) => handleEditInfo(e)}>
         <div className="grid gap-y-4">
-          {/* <div className="grid grid-cols-2 gap-4">
-            <div>
-              <Input
-                size="lg"
-                label="Tên tài khoản"
-                name="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                disabled
-              />
-            </div>
-            <div>
-              <Input
-                size="lg"
-                label="Mật khẩu"
-                name="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                disabled
-              />
-            </div>
-          </div> */}
           <div className="grid grid-cols-1 gap-4">
             <div>
               <Input
@@ -73,7 +87,7 @@ const Profile = () => {
                 name="email"
                 value={fullname}
                 onChange={(e) => setFullname(e.target.value)}
-                disabled = {!onEdit}
+                disabled={onEdit}
               />
             </div>
             <div>
@@ -83,7 +97,7 @@ const Profile = () => {
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                disabled = {!onEdit}
+                disabled={onEdit}
               />
             </div>
             <div>
@@ -93,7 +107,7 @@ const Profile = () => {
                 name="phone_number"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
-                disabled = {!onEdit}
+                disabled={onEdit}
               />
             </div>
             <div>
@@ -103,22 +117,20 @@ const Profile = () => {
                 name="address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                disabled = {!onEdit}
+                disabled={onEdit}
               />
             </div>
           </div>
           <div className="grid grid-cols-1 gap-4">
             <div className="flex justify-end">
-              <Button type="submit" onClick={(e) => handleEditInfo(e)} className="w-full md:w-fit">
-                {onEdit ? (`Lưu thông tin`) : (`Chỉnh sửa thông tin`)}
+              <Button type="submit">
+                {onEdit ? `Lưu thông tin` : `Chỉnh sửa thông tin`}
               </Button>
             </div>
           </div>
         </div>
-
-
-        
       </form>
+
     </div>
   );
 };
