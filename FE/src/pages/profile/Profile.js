@@ -13,8 +13,8 @@ const Profile = () => {
   const [address, setAddress] = useState("");
   const [onEdit, setOnEdit] = useState(false);
   useEffect(() => {
-    axios.post("http://localhost/WebAssignment/BE/index.php", {
-      id: 6,
+    axios.post("http://localhost/BE/index.php", {
+      id: 8,
       action: "getUser",
     }).then((res) => {
       setFullname(res.data[0]["full_name"]);
@@ -41,8 +41,8 @@ const Profile = () => {
     setOnEdit(!onEdit);
 
     await axios
-      .post("http://localhost/WebAssignment/BE/index.php", {
-        id: 6,
+      .post("http://localhost/BE/index.php", {
+        id: 8,
         full_name: fullname,
         email: email,
         phone_number: phoneNumber,
@@ -83,8 +83,8 @@ const Profile = () => {
             <div>
               <Input
                 size="lg"
-                label="Email"
-                name="email"
+                label="Họ và tên"
+                name="fullName"
                 value={fullname}
                 onChange={(e) => setFullname(e.target.value)}
                 disabled={onEdit}

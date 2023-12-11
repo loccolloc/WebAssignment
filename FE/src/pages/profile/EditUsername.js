@@ -20,7 +20,7 @@ export default function EditPassword() {
   function handleSubmit(e) {
     e.preventDefault();
     axios
-      .post("http://localhost/WebAssignment/BE/index.php", {
+      .post("http://localhost/BE/index.php", {
         id: 6,
         password: pass,
         username: username,
