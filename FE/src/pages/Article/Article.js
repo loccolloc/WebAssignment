@@ -30,7 +30,7 @@ export default function Article() {
                                 </div>
                             </div>
                             <div className="source">
-                                <h1 className="title text-lg sm:text-3xl pt-8 px-2 font-bold underline hover:cursor-pointer hover:text-slate-400 ">Realme C67 được tiết lộ thời điểm ra mắt, dự kiến khuấy đảo phân khúc giá rẻ....</h1>
+                                <h1 className="title text-lg sm:text-3xl pt-8 px-2 font-bold underline hover:cursor-pointer hover:text-slate-400">Realme C67 được tiết lộ thời điểm ra mắt, dự kiến khuấy đảo phân khúc giá rẻ....</h1>
                                 <p className="text-base px-2 py-2 mb-10 title-article sm:text=">Theo báo cáo của 91Mobiles, công ty đang lên kế hoạch cho ra mắt C67 5G tại Ấn Độ vào đầu tháng sau. Gần đây, thiết bị đã được phát hiện được chứng nhận trên nền tảng TDRA của UAE, điều này cho thấy rằng việc ra mắt sắp diễn ra.</p>
                                 <span> <img  className="rounded-xl hover: cursor-pointer my-2" src="https://cdn.tgdd.vn/News/Thumb/1556234/3-1200x675.jpg"></img></span>
                             </div>

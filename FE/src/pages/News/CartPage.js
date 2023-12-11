@@ -12,10 +12,10 @@ export default function Cart() {
                         </div>  
                         <div className="flex mt-10 mb-5"> 
                             <h3 className="font-semibold text-gray-600 text-3xl uppercase w-4/5">Sản phẩm</h3>
-                            <h3 className="font-semibold text-center text-gray-600 text-md uppercase w-2/5 text-center">Số lượng</h3>
-                            <h3 className="font-semibold text-center text-gray-600 text-md uppercase w-2/5 text-center">GIá ưu đãi</h3>
-                            <h3 className="font-semibold text-center text-gray-600 text-md uppercase w-1/5 text-center">Thực tế</h3>
-                            <h3 className="font-semibold text-center text-gray-600 text-md uppercase w-1/5 text-center">Thao tác</h3>
+                            <h3 className="font-semibold  text-gray-600 text-md uppercase w-2/5 text-center">Số lượng</h3>
+                            <h3 className="font-semibold  text-gray-600 text-md uppercase w-2/5 text-center">GIá ưu đãi</h3>
+                            <h3 className="font-semibold  text-gray-600 text-md uppercase w-1/5 text-center">Thực tế</h3>
+                            <h3 className="font-semibold  text-gray-600 text-md uppercase w-1/5 text-center">Thao tác</h3>
                         </div>
                     
                         <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5  mt-10">

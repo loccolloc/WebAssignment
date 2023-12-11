@@ -10,7 +10,7 @@ export default function Contact() {
                         <p className="dark:dark:text-gray-400">Chúng tôi tại Phone Store luôn sẵn lòng lắng nghe và phản hồi mọi yêu cầu của bạn. Dù bạn cần hỗ trợ kỹ thuật, muốn tìm hiểu thêm về sản phẩm, hay có bất kỳ thắc mắc nào về dịch vụ của chúng tôi, đội ngũ chuyên nghiệp của chúng tôi sẽ giúp bạn giải quyết mọi vấn đề.</p>
                     </div>
                     <div className="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                        <div className="flex flex-col items-center p-4">
+                        <div className="flex flex-col items-center p-4  dark:dark:bg-gray-900 ">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:dark:text-violet-400">
                                 <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
                             </svg>
@@ -19,7 +19,7 @@ export default function Contact() {
                                 <p>Đến thăm cửa hàng của chúng tôi để trải nghiệm sự thú vị của việc mua sắm trực tiếp. Bạn sẽ được trải nghiệm sản phẩm, nhận sự tư vấn chuyên nghiệp và tham gia vào các sự kiện độc quyền chỉ có tại Phone Store.</p>
                             </div>
                         </div>
-                        <div className="flex flex-col items-center p-4">
+                        <div className="flex flex-col items-center p-4  dark:dark:bg-gray-900 ">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:dark:text-violet-400">
                                 <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
                             </svg>
@@ -29,7 +29,7 @@ export default function Contact() {
 
                             </div>
                         </div>
-                        <div className="flex flex-col items-center p-4">
+                        <div className="flex flex-col items-center p-4  dark:dark:bg-gray-900 ">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:dark:text-violet-400">
                                 <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
                             </svg>
@@ -41,7 +41,7 @@ export default function Contact() {
                                 <p>Đối với bất kỳ yêu cầu hỗ trợ nào sau giờ làm việc, xin vui lòng sử dụng form liên hệ trên trang web của chúng tôi hoặc gửi email, và chúng tôi sẽ liên hệ lại với bạn trong 24 giờ làm việc tiếp theo.</p>
                             </div>
                         </div>
-                        <div className="flex flex-col items-center p-4">
+                        <div className="flex flex-col items-center p-4  dark:dark:bg-gray-900 ">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:dark:text-violet-400">
                                 <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
                             </svg>
@@ -51,7 +51,7 @@ export default function Contact() {
 
                             </div>
                         </div>
-                        <div className="flex flex-col items-center p-4">
+                        <div className="flex flex-col items-center p-4  dark:dark:bg-gray-900 ">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:dark:text-violet-400">
                                 <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
                             </svg>
@@ -62,7 +62,7 @@ export default function Contact() {
 
                             </div>
                         </div>
-                        <div className="flex flex-col items-center p-4">
+                        <div className="flex flex-col items-center p-4  dark:dark:bg-gray-900 ">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:dark:text-violet-400">
                                 <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
                             </svg>

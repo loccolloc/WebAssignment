@@ -5,7 +5,7 @@ const { TabPane } = Tabs;
 
 export default function Demo() {
     
-        const [tabPos, setTabPosition] = useState('right');
+        const [tabPos, setTabPosition] = useState('left');
       
         useEffect(() => {
           const handleResize = () => {
@@ -23,12 +23,10 @@ export default function Demo() {
             window.removeEventListener('resize', handleResize);
           };
           }, []);
-      
-        const { tabPosition } = tabPos;
+        console.log(tabPos)
         return (
             <>
-
-                <Tabs tabPosition={tabPosition} className='p-4'>
+                <Tabs tabPosition={tabPos} className='p-4'>
                     <TabPane tab={<img src="https://picsum.photos/200" className="rounded-full" width="50" />} key="1">
                         <p className='md:text-lg text-justify'>
                         Mình vừa mới mua iPhone 14 Pro Max tại website và rất hài lòng với chất lượng sản phẩm cũng như dịch vụ của website. Điện thoại được đóng gói cẩn thận, giao hàng nhanh chóng và đúng hẹn. Sản phẩm đúng như mô tả trên website, chất lượng rất tốt, màn hình sắc nét, camera chụp ảnh đẹp. Mình sẽ tiếp tục ủng hộ website trong thời gian tới.

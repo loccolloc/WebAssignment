@@ -49,7 +49,7 @@ export default function Article() {
                                 <span>
                                 <i className="fa-solid fa-check p-3 bg-slate-600 text-white rounded-full mr-5"></i>
                                 </span>
-                                <p className="pr-20 text-justify text-lg text-lg leading-normal"> 
+                                <p className="pr-20 text-justify  text-lg leading-normal"> 
                                 Với khách hàng là các doanh nghiệp lớn, Tập đoàn tập trung mở rộng/thúc đẩy cung cấp dịch vụ, giải pháp chuyển đổi số toàn diện từ khâu tư vấn đến triển khai. Trong đó, tập trung vào cung cấp các nền tảng, giải pháp công nghệ mới như RPA, Lowcode, AI, Blockchain… và các dịch vụ chuyển đổi, quản trị vận hành hạ tầng CNTT điện toán đám mây.
                                 </p>
                             </div>
@@ -58,7 +58,7 @@ export default function Article() {
                                 <span>
                                 <i className="fa-solid fa-check p-3 bg-slate-600 text-white rounded-full mr-5"></i>
                                 </span>
-                                <p className="pr-20 text-justify text-lg text-lg leading-normal"> 
+                                <p className="pr-20 text-justify  text-lg leading-normal"> 
                                 Với khách hàng là các doanh nghiệp lớn, Tập đoàn tập trung mở rộng/thúc đẩy cung cấp dịch vụ, giải pháp chuyển đổi số toàn diện từ khâu tư vấn đến triển khai. Trong đó, tập trung vào cung cấp các nền tảng, giải pháp công nghệ mới như RPA, Lowcode, AI, Blockchain… và các dịch vụ chuyển đổi, quản trị vận hành hạ tầng CNTT điện toán đám mây.
                                 </p>
 
@@ -68,7 +68,7 @@ export default function Article() {
                                 <span>
                                 <i className="fa-solid fa-check p-3 bg-slate-600 text-white rounded-full mr-5"></i>
                                 </span>
-                                <p className="pr-20 text-justify text-lg text-lg leading-normal">
+                                <p className="pr-20 text-justify  text-lg leading-normal">
                                 Với khách hàng cá nhân, FPT mong muốn đem đến những trải nghiệm dịch vụ tốt nhất dựa trên các giải pháp và nền tảng quản trị mới.
                                 </p>
                             </div>       
