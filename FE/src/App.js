@@ -46,8 +46,6 @@ function App() {
         <ProfileTemplate path='/admin' exact Component={Profile} />
         <ProfileTemplate path='/manageUsers' exact Component={ManageUser} />
         <ProfileTemplate path='/manageProducts' exact Component={ManageProducts} />
-
-        <HomeTemplate path="/article" exact Component={Article} />
         <Route path="/article" element={<Article/>} />
         <HomeTemplate path="/home" exact Component={Home} />
         <HomeTemplate path="/about" exact Component={About} />
