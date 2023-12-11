@@ -32,7 +32,8 @@ import Article from './pages/Article/Article';
 import Profile from './pages/profile/Profile';
 import ManageUser from './pages/ManageUsers/ManageUsers';
 import ManageProducts from './pages/ManageProducts/ManageProducts';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const history = createBrowserHistory();
 
@@ -66,15 +67,13 @@ function App() {
         <HomeTemplate path="/user" exact Component={UserList} />
         <HomeTemplate path="/edit/:id" exact Component={Edituser} />
         <HomeTemplate path="/article" exact Component={Article} />
+        <ToastContainer />
         <Route />
-
-
-
         <Route  >
-
           <NotFound />
         </Route>
       </Switch>
+      
     </Router>
 
   );
