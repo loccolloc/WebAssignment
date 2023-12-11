@@ -1,6 +1,7 @@
 import {React, useState} from 'react'
 import { NavLink } from 'react-router-dom'
 import {Button} from '@material-tailwind/react'
+import './Cart.css'
 export default function Cart() {
     const [state, SetQuantity] = useState({ quantity: 1});
     const handleIncrement = () => {
@@ -38,24 +39,24 @@ export default function Cart() {
                             <h1 className="font-semibold text-2xl">Giỏ hàng</h1>
                             <h2 className="font-semibold text-2xl">3 Items</h2>
                         </div>
-                        <div className="flex mt-10 mb-5">
+                        <div className="mt-10 mb-5 hidden md:flex">
                             <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Chi tiết sản phẩm</h3>
-                            <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Số lượng</h3>
-                            <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Giá</h3>
-                            <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Tổng</h3>
+                            <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">Số lượng</h3>
+                            <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">Giá</h3>
+                            <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">Tổng</h3>
                         </div>
-                        <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                            <div className="flex w-2/5"> {/* product */}
+                        <div className="flex flex-wrap items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+                            <div className="flex md:w-2/5 w-2/4"> {/* product */}
                                 <div className="w-20">
-                                    <img className="h-24" src="https://drive.google.com/uc?id=18KkAVkGFvaGNqPy2DIvTqmUH_nk39o3z" alt />
+                                    <img className="h-24 object-contain" src="https://drive.google.com/uc?id=18KkAVkGFvaGNqPy2DIvTqmUH_nk39o3z" alt />
                                 </div>
-                                <div className="flex flex-col justify-between ml-4 flex-grow">
-                                    <span className="font-bold text-sm">Iphone 6S</span>
+                                <div className="flex flex-wrap flex-col justify-between ml-4 flex-grow w-2/4 truncate-2-lines line-clamp-2">
+                                    <span class="font-bold ">Iphone 6sssssssssssssssssss</span>                                    
                                     <span className="text-red-500 text-xs">Apple</span>
                                     <a href="#" className="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
                                 </div>
                             </div>
-                            <div className="flex justify-center w-1/5">
+                            <div className="flex justify-center md:w-1/5 w-2/4">
                                 <button onClick={(e)=>handleDecrement(e)}>
                                     <svg className="fill-current text-gray-600 w-3 -1" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                                     </svg>
@@ -72,14 +73,15 @@ export default function Cart() {
                                     </svg>
                                 </button>
                             </div>
-                            <span className="text-center w-1/5 font-semibold text-sm">$400.00</span>
-                            <span className="text-center w-1/5 font-semibold text-sm">$400.00</span>
+                            
+                            <label className='inline-block m-0 md:hidden'>Đơn giá</label>
+                            <span className="text-center w-4/5 md:w-1/5 font-semibold text-sm">$400.00</span>
+                            <label className='inline-block m-0 md:hidden'>Tổng</label>
+                            <span className="text-center w-4/5 md:w-1/5 font-semibold text-sm">$400.00</span>
                         </div>
-
-                        
                     </div>
                     <div id="summary" className="w-full md:w-1/4 px-8 py-10">
-                        <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
+                        <h1 className="font-semibold text-2xl border-b pb-8">Tổng đơn hàng</h1>
                         <div className="flex justify-between mt-10 mb-5">
                             <span className="font-semibold text-sm uppercase">Items 3</span>
                             <span className="font-semibold text-sm">590$</span>
@@ -91,7 +93,6 @@ export default function Cart() {
                                 <span>$600</span>
                             </div>
                             <Button className="rounded bg-black font-semibold py-3 text-sm text-white uppercase w-full transition hover:bg-black hover:bg-opacity-80">Thanh toán</Button>
-
                         </div>
                     </div>
                 </div>
