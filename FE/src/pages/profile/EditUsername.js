@@ -6,12 +6,9 @@ import {
   Button,
   Dialog,
   Card,
-  CardHeader,
   CardBody,
-  CardFooter,
   Typography,
   Input,
-  Checkbox,
 } from "@material-tailwind/react";
 
 export default function EditPassword() {
