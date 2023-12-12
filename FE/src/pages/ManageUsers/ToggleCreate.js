@@ -19,7 +19,7 @@ export default function ToggleCreate() {
         <Button onClick={handleOpen} variant="gradient" style={{padding:'10px',height:'fit-content',alignSelf:'center'}}>
             Thêm tài khoản
         </Button>
-        <Dialog open={open} handler={handleOpen} className="flex flex-col justify-center items-center">
+        <Dialog open={open} size="xs" handler={handleOpen} className="flex flex-col justify-center items-center">
             <DialogHeader>Thêm tài khoản</DialogHeader>
             <DialogBody style={{height:'500px',overflow:'auto', scrollbarWidth: '0px'}} className="!overflow-x-hidden !overflow-y-visible">
                 <form className="w-100 max-w-screen-lg sm:w-96" method="post">

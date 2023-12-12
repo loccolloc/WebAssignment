@@ -101,7 +101,7 @@ const ManageProducts = () => {
       <div className="" style={{display:'flex',justifyContent:'space-between'}}>
         <div 
         
-          className="text-3xl md:text-5xl font-semibold"
+          className="text-xl md:text-3xl font-semibold"
           sx={{ m: "0 0 5px 0" }}
         >
           Danh sách sản phẩm

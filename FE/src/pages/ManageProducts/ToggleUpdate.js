@@ -20,6 +20,8 @@ export default function DialogDefault(props) {
   const [price, setPrice] = useState(values.row.price);
   const [remainAmount, setRemainAmount] = useState(values.row.remain_amount);
   const [description, setDescription] = useState(values.row.description);
+  const [thumbnail, setThumbnail] = useState(values.row.thumbnail);
+
   
   function handleChangeTitle(event) {
     setTitle(event.target.value)
@@ -41,6 +43,9 @@ export default function DialogDefault(props) {
   }
   function handleChangeDescription(event) {
     setDescription(event.target.value)
+  }
+  function handleChangeThumbnail(event) {
+    setThumbnail(event.target.value)
   }
   
   return (
@@ -64,20 +69,9 @@ export default function DialogDefault(props) {
                         <Input size="lg" type="text" name='remain_amount' label="Số lượng" value={remainAmount} onChange={(e)=>handleChangeAmount(e)} required/>
 
                     
-                        <div class="mb-3">
-                            <label
-                                for="formFile"
-                                class="mb-2 inline-block text-neutral-700 dark:text-neutral-200"
-                                >Hình ảnh</label>
-                            <input
-                                class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary"
-                                type="file"
-                                id="formFile" 
-                                style={{cursor:'pointer'}}
-                            />
-                        </div>
+                        <Input size="lg" type="text" name='img' label="Hình ảnh" value={thumbnail} onChange={(e)=>handleChangeThumbnail(e)} required/>
 
-                        <Textarea id="message" rows="4" label="Mô tả" name="description" value={description} onChange={(e)=>handleChangeDescription(e)} class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></Textarea>                    
+                        <Textarea id="message" rows="4" label="Mô tả" name="description" value={description} onChange={(e)=>handleChangeDescription(e)} ></Textarea>                    
                     
                     </div>
                     <Button className="mt-6" type="submit" fullWidth>
