@@ -15,15 +15,17 @@ export default function DialogDelete(props) {
  
   return (
     <>
-      <IconButton onClick={handleOpen} style={{padding:'0',height:'fit-content',alignSelf:'center'}}>
+      <IconButton onClick={handleOpen} size="xs" style={{padding:'0',height:'fit-content',alignSelf:'center'}}>
         <DeleteIcon/>
       </IconButton>
       <Dialog open={open} handler={handleOpen} >
-        <DialogHeader>Xóa sản phẩm</DialogHeader>
-        <DialogBody>
-          Bạn có chắc chắn muốn xóa sản phẩm {values.row.title} {values.row.color} {values.row.rom} không? 
+        <DialogHeader className="flex justify-center">Xóa sản phẩm</DialogHeader>
+        <DialogBody className="flex justify-center flex-wrap text-center">
+          Bạn có chắc chắn muốn xóa sản phẩm
+          <span className="px-1" style={{color:'red'}}>{values.row.title} {values.row.color} {values.row.rom} </span>
+          không? 
         </DialogBody>
-        <DialogFooter>
+        <DialogFooter className="flex justify-evenly">
           <Button
             variant="text"
             onClick={handleOpen}

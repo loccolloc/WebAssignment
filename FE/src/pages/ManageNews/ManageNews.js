@@ -1,4 +1,4 @@
-import { userData } from "../../data/mockData";
+import {newsData} from '../../data/news'
 import * as React from "react";
 import ToggleCreate from './ToggleCreate'
 import ToggleUpdate from './ToggleUpdate'
@@ -7,67 +7,58 @@ import {
   DataGrid,
 
 } from '@mui/x-data-grid';
-const ManageUsers = () => {
-
+const ManageNews = () => {
+  console.log(newsData)
   const columns = [
     { field: "id", headerName: "ID",align: "center", headerAlign: "center", flex: 0.25 },
       
-    { field: "username", headerName: "Tên người dùng", align: "center",headerAlign: "center", flex: 1.5 },
+    { field: "title", headerName: "Tiêu đề", align: "center",headerAlign: "center", flex: 1.5 },
     {
-      field: "password",
-      headerName: "Mật khẩu",
+      field: "description",
+      headerName: "Mô tả",
       headerAlign: "center",
       align: "center",
       flex: 0.8,
       cellClassName: "name-column--cell",
     },
     {
-      field: "full_name",
-      headerName: "Họ và tên",
+      field: "content",
+      headerName: "Nội dung",
       headerAlign: "center",
       flex: 0.8,
       align: "center",
     },
     {
-      field: "email",
-      headerName: "Email",
+      field: "author",
+      headerName: "Tác giả",
       headerAlign: "center",
       flex: 0.8,
       align: "center",
     },
     {
-      field: "phone_number",
-      headerName: "Số điện thoại",
+      field: "date",
+      headerName: "Ngày",
       headerAlign: "center",
       flex: 0.8,
       align: "center",
     },
     {
-      field: "avatar",
-      headerName: "Ảnh đại diện",
+      field: "img",
+      headerName: "Hình ảnh",
       headerAlign: "center",
       align: "center",
       flex: 1,
       renderCell: (params) => {
         return (
-          <div className="userItem">
-            {params.row.image === "" &&  
-            <img src={`https://genk.mediacdn.vn/thumb_w/640/2016/4-success-kid-3596018b-1458201719100-1458267903230.jpg`} width="100%" height="100%"/>}
+          <div className="userItem w-100 h-100">
+            <img src={params.row.img } className="imgItem object-contain h-100 w-100 p-2" />
           </div>
         );
       },
     },
     {
-      field: "role",
-      headerName: "Vai trò",
-      headerAlign: "center",
-      flex: 0.8,
-      align: "center",
-    },
-
-    {
       field: "action",
-      headerName: "Action",
+      headerName: "Thao tác",
       headerAlign: "center",
       flex: 1,
       align: "center",
@@ -92,7 +83,7 @@ const ManageUsers = () => {
           className="text-xl md:text-3xl font-semibold"
           sx={{ m: "0 0 5px 0" }}
         >
-          Danh sách người dùng
+          Danh sách tin tức
         </div>
         <div className="hidden md:block">
           <ToggleCreate/>
@@ -118,7 +109,7 @@ const ManageUsers = () => {
 
       >
         <DataGrid
-          rows={userData}
+          rows={newsData}
           columns={columns}
           rowHeight={100}
           style={{minWidth:'1000px'}}
@@ -128,4 +119,4 @@ const ManageUsers = () => {
   );
 };
 
-export default ManageUsers;
+export default ManageNews;

@@ -16,11 +16,17 @@ import Toolbar from '@mui/material/Toolbar';
 import { Route } from "react-router";
 import logo from "../../assets/apple_resized_aspect_fixed.png"
 import { NavLink } from 'react-router-dom';
+
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import PhoneIphoneRoundedIcon from '@mui/icons-material/PhoneIphoneRounded';
 import SupervisedUserCircleRoundedIcon from '@mui/icons-material/SupervisedUserCircleRounded';
+import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
+import NewspaperRoundedIcon from '@mui/icons-material/NewspaperRounded';
+import BusinessRoundedIcon from '@mui/icons-material/BusinessRounded';
+import FilterRoundedIcon from '@mui/icons-material/FilterRounded';
+
 import Avatar from '../../components/Avatar/Avatar'
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 export const ProfileTemplate = (props) => { //path, exact, Component
     const { Component, ...restProps } = props;
@@ -71,6 +77,46 @@ export const ProfileTemplate = (props) => { //path, exact, Component
             </ListItemButton>
             </ListItem>
         </NavLink>
+        <NavLink to='manageContact' className="text-dark">
+            <ListItem key='manageContact' disablePadding>
+            <ListItemButton>
+                <ListItemIcon>
+                    <EmailRoundedIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Danh sách liên hệ" />
+            </ListItemButton>
+            </ListItem>
+        </NavLink>
+        <NavLink to='manageNews' className="text-dark">
+            <ListItem key='manageNews' disablePadding>
+            <ListItemButton>
+                <ListItemIcon>
+                    <NewspaperRoundedIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Quản lí tin tức" />
+            </ListItemButton>
+            </ListItem>
+        </NavLink>
+        <NavLink to='manageAddress' className="text-dark">
+            <ListItem key='manageAddress' disablePadding>
+            <ListItemButton>
+                <ListItemIcon>
+                    <BusinessRoundedIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Quản lí địa chỉ" />
+            </ListItemButton>
+            </ListItem>
+        </NavLink>
+        <NavLink to='manageCarousel' className="text-dark">
+            <ListItem key='manageCarousel' disablePadding>
+            <ListItemButton>
+                <ListItemIcon>
+                    <FilterRoundedIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Quản lí quảng cáo" />
+            </ListItemButton>
+            </ListItem>
+        </NavLink>
         
       </List>
       <Divider />
@@ -91,9 +137,8 @@ export const ProfileTemplate = (props) => { //path, exact, Component
     </div>
   );
 
-  // Remove this const when copying and pasting into your project.
   const container = window !== undefined ? () => window().document.body : undefined;
-  return <Route {...restProps} render={(propsRoute) => { //props.location,props.history,props.match
+  return <Route {...restProps} render={(propsRoute) => { 
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -167,10 +212,6 @@ export const ProfileTemplate = (props) => { //path, exact, Component
 }
 
 ProfileTemplate.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * Remove this when copying and pasting into your project.
-   */
   window: PropTypes.func,
 };
 

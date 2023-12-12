@@ -29,9 +29,14 @@ import ProductList from "./pages/Test/ProductList";
 import Article from './pages/Article/Article';
 
 // PROFILE OF ADMIN
-import Profile from './pages/profile/Profile';
+import Profile from "./pages/profile/Profile";
 import ManageUser from './pages/ManageUsers/ManageUsers';
 import ManageProducts from './pages/ManageProducts/ManageProducts';
+import ManageAddress from './pages/ManageAddress/ManageAddress';
+import ManageNews from './pages/ManageNews/ManageNews';
+import ManageContact from './pages/ManageContact/ManageContact';
+import ManageCarousel from './pages/ManageCarousel/ManageCarousel';
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -47,6 +52,12 @@ function App() {
         <ProfileTemplate path='/admin' exact Component={Profile} />
         <ProfileTemplate path='/manageUsers' exact Component={ManageUser} />
         <ProfileTemplate path='/manageProducts' exact Component={ManageProducts} />
+        <ProfileTemplate path='/manageNews' exact Component={ManageNews} />
+        <ProfileTemplate path='/manageContact' exact Component={ManageContact} />
+        <ProfileTemplate path='/manageAddress' exact Component={ManageAddress} />
+        <ProfileTemplate path='/manageCarousel' exact Component={ManageCarousel} />
+
+
         <HomeTemplate path="/home" exact Component={Home} />
         <HomeTemplate path="/about" exact Component={About} />
         <HomeTemplate path="/contact" exact Component={Contact} />

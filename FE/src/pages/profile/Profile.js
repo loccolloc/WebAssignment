@@ -67,7 +67,7 @@ const Profile = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div 
         
-          className="text-3xl md:text-5xl font-semibold"
+          className="text-xl md:text-3xl font-semibold"
           sx={{ m: "0 0 5px 0" }}
         >
           Thông tin người dùng

@@ -30,7 +30,7 @@ export default function ToggleUpdate(props) {
         <IconButton onClick={handleOpen} style={{padding:'0',height:'fit-content',alignSelf:'center'}}>
             <EditIcon/>
         </IconButton>
-        <Dialog open={open} handler={handleOpen} className="flex flex-col justify-center items-center">
+        <Dialog open={open} size="xs" handler={handleOpen} className="flex flex-col justify-center items-center">
             <DialogHeader>Chỉnh sửa thông tin tài khoản</DialogHeader>
             <DialogBody style={{height:'500px',overflow:'auto', scrollbarWidth: '0px'}} className="!overflow-x-hidden !overflow-y-visible">
                 <form className="w-100 max-w-screen-lg sm:w-96" method="post">

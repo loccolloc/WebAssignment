@@ -20,10 +20,10 @@ export default function ToggleDelete(props) {
         <DeleteIcon/>
       </IconButton>
         <Dialog open={open} size="xs" handler={handleOpen}>
-        <DialogHeader className="flex justify-center ">Xóa tài khoản</DialogHeader>
+        <DialogHeader className="flex justify-center">Xóa tài khoản</DialogHeader>
         <DialogBody className="flex justify-center flex-wrap text-center">
-          Bạn có chắc chắn muốn xóa tài khoản
-          <span className="px-1" style={{color:'red'}}>{values.row.username}</span>
+          Bạn có chắc chắn muốn xóa tài khoản 
+          <span className="px-1" style={{color:'red'}}>{values.row.name}</span>
           không?
         </DialogBody>
         <DialogFooter className="flex justify-evenly">
