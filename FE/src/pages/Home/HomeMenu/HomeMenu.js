@@ -33,12 +33,27 @@ const Demo = () => {
 
     }, [dispatch])
 
-    const [tabPosition] = useState('left');
+    const [tabPos, setTabPosition] = useState('left');
+    useEffect(() => {
+          const handleResize = () => {
+            if (window.innerWidth <= 768) {
+              setTabPosition('top');
+            } else {
+              setTabPosition('left');
+            }
+          };
+      
+          handleResize(); // Set initial tab position
+      
+          window.addEventListener('resize', handleResize);
+          return () => {
+            window.removeEventListener('resize', handleResize);
+          };
+          }, []);
 
     return (
         <>
-            <Tabs tabPosition={tabPosition}>
-
+            <Tabs tabPosition={tabPos}>
                 {renderStore()}
             </Tabs>
         </>

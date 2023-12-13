@@ -36,16 +36,11 @@ const Home = (props) => {
 
 
     return (
-        <div>
-
-
-
-
-
-
-            <section className="text-gray-600 body-font" >
-                <div className="container px-5 py-24 mx-auto pt-2 " >
-                    <div className=" mt-3 mb-10 ml-4 ">  <button className={`  px-8 py-3 font-semibold rounded bg-gray-800 text-white mr-2`} onClick={() => {
+        <div className='bg-white/10 backdrop-blur-md shadow-lg rounded-lg border border-gray-200'>
+             <section className="text-gray-600 body-font " >
+                <div className="container md:px-5 md:py-24 md:pt-2 mx-auto flex flex-wrap justify-center" >
+                    <div className=" mt-3 mb-10 md:ml-4  flex flex-nowrap overflow-x-auto  whitespace-nowrap">  
+                    <button className={`px-8 py-3 font-semibold rounded bg-gray-800 text-white mr-2`} onClick={() => {
                         const action = { type: SET_SAN_PHAM_ALL }
                         dispatch(action);
                     }}>Tất cả</button>
@@ -74,7 +69,7 @@ const Home = (props) => {
                             dispatch(action);
                         }}>Iphone SE series</button>
                     </div>
-                    <h1 style={{ fontSize: "30px", textAlign: "center", width: '100%' }}>Điện thoại</h1>
+                    <h1 style={{ fontSize: "30px", textAlign: "center" ,width:'100%'}}>Điện thoại</h1>
                     <div className="flex flex-wrap -m-4 " style={{ justifyContent: 'center' }}>
                         {renderFilms()}
                     </div>
@@ -83,9 +78,8 @@ const Home = (props) => {
                 </div>
             </section>
 
-            <div className="mx-36">
+            <div className="mx-0 md:mx-18 lg:mx-36 pb-5">
                 <HomeMenu />
-
             </div>
         </div>
     )
