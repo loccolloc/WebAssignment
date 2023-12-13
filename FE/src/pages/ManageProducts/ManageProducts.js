@@ -64,7 +64,6 @@ const ManageProducts = () => {
         return (
           <div className="userItem w-100 h-100">
             <img src={params.row.thumbnail } className="imgItem object-contain h-100 w-100 p-2" />
-
           </div>
         );
       },

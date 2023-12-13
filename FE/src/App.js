@@ -6,6 +6,8 @@ import { Router, Switch, Route } from 'react-router';
 
 import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate';
 import { ProfileTemplate } from './templates/HomeTemplate/ProfileTemplate'
+import { UserProfileTemplate } from './templates/HomeTemplate/UserProfileTemplate'
+
 import Home from './pages/Home/Home';
 import News from './pages/News/News';
 import Contact from './pages/Contact/Contact';
@@ -36,6 +38,15 @@ import ManageAddress from './pages/ManageAddress/ManageAddress';
 import ManageNews from './pages/ManageNews/ManageNews';
 import ManageContact from './pages/ManageContact/ManageContact';
 import ManageCarousel from './pages/ManageCarousel/ManageCarousel';
+import ManageTeam from './pages/ManageTeam/ManageTeam';
+import ManageTestimonial from './pages/ManageTestimonial/ManageTestimonial';
+import ManageService from './pages/ManageService/ManageService';
+import ManageStatistic from './pages/ManageStatistic/ManageStatistic';
+import ManageAboutImg from './pages/ManageAboutImg/ManageAboutImg';
+import ManageContactPage from './pages/ManageContactPage/ManageContactPage';
+
+// PROFILE OF USER
+
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -49,6 +60,11 @@ function App() {
         <Admin />
       </Route> */}
       <Switch>
+        {/* UserProfile */}
+        {/* <UserProfileTemplate path='/userProfile' exact Component={Profile} />
+        <UserProfileTemplate path='/historyList' exact Component={ManageProducts} /> */}
+
+
         <ProfileTemplate path='/admin' exact Component={Profile} />
         <ProfileTemplate path='/manageUsers' exact Component={ManageUser} />
         <ProfileTemplate path='/manageProducts' exact Component={ManageProducts} />
@@ -56,6 +72,19 @@ function App() {
         <ProfileTemplate path='/manageContact' exact Component={ManageContact} />
         <ProfileTemplate path='/manageAddress' exact Component={ManageAddress} />
         <ProfileTemplate path='/manageCarousel' exact Component={ManageCarousel} />
+        <ProfileTemplate path='/manageService' exact Component={ManageService} />
+        <ProfileTemplate path='/manageTeam' exact Component={ManageTeam} />
+        <ProfileTemplate path='/manageTestimonial' exact Component={ManageTestimonial} />
+        <ProfileTemplate path='/manageAboutImg' exact Component={ManageAboutImg} />
+        <ProfileTemplate path='/manageStatistic' exact Component={ManageStatistic} />
+        <ProfileTemplate path='/manageService' exact Component={ManageService} />
+        <ProfileTemplate path='/manageContactPage' exact Component={ManageContactPage} />
+
+
+
+
+
+
 
 
         <HomeTemplate path="/home" exact Component={Home} />
