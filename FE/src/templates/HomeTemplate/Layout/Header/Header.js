@@ -44,7 +44,12 @@ export default function Header(props) {
         if (auth) {
             return (
                 <div className='flex items-center'>
-                    <span className='hidden md:block ms-2'>{username}</span>
+                    {role === 'user' && (
+                        <NavLink to="/profile" className="hidden md:flex items-center -mb-0.5 border-b-2 border-transparent p-2" activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                    )}
+                    {role === 'admin' && (
+                        <NavLink to="/admin" className="hidden md:flex items-center -mb-0.5 border-b-2 border-transparent p-2" activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                    )}
                     <button onClick={handleLogout} className="self-center px-8 py-3 font-semibold  text-coolGray-50 hidden md:block"><i class="fa fa-sign-out" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -59,8 +64,14 @@ export default function Header(props) {
         var role = localStorage.getItem('role');
         if (auth) {
             return (
-                <div className='flex items-center bg-white text-dark rounded'>
-                    <span className='m-2'>{username}</span>
+                <div className='flex items-center bg-white text-dark'>
+                    {role === 'user' && (
+                        <NavLink to="/profile" className="-mb-0.5 border-b-2 border-transparent p-2 text-dark " activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                    )}
+                    {role === 'admin' && (
+                        <NavLink to="/admin" className="-mb-0.5 border-b-2 border-transparent p-2 text-dark " activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                    )}
+                    
                     <button onClick={handleLogout} style={{color:'red'}} className="self-center px-8 py-3 font-semibold">Đăng xuất
                     </button>
                 </div>
@@ -153,16 +164,6 @@ export default function Header(props) {
                     <li className="flex">
                         <NavLink to="/news" className="flex items-center -mb-0.5 border-b-2 md:px-1 lg:px-4 border-transparent text-white md:text-sm" activeClassName="md:border-b-2 md:border-white">{t('news')}</NavLink>
                     </li>
-                    {role === 'user' && (
-                        <li className="flex">
-                            <NavLink to="/userProfile" className="hidden md:flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="border-b-2 border-white">{t('profile')}</NavLink>
-                        </li>
-                    )}
-                    {role === 'admin' && (
-                        <li className="flex">
-                            <NavLink to="/admin" className="hidden md:flex items-center -mb-0.5 border-b-2 px-4 border-transparent text-white" activeClassName="border-b-2 border-white">{t('management')}</NavLink>
-                        </li>
-                    )}
 
 
                 </ul>

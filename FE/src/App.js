@@ -44,6 +44,7 @@ import ManageStatistic from './pages/ManageStatistic/ManageStatistic';
 import ManageAboutImg from './pages/ManageAboutImg/ManageAboutImg';
 import ManageContactPage from './pages/ManageContactPage/ManageContactPage';
 import { UserProfileTemplate } from './templates/HomeTemplate/UserProfileTemplate'
+import OrderHistory from './pages/OrderHistory/OrderHistory'; 
 export const history = createBrowserHistory();
 
 function App() {
@@ -53,8 +54,10 @@ function App() {
     <Router history={history}>
 
       <Switch>
-        <UserProfileTemplate path='/userProfile' exact Component={Profile} />
-        <UserProfileTemplate path='/historyList' exact Component={ManageProducts} />
+        <UserProfileTemplate path="/profile" exact Component={Profile} />
+        <UserProfileTemplate path="/orderHistory" exact Component={OrderHistory} />
+
+
         <ProfileTemplate path='/admin' exact Component={Profile} />
         <ProfileTemplate path='/manageUsers' exact Component={ManageUser} />
         <ProfileTemplate path='/manageNews' exact Component={ManageNews} />

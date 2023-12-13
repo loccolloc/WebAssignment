@@ -107,9 +107,10 @@ export default function Checkout() {
                 <div className="flex flex-col rounded-lg bg-white sm:flex-row">
                     <img className="m-2 h-24 w-28 rounded-md border object-cover object-center" src={product.pimg} alt={product.title} />
                     <div className="flex w-full flex-col px-4 py-4">
-                        <span className="font-semibold">{product.title}</span>
-                        <span className="float-right text-gray-400">sl: {product.sl} </span>
-                        <p className="mt-auto text-lg font-bold">{formatter.format(product.pprice * product.sl)}</p>
+                        <span className="font-semibold">Sản phẩm: {product.ptitle}</span>
+                        <span className="float-right text-gray-400">Đơn giá: {product.pprice} </span>
+                        <span className="float-right text-gray-400">Số lượng: {product.sl} </span>
+                        <p className="mt-auto text-lg font-bold">Thành tiền: {formatter.format(product.pprice * product.sl)}</p>
                     </div>
                 </div>
 

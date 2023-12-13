@@ -88,13 +88,7 @@ export default function Cart() {
                     <span className="font-semibold text-sm uppercase">{product.ptitle}</span>
                     <span className="font-semibold text-sm">{formatter.format(product.pprice * product.sl)}</span>
                 </div>
-
-
             )
-
-
-
-
         })
 
     }
@@ -107,13 +101,13 @@ export default function Cart() {
 
             return (
 
-                <div key={index} className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+                <div key={index} className="flex flex-wrap items-center hover:bg-gray-100 -mx-8 px-6 py-5">
 
-                    <div className="flex w-2/5"> {/* product */}
+                    <div className="flex md:w-2/5 w-2/4"> {/* product */}
                         <div className="w-20">
-                            <img className="h-24" src={product.pimg} alt={product.ptitle} />
+                            <img className="h-24 object-contain" src={product.pimg} alt={product.ptitle} />
                         </div>
-                        <div className="flex flex-col justify-between ml-4 flex-grow">
+                        <div className="flex flex-wrap flex-col justify-between ml-4 flex-grow w-2/4 line-clamp-2">
                             <span className="font-bold text-sm">{product.ptitle}</span>
                             <span className="text-red-500 text-xs">Apple</span>
                             <btn onClick={() => {
@@ -122,7 +116,7 @@ export default function Cart() {
                             }} className="font-semibold hover:text-red-500 text-gray-500 text-xs">Xóa</btn>
                         </div>
                     </div>
-                    <div className="flex justify-center w-1/5">
+                    <div className="flex justify-center md:w-1/5 w-2/4">
                         <btn onClick={() => handleDecreasement(product.p_id, username)}
                             disabled={isProcessing2}
 
@@ -132,7 +126,7 @@ export default function Cart() {
 
 
 
-                        <input className="mx-2 border text-center w-8" type="text" defaultValue={product.sl} />
+                        <input className="bg-gray-50 border border-gray-300 w-16 text-center text-gray-700 font-semibold outline-none focus:border-indigo-500 h-100 p-1.5" type="number" min="1" defaultValue={product.sl} />
                         <btn onClick={() => handleIncrement(product.p_id, username)}
                             disabled={isProcessing}
 
@@ -141,8 +135,8 @@ export default function Cart() {
                                 <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                             </svg>}</btn>
                     </div>
-                    <span className="text-center w-1/5 font-semibold text-sm">{formatter.format(product.pprice)}</span>
-                    <span className="text-center w-1/5 font-semibold text-sm">{formatter.format(product.pprice * product.sl)}</span>
+                    <span className="text-center w-full md:w-1/5 font-semibold text-sm flex justify-between md:justify-center"><label className='inline-block m-0 md:hidden'>Đơn giá</label>{formatter.format(product.pprice)}</span>
+                    <span className="text-center w-full md:w-1/5 font-semibold text-sm flex justify-between md:justify-center"><label className='inline-block m-0 md:hidden'>Tổng</label>{formatter.format(product.pprice * product.sl)}</span>
                 </div>
 
 
@@ -160,17 +154,17 @@ export default function Cart() {
 
         <div className="bg-gray-100">
             <div className="container mx-auto mt-10">
-                <div className="flex shadow-md my-10">
-                    <div className="w-3/4 bg-white px-10 py-10">
+                <div className="flex flex-wrap shadow-md my-10">
+                    <div className="w-full md:w-3/4 bg-white px-10 py-10">
                         <div className="flex justify-between border-b pb-8">
                             <h1 className="font-semibold text-2xl">Giỏ hàng</h1>
                             <h2 className="font-semibold text-2xl">3 Items</h2>
                         </div>
-                        <div className="flex mt-10 mb-5">
+                        <div className="mt-10 mb-5 hidden md:flex">
                             <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Chi tiết sản phẩm</h3>
-                            <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Số lượng</h3>
-                            <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Giá</h3>
-                            <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Thành tiền</h3>
+                            <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">Số lượng</h3>
+                            <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">Giá</h3>
+                            <h3 className="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">Tổng</h3>
                         </div>
                         {renderProduct()}
 
@@ -180,8 +174,8 @@ export default function Cart() {
                             </svg>                            Tiếp tục mua hàng
                         </NavLink>
                     </div>
-                    <div id="summary" className="w-1/4 px-8 py-10">
-                        <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
+                    <div id="summary" className="w-full md:w-1/4 px-8 py-10">
+                        <h1 className="font-semibold text-2xl border-b pb-8">Tổng đơn hàng</h1>
                         {renderOrder()}
 
                         <div className="border-t mt-8">
@@ -190,7 +184,6 @@ export default function Cart() {
                                 <span>{formatter.format(totalPrice)}</span>
                             </div>
                             <button onClick={() => { history.push('/checkout') }} className="rounded bg-black font-semibold py-3 text-sm text-white uppercase w-full transition hover:bg-black hover:bg-opacity-80">Thanh toán</button>
-
                         </div>
                     </div>
                 </div>
