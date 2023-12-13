@@ -30,7 +30,7 @@ export default function About() {
                     </p>
                 </div>
                 <div className="flex flex-col items-center justify-center p-8 rounded-b-lg dark:dark:bg-violet-400 dark:dark:text-gray-900">
-                    <img src={product.img} alt="img" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:dark:bg-gray-500 dark:dark:bg-gray-700" />
+                    <img src={product.img} alt="img" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full  dark:dark:bg-gray-700" />
                     <p className="text-xl font-semibold leadi">{product.name}</p>
                     <p className="text-sm uppercase"></p>
                 </div>
