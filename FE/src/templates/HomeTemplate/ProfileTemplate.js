@@ -24,6 +24,12 @@ import EmailRoundedIcon from '@mui/icons-material/EmailRounded';
 import NewspaperRoundedIcon from '@mui/icons-material/NewspaperRounded';
 import BusinessRoundedIcon from '@mui/icons-material/BusinessRounded';
 import FilterRoundedIcon from '@mui/icons-material/FilterRounded';
+import PeopleOutlineRoundedIcon from '@mui/icons-material/PeopleOutlineRounded';
+import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
+import ViewCarouselRoundedIcon from '@mui/icons-material/ViewCarouselRounded';
+import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
+import PermPhoneMsgRoundedIcon from '@mui/icons-material/PermPhoneMsgRounded';
+import MiscellaneousServicesRoundedIcon from '@mui/icons-material/MiscellaneousServicesRounded';
 
 import Avatar from '../../components/Avatar/Avatar'
 const drawerWidth = 250;
@@ -111,13 +117,72 @@ export const ProfileTemplate = (props) => { //path, exact, Component
             <ListItem key='manageCarousel' disablePadding>
             <ListItemButton>
                 <ListItemIcon>
-                    <FilterRoundedIcon/>
+                    <ViewCarouselRoundedIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Quản lí quảng cáo" />
             </ListItemButton>
             </ListItem>
         </NavLink>
-        
+        <NavLink to='manageService' className="text-dark">
+            <ListItem key='manageService' disablePadding>
+            <ListItemButton>
+                <ListItemIcon>
+                    <MiscellaneousServicesRoundedIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Quản lí dịch vụ" />
+            </ListItemButton>
+            </ListItem>
+        </NavLink>
+        <NavLink to='manageTeam' className="text-dark">
+            <ListItem key='manageTeam' disablePadding>
+            <ListItemButton>
+                <ListItemIcon>
+                    <PeopleOutlineRoundedIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Quản lí thành viên" />
+            </ListItemButton>
+            </ListItem>
+        </NavLink>
+        <NavLink to='manageTestimonial' className="text-dark">
+            <ListItem key='manageTestimonial' disablePadding>
+            <ListItemButton>
+                <ListItemIcon>
+                    <ThumbUpAltRoundedIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Quản lí phản hồi" />
+            </ListItemButton>
+            </ListItem>
+        </NavLink>
+        <NavLink to='manageAboutImg' className="text-dark">
+            <ListItem key='manageAboutImg' disablePadding>
+            <ListItemButton>
+                <ListItemIcon>
+                    <FilterRoundedIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Quản lí ảnh giới thiệu" />
+            </ListItemButton>
+            </ListItem>
+        </NavLink>
+        <NavLink to='manageStatistic' className="text-dark">
+            <ListItem key='manageStatistic' disablePadding>
+            <ListItemButton>
+                <ListItemIcon>
+                    <AutoGraphRoundedIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Quản lí thống kê" />
+            </ListItemButton>
+            </ListItem>
+        </NavLink>
+        <NavLink to='manageContactPage' className="text-dark">
+            <ListItem key='manageContactPage' disablePadding>
+            <ListItemButton>
+                <ListItemIcon>
+                    <PermPhoneMsgRoundedIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Thông tin liên hệ" />
+            </ListItemButton>
+            </ListItem>
+        </NavLink>
       </List>
       <Divider />
       <List>
