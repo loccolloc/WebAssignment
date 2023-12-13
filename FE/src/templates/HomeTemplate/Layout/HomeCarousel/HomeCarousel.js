@@ -55,10 +55,20 @@ export default function HomeCarousel(props) {
     // }, []);
     const renderImg = () => {
         return arrProduct.map((item, index) => {
+            var coursel_img = {
+                backgroundImage:`url(${item.hinhAnh})`,       
+                color: '#fff',
+                lineHeight: '160px',
+                textAlign: 'center',
+                backgroundPosition: 'center',
+                backgroundSize: '100%',
+                backgroundRepeat: 'no-repeat',
+                backgroundAtachment: 'fixed'
+            }
             // console.log("ketqua: ", item.ten);
             return <div key={index}>
-                <div style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})` }}>
-                    <img src={item.hinhAnh} className=" opacity-0" alt={item.hinhAnh} />
+                <div className='content_carousel' style={{ backgroundImage: `url(${item.hinhAnh})` }}>
+                    {/* <img src={item.hinhAnh} className=" opacity-0" alt={item.hinhAnh} /> */}
                 </div>
             </div>
         })
@@ -66,9 +76,10 @@ export default function HomeCarousel(props) {
 
     return (
 
-        <Carousel effect="fade" style={{ width: '100%', padding: 0, margin: 0 }} >
-            {renderImg()}
-
+        <Carousel effect="fade" style={{ width: '100%', padding: 0, margin: 0 }} 
+         autoplay={true} autoplaySpeed={3000} infinite easing
+        >            
+        {renderImg()}
         </Carousel>
     )
 }
