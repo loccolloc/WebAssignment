@@ -19,7 +19,7 @@ export const HomeTemplate = (props) => { //path, exact, Component
             <Component {...propsRoute} />
 
 
-            <hr className="mt-5" />
+            {/* <hr className="mt-5" /> */}
             <Footer />
 
         </Fragment>

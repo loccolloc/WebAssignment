@@ -15,7 +15,8 @@ export default function About() {
 
         return arrTestimonial.slice(0, 4).map((product, index) => {
 
-            return (<div key={index} className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
+            return (
+            <div key={index} className="flex flex-col max-w-sm mx-4 my-6 shadow-lg">
                 <div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:dark:bg-gray-900">
                     <p className="relative px-6 py-1 text-lg italic text-center dark:dark:text-gray-100">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-8 h-8 dark:dark:text-violet-400">
@@ -216,11 +217,11 @@ export default function About() {
 
 
     return (
-        <div>
+        <div className='bg-white/10 backdrop-blur-md shadow-lg rounded-lg border border-gray-200'>
             <section className="dark:dark:bg-gray-800 dark:dark:text-gray-100">
                 <div className="container max-w-xl p-6 py-12 mx-auto space-y-24 lg:px-8 lg:max-w-7xl">
                     <div>
-                        <h2 className="text-3xl font-bold tracki text-center sm:text-5xl dark:dark:text-gray-50">Về Phone Store</h2>
+                        <h2 className="text-2xl md:text-4xl font-bold leadi text-center sm:text-5xl dark:dark:text-gray-50 uppercase">Về Phone Store</h2>
                         <p className="max-w-3xl mx-auto mt-4 text-xl text-center dark:dark:text-gray-400">Đam mê công nghệ và sự tiện lợi, Phone Store tự hào là điểm đến chính thức cho những người yêu thích sản phẩm của Apple.</p>
                     </div>
                     <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
@@ -228,7 +229,6 @@ export default function About() {
                             <h3 className="text-2xl font-bold tracki sm:text-3xl dark:dark:text-gray-50">Phone Store - Nơi công nghệ gặp gỡ đẳng cấp </h3>
                             <p className="mt-3 text-lg dark:dark:text-gray-400"> </p>
                             <div className="mt-12 space-y-12">
-
                                 {renderService()}
                             </div>
                         </div>
@@ -237,11 +237,10 @@ export default function About() {
                         </div>
                     </div>
                     <div>
-                        <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
+                         <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
                             <div className="lg:col-start-2">
                                 <h3 className="text-2xl font-bold tracki sm:text-3xl dark:dark:text-gray-50">Tại sao chọn chúng tôi?</h3>
                                 <div className="mt-12 space-y-12">
-
                                     {renderService2()}
                                 </div>
                             </div>
@@ -257,7 +256,6 @@ export default function About() {
             <section className="p-6 dark:dark:bg-gray-800 dark:dark:text-gray-100">
                 <div className="container mx-auto grid justify-center grid-cols-2 text-center lg:grid-cols-3">
                     {renderStatistic()}
-
                 </div>
             </section>
 
@@ -269,12 +267,11 @@ export default function About() {
                 </div>
             </section>
 
-            <section className="my-8 dark:dark:bg-gray-800 dark:dark:text-gray-100">
+            <section className="-my-1 dark:dark:bg-gray-800 dark:dark:text-gray-100">
                 <div className="container flex flex-col items-center mx-auto mb-12 md:p-10 md:px-12">
-                    <h1 className="p-4 text-4xl font-semibold leadi text-center">Nhận xét của khách hàng</h1>
+                    <h1 className="text-xl md:text-4xl font-bold leadi text-center sm:text-5xl dark:dark:text-gray-50 uppercase">Nhận xét của khách hàng</h1>
                 </div>
                 <div className="container flex flex-col items-center justify-center mx-auto lg:flex-row lg:flex-wrap lg:justify-evenly lg:px-10">
-
                     {renderTestimonial()}
                 </div>
             </section>
@@ -283,10 +280,8 @@ export default function About() {
 
             <section className="py-6 dark:dark:bg-gray-800 dark:dark:text-gray-100">
                 <div className="container flex flex-col items-center justify-center p-4 mx-auto sm:p-10">
-                    <p className="p-2 text-sm font-medium tracki text-center uppercase">Đội ngũ phát triển trang web</p>
-                    <h1 className="text-4xl font-bold leadi text-center sm:text-5xl">Những người tài năng đứng sau hậu trường</h1>
+                    <h1 className="text-xl md:text-4xl font-bold leadi text-center sm:text-5xl dark:dark:text-gray-50 uppercase">Đội ngũ phát triển trang web</h1>
                     <div className="flex flex-row flex-wrap-reverse justify-center mt-8">
-
                         {renderTeam()}
                     </div>
                 </div>
