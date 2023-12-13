@@ -6,6 +6,9 @@ import axios from "axios";
 import * as Yup from "yup";
 import { toast } from 'react-toastify'
 import { useSelector, useDispatch } from "react-redux";
+import {Button, Input, Textarea} from '@material-tailwind/react'
+import TextArea from 'antd/lib/input/TextArea';
+
 export default function Contact() {
     const { arrProduct } = useSelector(state => state.QuanLyContactPageReducer);
     const dispatch = useDispatch();
@@ -32,16 +35,12 @@ export default function Contact() {
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-8 h-8 dark:dark:text-violet-400">
                     <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
                 </svg>
-                <h3 className="my-3 text-3xl font-semibold">{product.header}</h3>
+                <h3 className="my-3 text-2xl font-semibold dark:dark:text-gray-400 text-center">{product.header}</h3>
                 <div className="space-y-1 leadi">
                     <p>{product.content}</p>
 
                 </div>
             </div>)
-
-
-
-
         })
     }
     const productDetail = useSelector(
@@ -85,27 +84,22 @@ export default function Contact() {
         }),
     });
     return (
-        <div className=" bg-white/10 backdrop-blur-md shadow-lg rounded-lg p-6 border border-gray-200" style={{
-            backgroundImage: `url("")`
-        }}>
-
-
-            <section className="m-4 md:m-8 dark:dark:bg-gray-800 dark:dark:text-gray-100">
-                <div className="container mx-auto p-4 my-6 space-y-2 text-center">
-                    <h2 className="text-5xl font-bold">Liên hệ</h2>
+        <div className=" bg-white/10 backdrop-blur-md shadow-lg rounded-lg border border-gray-200 h-fit">
+            <div className=" dark:dark:bg-gray-800 dark:dark:text-gray-100">
+            <section className="mx-4 md:mx-8 dark:dark:bg-gray-800 dark:dark:text-gray-100">
+                <div className="container mx-auto p-4 space-y-2 text-center">
+                    <h2 className="text-5xl font-bold dark:dark:text-gray-400">Liên hệ</h2>
                     <p className="dark:dark:text-gray-400">Chúng tôi tại Phone Store luôn sẵn lòng lắng nghe và phản hồi mọi yêu cầu của bạn. Dù bạn cần hỗ trợ kỹ thuật, muốn tìm hiểu thêm về sản phẩm, hay có bất kỳ thắc mắc nào về dịch vụ của chúng tôi, đội ngũ chuyên nghiệp của chúng tôi sẽ giúp bạn giải quyết mọi vấn đề.</p>
                 </div>
                 <div className="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
-
                     {renderContact()}
                 </div>
             </section>
-            <hr className="hr" />
-
-            <section className="py-6 dark:dark:bg-gray-800 dark:dark:text-gray-50 ">
+            <div class="h-1 mx-auto bg-gray-100 border-0 rounded my-5" style={{width:'30%'}}></div>
+            <section className=" py-8">
                 <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
                     <div className="py-6 md:py-0 md:px-6">
-                        <h1 className="text-4xl font-bold">Liên hệ chúng</h1>
+                        <h1 className="text-4xl font-bold dark:dark:text-gray-400">Liên hệ chúng</h1>
                         <p className="pt-2 pb-4">Điền vào mẫu đơn để bắt đầu cuộc trò chuyện</p>
                         <div className="space-y-4">
                             <p className="flex items-center">
@@ -132,7 +126,7 @@ export default function Contact() {
                     <form onSubmit={formik.handleSubmit} className="flex flex-col py-6 space-y-6 md:py-0 md:px-6">
                         <label className="block">
                             <span className="mb-1">Họ và tên</span>
-                            <input onChange={formik.handleChange}
+                            <Input onChange={formik.handleChange}
                                 name="name" value={formik.values.name} type="text" placeholder="Trần Văn A" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:dark:bg-gray-800" />
                             {formik.errors.name && formik.touched.name && (
                                 <p className="text-danger">{formik.errors.name}</p>
@@ -140,7 +134,7 @@ export default function Contact() {
                         </label>
                         <label className="block">
                             <span className="mb-1">Địa chỉ email</span>
-                            <input onChange={formik.handleChange}
+                            <Input onChange={formik.handleChange}
                                 name="email" value={formik.values.email} type="email" placeholder="trana@gmail.com" className="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:dark:bg-gray-800" />
                             {formik.errors.email && formik.touched.email && (
                                 <p className="text-danger">{formik.errors.email}</p>
@@ -148,21 +142,21 @@ export default function Contact() {
                         </label>
                         <label className="block">
                             <span className="mb-1">Lời nhắn</span>
-                            <textarea onChange={formik.handleChange}
+                            <TextArea onChange={formik.handleChange}
                                 name="message"
-                                value={formik.values.message} rows={3} className="block w-full rounded-md focus:ring focus:ri focus:ri dark:dark:bg-gray-800" defaultValue={""} />
+                                value={formik.values.message} rows={3} className="block w-full rounded-md focus:ring focus:ri focus:ri bg-gray-800 text-white" defaultValue={""} />
                             {formik.errors.message && formik.touched.message && (
                                 <p className="text-danger">{formik.errors.message}</p>
                             )}
                         </label>
-                        <input type="submit" className=" px-8 py-3 font-semibold rounded bg-gray-800 text-white mr-2" value="Gửi" />
+                        <Button type="submit" className=" px-8 py-3 font-semibold rounded text-white mr-2">GỬI</Button>
                     </form>
                 </div>
             </section>
 
 
 
-
+        </div>
         </div>
     )
 }
