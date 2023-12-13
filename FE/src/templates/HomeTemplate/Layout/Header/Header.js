@@ -18,7 +18,7 @@ export default function Header(props) {
     const renderSoLuong = () => {
 
         return arrProduct.reduce((tongSoLuong, spGH, index) => {
-            return tongSoLuong += spGH.sl;
+            return tongSoLuong += parseInt(spGH.sl);
 
         }, 0)
 
@@ -152,17 +152,17 @@ export default function Header(props) {
                       </>)
                 }
                 <ul className="items-stretch  m-0 hidden md:flex">
-                    <li className="flex">
-                        <NavLink to="/home" className="flex items-center -mb-0.5 border-b-2 md:px-1 lg:px-4 border-transparent text-white md:text-sm" activeClassName="md:border-b-2 md:border-white">{t('home')}</NavLink>
+                    <li className="flex mx-3">
+                        <NavLink to="/home" className="flex items-center border-b-2 md:px-1 lg:px-4 border-transparent text-white md:text-sm" activeClassName="md:border-b-2 md:border-white">{t('home')}</NavLink>
                     </li>
-                    <li className="flex">
-                        <NavLink to="/about" className="flex items-center -mb-0.5 border-b-2 md:px-1 lg:px-4 border-transparent text-white md:text-sm" activeClassName="md:border-b-2 md:border-white">{t('about')}</NavLink>
+                    <li className="flex mx-3">
+                        <NavLink to="/about" className="flex items-center border-b-2 md:px-1 lg:px-4 border-transparent text-white md:text-sm" activeClassName="md:border-b-2 md:border-white">{t('about')}</NavLink>
                     </li>
-                    <li className="flex">
-                        <NavLink to="/contact" className="flex items-center -mb-0.5 border-b-2 md:px-1 lg:px-4 border-transparent text-white md:text-sm" activeClassName="md:border-b-2 md:border-white">{t('contact')}</NavLink>
+                    <li className="flex mx-3">
+                        <NavLink to="/contact" className="flex items-center border-b-2 md:px-1 lg:px-4 border-transparent text-white md:text-sm" activeClassName="md:border-b-2 md:border-white">{t('contact')}</NavLink>
                     </li>
-                    <li className="flex">
-                        <NavLink to="/news" className="flex items-center -mb-0.5 border-b-2 md:px-1 lg:px-4 border-transparent text-white md:text-sm" activeClassName="md:border-b-2 md:border-white">{t('news')}</NavLink>
+                    <li className="flex mx-3">
+                        <NavLink to="/news" className="flex items-center border-b-2 md:px-1 lg:px-4 border-transparent text-white md:text-sm" activeClassName="md:border-b-2 md:border-white">{t('news')}</NavLink>
                     </li>
 
 
@@ -171,11 +171,11 @@ export default function Header(props) {
                     {!role && (
                         <>
                             <Button onClick={() => { history.push('/login'); }}
-                                className="self-center px-2 md:px-4 lg:px-8 py-3 rounded hidden md:block">
+                                className="self-center px-2 md:px-4 lg:px-8 py-3 me-3 rounded hidden md:block">
                                 {t('signin')}
                             </Button>
                             <Button onClick={() => { history.push('/register'); }}
-                                className="self-center px-2 md:px-4 lg:px-8 py-3 rounded hidden md:block">
+                                className="self-center px-2 md:px-4 lg:px-8 py-3 me-3 rounded hidden md:block">
                                 {t('signup')}
                             </Button>
                         </>

@@ -148,6 +148,17 @@ export default function Cart() {
         })
     }
 
+
+    const renderSoLuong = () => {
+
+        return arrProduct.reduce((tongSoLuong, spGH, index) => {
+            return tongSoLuong += parseInt(spGH.sl);
+
+        }, 0)
+
+
+    }
+
     return (
 
 
@@ -158,7 +169,7 @@ export default function Cart() {
                     <div className="w-full md:w-3/4 bg-white px-10 py-10">
                         <div className="flex justify-between border-b pb-8">
                             <h1 className="font-semibold text-2xl">Giỏ hàng</h1>
-                            <h2 className="font-semibold text-2xl">3 Items</h2>
+                            <h2 className="font-semibold text-2xl">{renderSoLuong()} Sản phẩm</h2>
                         </div>
                         <div className="mt-10 mb-5 hidden md:flex">
                             <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">Chi tiết sản phẩm</h3>
