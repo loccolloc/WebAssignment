@@ -2,6 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+
+
 import {
     Button,
     Dialog,
@@ -10,8 +14,32 @@ import {
     Typography,
     Input,
 } from "@material-tailwind/react";
+import { layThongTinChiTietUser } from "../../redux/actions/QuanLyUserAction";
+
 
 export default function EditPassword() {
+    var role = localStorage.getItem('role');
+    var username = localStorage.getItem("username");
+
+
+    const dispatch = useDispatch();
+
+
+    const UserDetail = useSelector(
+        (state) => state.QuanLyUserReducer.productDetail
+    );
+    useEffect(() => {
+        //Lấy thông tin param từ url
+
+
+
+
+        dispatch(layThongTinChiTietUser(username));
+
+
+    }, []);
+
+
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen((cur) => !cur);
     const [oldPass, setOldPass] = useState();
@@ -19,12 +47,12 @@ export default function EditPassword() {
     const [confirmPass, setConfirmPass] = useState();
     function handleSubmit(e) {
         e.preventDefault();
+        console.log(oldPass);
         axios
-            .post("http://localhost/BE/index.php", {
-                id: 6,
+            .post("http://localhost/qlsvmvc/?c=User&a=updatePass", {
+                username: username,
                 oldPass: oldPass,
                 newPass: newPass,
-                action: "updatePass",
             })
             .then((res) => {
                 if (res.data) {
@@ -38,12 +66,14 @@ export default function EditPassword() {
                     });
                 }
 
+
             });
     }
 
+
     return (
         <>
-            <Button className="text-white bg-dark rounded py-3 flex items-center justify-center" onClick={handleOpen}>Thay đổi mật khẩu</Button>
+            <Button className="text-white bg-dark rounded py-2" onClick={handleOpen}>Thay đổi mật khẩu</Button>
             <Dialog
                 size="xs"
                 open={open}
@@ -97,3 +127,6 @@ export default function EditPassword() {
         </>
     );
 }
+
+
+

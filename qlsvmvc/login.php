@@ -10,7 +10,7 @@ header("Access-Control-Allow-Headers: Content-Type,Access-Control-Allow-Headers,
 $data=json_decode(file_get_contents("php://input"));
 
 $username= $data->taiKhoan;
-$password= $data->matKhau;
+$password= md5($data->matKhau);
 $db_conn= mysqli_connect("localhost","root", "", "newtest");
 if($db_conn===false)
 {

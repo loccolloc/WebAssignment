@@ -34,9 +34,9 @@ class UserController
         // }
 
         if ($userRepository->register($data)) {
-            echo json_encode(["success" => "User Added Successfully"]);
+            echo json_encode("true");
         } else {
-            echo json_encode(["success" => "Please Check the User Data!"]);
+            echo json_encode("false");
         }
     }
 

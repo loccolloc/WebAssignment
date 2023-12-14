@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import React, { useEffect } from "react"
+import React, { useEffect , useState } from "react"
 import { useSelector, useDispatch } from "react-redux";
 import './article.css'
 import { history } from '../../App';
@@ -17,6 +17,8 @@ import { layThongTinChiTietNews } from "../../redux/actions/QuanLyNewsAction";
 export default function Article(props) {
     var role = localStorage.getItem('role');
     var username = localStorage.getItem("username");
+    var avatar = localStorage.getItem("image");
+
     const { id } = useParams();
     const dispatch = useDispatch();
     const productDetail = useSelector(
@@ -71,15 +73,22 @@ export default function Article(props) {
 
     }, []);
     const { arrComment } = useSelector((state) => state.QuanLyCommentNewsReducer);
+    const [avatarArr,setAvatar] = useState(null);
     const renderComment = () => {
         // return arrFilm.slice(0, 12).map((phim, index) => {
         return arrComment.map((comment, index) => {
+            axios
+            .post("http://localhost/qlsvmvc/?c=User&a=getImg", {username: comment.username})
+            .then((result) => {
+                console.log(result.data)
+                setAvatar(result.data)
+            });
             return (
                 <div className="border rounded-md p-3 ml-3 my-3">
                     <div className="flex gap-3 items-center">
 
                         <img
-                            src="https://avatars.githubusercontent.com/u/22263436?v=4"
+                            src={avatarArr}
                             className="object-cover w-8 h-8 rounded-full 
     border-2 border-emerald-400  shadow-emerald-400
     "
@@ -187,7 +196,7 @@ export default function Article(props) {
                                 <div className="w-full px-3 my-2">
                                     <div className="flex gap-3 items-center mb-2 ml-3">
                                         <img
-                                            src="https://avatars.githubusercontent.com/u/22263436?v=4"
+                                            src={avatar}
                                             className="object-cover w-8 h-8 rounded-full 
     border-2 border-emerald-400  shadow-emerald-400
     "

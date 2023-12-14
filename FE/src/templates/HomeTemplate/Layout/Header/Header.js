@@ -45,13 +45,13 @@ export default function Header(props) {
             return (
                 <div className='flex items-center'>
                     {role === 'user' && (
-                        <div className='flex items-center gap-1 p-2'>
+                        <div className='flex items-center gap-1 px-3'>
                             <img
                                 src={avatar}
                                 className="object-cover w-8 h-8 rounded-full border-2 border-emerald-400  shadow-emerald-400 hidden md:block"
                                 alt={username}
                             />
-                            <NavLink to="/profile" className="hidden md:flex items-center -mb-0.5 border-b-2 border-transparent p-2" activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                            <NavLink to="/profile" className="hidden md:flex items-center -mb-0.5 border-b-2 border-transparent p-2 text-xl" activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
                         </div>
                     )}
                     {role === 'admin' && (

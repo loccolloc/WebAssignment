@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 import { NavLink } from "react-router-dom";
 import * as Yup from 'yup'
+import {toast} from 'react-toastify';
 export default function Login(props) {
     const history = useHistory();
 
@@ -27,11 +28,11 @@ export default function Login(props) {
             }
 
             axios.post("http://localhost/qlsvmvc/?c=user&a=register", sendData).then((result) => {
-                if (result.data.Status === 'Invalid') {
-
-                } else {
-
-
+                console.log(result)
+                if (result.data === 'false') {
+                    toast.error("Tài khoản đã tồn tại")
+                }
+                else {    
                     history.push('/login');
                 }
 

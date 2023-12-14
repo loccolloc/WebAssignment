@@ -142,7 +142,7 @@ export default function Contact() {
                         </label>
                         <label className="block">
                             <span className="mb-1">Lời nhắn</span>
-                            <TextArea onChange={formik.handleChange}
+                            <Textarea onChange={formik.handleChange}
                                 name="message"
                                 value={formik.values.message} rows={3} className="block w-full rounded-md focus:ring focus:ri focus:ri bg-gray-800 text-white" defaultValue={""} />
                             {formik.errors.message && formik.touched.message && (

@@ -43,7 +43,11 @@ class UserRepository
         global $conn;
 
         $username = $data->taiKhoan;
-        $password = $data->matKhau;
+        $password = md5($data->matKhau);
+        $result = mysqli_query($conn, "SELECT * FROM account where username='$username'");
+        $num = mysqli_num_rows($result);
+        if ($num >= 1)
+            return false;
         $img = "https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg";
 
         if ($username != "" and $password != "") {
