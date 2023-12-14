@@ -101,6 +101,14 @@ class UserController
         $result = $user->getImg($username);
         echo json_encode($result);
     }
+    public function getListOrder()
+    {
+        $_POST = json_decode(file_get_contents("php://input"), true);
+        $username = isset($_POST["username"]) ? $_POST["username"] : '';
+        $user = new UserRepository();
+        $result = $user->getListOrder($username);
+        echo json_encode($result);
+    }
     public function getUser()
     {
         $_POST = json_decode(file_get_contents("php://input"), true);
@@ -110,7 +118,22 @@ class UserController
         echo json_encode($result);
     }
 
-
+    public function getCart()
+    {
+        $_POST = json_decode(file_get_contents("php://input"), true);
+        $username = isset($_POST["username"]) ? $_POST["username"] : '';
+        $id = isset($_POST["id"]) ? $_POST["id"] : '';
+        $user = new UserRepository();
+        $result = $user->getCart($username,$id);
+        echo json_encode($result);
+    }
+    public function getTotalOrder()
+    {
+        $_POST = json_decode(file_get_contents("php://input"), true);
+        $user = new UserRepository();
+        $result = $user->getTotalOrder();
+        echo json_encode($result);
+    }
     function delete()
     {
         $id = $_GET["id"];

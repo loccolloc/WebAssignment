@@ -11,7 +11,7 @@ $data=json_decode(file_get_contents("php://input"));
 
 $username= $data->taiKhoan;
 $password= md5($data->matKhau);
-$db_conn= mysqli_connect("localhost","root", "", "newtest");
+$db_conn= mysqli_connect("localhost","root", "", "test");
 if($db_conn===false)
 {
   die("ERROR: Could Not Connect".mysqli_connect_error());

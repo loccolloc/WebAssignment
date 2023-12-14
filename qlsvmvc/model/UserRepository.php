@@ -145,8 +145,72 @@ class UserRepository
         $img = $res[0];
         return $img;
     }
+    public function getListOrder($username)
+    {
+        global $conn;
+        $myArray = [];
+        $selectOrder = "SELECT `id`,`total`,`date`,`status` FROM `orders` WHERE `username` = '$username'";
+        $result = mysqli_query($conn, $selectOrder);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            array_push($myArray, (object)[
+                'id' => "{$row['id']}",
+                'total' => "{$row['total']}",
+                'date' => "{$row['date']}",
+                'status' => "{$row['status']}"
+            ]);
+        }
+        return $myArray;
+    }
+    public function getCart($username,$id)
+    {
+        global $conn;
+        $myArray = [];
+        $selectCart = "SELECT `cart`.`ptitle`, `cart`.`pprice`, `cart`.`pimg`, `cart`.`sl`,(`cart`.`sl`*`cart`.`pprice`) as `tonggia` 
+                        FROM
+                            `orders` 
+                        INNER JOIN 
+                            `cart` 
+                        ON 
+                            `orders`.`id` = `cart`.`order_id` 
+                        WHERE 
+                            `cart`.`username` = '$username' AND `orders`.`id`='$id'
+                        GROUP BY 
+                            `cart`.`p_id`";
+        
+        
 
-
+        $result = mysqli_query($conn, $selectCart);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            array_push($myArray, (object)[
+                'ptitle' => "{$row['ptitle']}",
+                'pprice' => "{$row['pprice']}",
+                'pimg' => "{$row['pimg']}",
+                'sl' => "{$row['sl']}",
+                'tonggia' => "{$row['tonggia']}",
+            ]);
+        }
+        return $myArray;
+    }
+    public function getTotalOrder()
+    {
+        global $conn;
+        $myArray = [];
+        $select = "SELECT * FROM `orders` ";
+        $result = mysqli_query($conn, $select);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+            array_push($myArray, (object)[
+                'id' => "{$row['id']}",
+                'username' => "{$row['username']}",
+                'total' => "{$row['total']}",
+                'email' => "{$row['email']}",
+                'name' => "{$row['name']}",
+                'billing_address' => "{$row['billing_address']}",
+                'date' => "{$row['date']}",
+                'status' => "{$row['status']}"
+            ]);
+        }
+        return $myArray;
+    }
     public function delete($id)
     {
         global $conn;

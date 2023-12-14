@@ -1,4 +1,7 @@
 import { newsData } from '../../data/news'
+import axios from 'axios';
+import { useState } from "react";
+import { useEffect } from "react";
 import * as React from "react";
 import {
     Dialog,
@@ -14,6 +17,15 @@ import {
 
 } from '@mui/x-data-grid';
 const ManageOrder = () => {
+  const[listOrder,setListOrder]=useState([]);
+    
+    useEffect(() => {
+      axios.post("http://localhost/qlsvmvc/?c=User&a=getTotalOrder", {
+      }).then((res) => {
+        console.log(res.data[0])
+        setListOrder(res.data)
+      });
+    }, []);
     const columns = [
     { field: "id", headerName: "Mã đơn hàng",headerAlign: "center",align: "center", flex: 1 },
     { field: "username", headerName: "Người dùng",headerAlign: "center",align: "center", flex: 1 },
@@ -101,7 +113,7 @@ const ManageOrder = () => {
 
             >
                 <DataGrid
-                    rows={newsData}
+                    rows={listOrder}
                     columns={columns}
                     rowHeight={100}
                     style={{ minWidth: '1000px' }}
