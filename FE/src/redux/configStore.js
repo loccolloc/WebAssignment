@@ -16,9 +16,9 @@ import { QuanLyUserReducer } from "./reducers/QuanLyUserReducer";
 import { QuanLyStatisticReducer } from "./reducers/QuanLyStatisticReducer";
 import { QuanLyServiceReducer } from "./reducers/QuanLyServiceReducer";
 import { QuanLyAboutImgReducer } from "./reducers/QuanLyAboutImgReducer";
-
+import { QuanLyDonHangReducer } from "./reducers/QuanLyDonHangReducer";
 const rootReducer = combineReducers({
-    CarouselReducer,
+    CarouselReducer, QuanLyDonHangReducer,
     QuanLyAboutImgReducer,
     QuanLySanPhamReducer,
     QuanLyUserReducer,

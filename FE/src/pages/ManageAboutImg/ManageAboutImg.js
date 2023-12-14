@@ -1,13 +1,25 @@
-import { newsData } from '../../data/news'
+
 import * as React from "react";
 import ToggleCreate from './ToggleCreate'
 import ToggleUpdate from './ToggleUpdate'
 import ToggleDelete from './ToggleDelete'
+import { useSelector, useDispatch } from 'react-redux'
+import { layDanhSachAboutImgAction } from '../../redux/actions/QuanLyAboutImgAction';
+import { useEffect } from 'react';
 import {
     DataGrid,
 
 } from '@mui/x-data-grid';
 const ManageAboutImg = () => {
+    const { arrImg } = useSelector(state => state.QuanLyAboutImgReducer);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const action = layDanhSachAboutImgAction();
+        dispatch(action); //dispatch function từ thunk
+
+
+
+    }, [dispatch])
     const columns = [
         { field: "id", headerName: "ID", align: "center", headerAlign: "center", flex: 0.25 },
 
@@ -33,7 +45,7 @@ const ManageAboutImg = () => {
             align: "center",
 
             renderCell: (params) => {
-                console.log(params);
+
                 return (
                     <>
                         <ToggleUpdate values={params} />
@@ -78,7 +90,7 @@ const ManageAboutImg = () => {
 
             >
                 <DataGrid
-                    rows={newsData}
+                    rows={arrImg}
                     columns={columns}
                     rowHeight={100}
                     style={{ minWidth: '1000px' }}

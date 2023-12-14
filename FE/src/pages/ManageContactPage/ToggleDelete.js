@@ -9,10 +9,13 @@ import {
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from "@mui/material";
+import { xoaContactPageAction } from '../../redux/actions/QuanLyContactPageAction';
+import { useDispatch } from 'react-redux';
 export default function ToggleDelete(props) {
     const [open, setOpen] = React.useState(false);
     const values = props.values;
     const handleOpen = () => setOpen(!open);
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -36,7 +39,12 @@ export default function ToggleDelete(props) {
                     >
                         <span>Không</span>
                     </Button>
-                    <Button variant="gradient" onClick={handleOpen}>
+                    <Button variant="gradient" onClick={() => {
+                        const action = xoaContactPageAction(values.id);
+                        dispatch(action);
+                        handleOpen();
+                        window.location.reload();
+                    }}>
                         <span>Có</span>
                     </Button>
                 </DialogFooter>

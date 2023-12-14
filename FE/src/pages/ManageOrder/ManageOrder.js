@@ -1,4 +1,7 @@
 import { newsData } from '../../data/news'
+import axios from 'axios';
+import { useState } from "react";
+import { useEffect } from "react";
 import * as React from "react";
 import {
     Dialog,
@@ -12,8 +15,18 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import {
     DataGrid,
 
+
 } from '@mui/x-data-grid';
 const ManageOrder = () => {
+  const[listOrder,setListOrder]=useState([]);
+   
+    useEffect(() => {
+      axios.post("http://localhost/qlsvmvc/?c=User&a=getTotalOrder", {
+      }).then((res) => {
+        console.log(res.data[0])
+        setListOrder(res.data)
+      });
+    }, []);
     const columns = [
     { field: "id", headerName: "Mã đơn hàng",headerAlign: "center",align: "center", flex: 1 },
     { field: "username", headerName: "Người dùng",headerAlign: "center",align: "center", flex: 1 },
@@ -23,6 +36,7 @@ const ManageOrder = () => {
       headerAlign: "center",
       flex: 1,
       align: "center",
+
 
     },
     {
@@ -39,6 +53,7 @@ const ManageOrder = () => {
       flex: 1,
       align: "center",
 
+
     },
     {
       field: "note",
@@ -47,6 +62,7 @@ const ManageOrder = () => {
       flex: 1,
       align: "center",
 
+
     },
     {
       field: "status",
@@ -54,6 +70,7 @@ const ManageOrder = () => {
       headerAlign: "center",
       flex: 1,
       align: "center",
+
 
     },
     {
@@ -73,10 +90,12 @@ const ManageOrder = () => {
     },
   ];
 
+
     return (
         <div className="grid mx-4 gap-y-4" >
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <div
+
 
                     className="text-xl md:text-3xl font-semibold"
                     sx={{ m: "0 0 5px 0" }}
@@ -99,9 +118,10 @@ const ManageOrder = () => {
                 }}
                 style={{ overflow: 'scroll' }}
 
+
             >
                 <DataGrid
-                    rows={newsData}
+                    rows={listOrder}
                     columns={columns}
                     rowHeight={100}
                     style={{ minWidth: '1000px' }}
@@ -111,10 +131,13 @@ const ManageOrder = () => {
     );
 };
 
+
 export default ManageOrder;
+
 
 const HandleView = (params) => {
   const [open, setOpen] = React.useState(false);
+
 
     const handleOpen = () => setOpen(!open);
   return (
@@ -122,6 +145,7 @@ const HandleView = (params) => {
       <IconButton className="userListView" onClick={handleOpen}>
         <VisibilityIcon />
       </IconButton>
+
 
       <Dialog open={open} handler={handleOpen} className="flex flex-col justify-center items-center">
         <div className='p-3 w-full'>
@@ -159,6 +183,7 @@ const HandleView = (params) => {
                             <td>1961</td>
                             <td>1961</td>
 
+
                         </tr>
                         <tr>
                             <td>Shining Star</td>
@@ -176,3 +201,8 @@ const HandleView = (params) => {
     </React.Fragment>
     );
 };
+
+
+
+
+

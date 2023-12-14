@@ -13,9 +13,12 @@ class UserController
             $users =  $userRepository->getAll();
         }
 
+
         $user = json_encode($users);
         echo ($user);
     }
+
+
 
 
     function add()
@@ -33,12 +36,15 @@ class UserController
         //     exit();
         // }
 
+
         if ($userRepository->register($data)) {
             echo json_encode("true");
         } else {
             echo json_encode("false");
         }
     }
+
+
 
 
     function save()
@@ -48,10 +54,13 @@ class UserController
         $username = $data->taiKhoan;
         $password = $data->matKhau;
 
+
         $sql = "insert into account(username,password) values('$username','$password')";
         $conn->query($sql);
         return true;
     }
+
+
 
 
     function edit()
@@ -60,6 +69,8 @@ class UserController
         $userRepository = new UserRepository();
         $student =  $userRepository->find($id);
     }
+
+
 
 
     public function updateInfo()
@@ -101,6 +112,14 @@ class UserController
         $result = $user->getImg($username);
         echo json_encode($result);
     }
+    public function getListOrder()
+    {
+        $_POST = json_decode(file_get_contents("php://input"), true);
+        $username = isset($_POST["username"]) ? $_POST["username"] : '';
+        $user = new UserRepository();
+        $result = $user->getListOrder($username);
+        echo json_encode($result);
+    }
     public function getUser()
     {
         $_POST = json_decode(file_get_contents("php://input"), true);
@@ -111,6 +130,22 @@ class UserController
     }
 
 
+    public function getCart()
+    {
+        $_POST = json_decode(file_get_contents("php://input"), true);
+        $username = isset($_POST["username"]) ? $_POST["username"] : '';
+        $id = isset($_POST["id"]) ? $_POST["id"] : '';
+        $user = new UserRepository();
+        $result = $user->getCart($username, $id);
+        echo json_encode($result);
+    }
+    public function getTotalOrder()
+    {
+        $_POST = json_decode(file_get_contents("php://input"), true);
+        $user = new UserRepository();
+        $result = $user->getTotalOrder();
+        echo json_encode($result);
+    }
     function delete()
     {
         $id = $_GET["id"];

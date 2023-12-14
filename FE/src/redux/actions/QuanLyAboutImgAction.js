@@ -22,5 +22,23 @@ export const layDanhSachAboutImgAction = (id) => {
         }
     };
 }
+export const xoaAboutImgAction = (id) => {
+
+
+    return async (dispatch) => {
+        try {
+            //Sử dụng tham số thamSo
+            const result = await quanLyAboutImgService.xoaAboutImg(id);
+
+            // console.log("result: ", result);
+            dispatch(layDanhSachAboutImgAction);
+            return result
+
+        } catch (errors) {
+            console.log('errors', errors)
+        }
+    };
+}
+
 
 

@@ -67,9 +67,9 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`id`, `username`, `password`, `role`, `image`, `fullname`, `email`, `address`, `phonenumber`) VALUES
-(49, 'loc', '123456', 'admin', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg', 'Xuân Lộc', 'loc@gmail.com', '1', '0123456789'),
-(52, 'tamminh', '123456', 'user', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg', 'Tâm Minh', 'tamminh@gmail.com', '1', '01234567899'),
-(54, 'locloc', '123456', 'user', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg', NULL, NULL, NULL, NULL);
+(49, 'loc', 'e10adc3949ba59abbe56e057f20f883e', 'admin', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg', 'Xuân Lộc', 'loc@gmail.com', '1', '0123456789'),
+(52, 'tamminh', 'e10adc3949ba59abbe56e057f20f883e', 'user', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg', 'Tâm Minh', 'tamminh@gmail.com', '1', '01234567899'),
+(54, 'locloc', 'e10adc3949ba59abbe56e057f20f883e', 'user', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 

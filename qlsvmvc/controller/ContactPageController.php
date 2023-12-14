@@ -51,6 +51,7 @@ class ContactPageController {
 //         }
 
 //     }
+
 function update() {
     $data=json_decode(file_get_contents("php://input"));
     $contactpagelRepository = new ContactPageRepository();

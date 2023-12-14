@@ -22,4 +22,22 @@ export const layDanhSachTeamAction = () => {
         }
     };
 }
+export const xoaTeamAction = (id) => {
+
+
+    return async (dispatch) => {
+        try {
+            //Sử dụng tham số thamSo
+            const result = await quanLyTeamService.xoaTeam(id);
+
+            // console.log("result: ", result);
+            dispatch(layDanhSachTeamAction);
+            return result
+
+        } catch (errors) {
+            console.log('errors', errors)
+        }
+    };
+}
+
 

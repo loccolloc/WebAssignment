@@ -1,4 +1,4 @@
-import { newsData } from '../../data/news'
+
 import * as React from "react";
 import ToggleCreate from './ToggleCreate'
 import ToggleUpdate from './ToggleUpdate'
@@ -7,8 +7,19 @@ import {
     DataGrid,
 
 } from '@mui/x-data-grid';
+import { useSelector, useDispatch } from 'react-redux'
+import { layDanhSachTestimonialAction } from '../../redux/actions/QuanLyTestimonialAction';
+import { useEffect } from 'react';
 const ManageTestimonial = () => {
-    console.log(newsData)
+    const { arrTestimonial } = useSelector(state => state.QuanLyTestimonialReducer);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const action = layDanhSachTestimonialAction();
+        dispatch(action); //dispatch function từ thunk
+
+
+
+    }, [dispatch])
     const columns = [
         { field: "id", headerName: "ID", align: "center", headerAlign: "center", flex: 0.25 },
 
@@ -87,7 +98,7 @@ const ManageTestimonial = () => {
 
             >
                 <DataGrid
-                    rows={newsData}
+                    rows={arrTestimonial}
                     columns={columns}
                     rowHeight={100}
                     style={{ minWidth: '1000px' }}

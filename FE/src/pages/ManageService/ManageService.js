@@ -1,4 +1,4 @@
-import { serviceData } from '../../data/service'
+
 import * as React from "react";
 import ToggleCreate from './ToggleCreate'
 import ToggleUpdate from './ToggleUpdate'
@@ -7,7 +7,19 @@ import {
     DataGrid,
 
 } from '@mui/x-data-grid';
+import { useSelector, useDispatch } from 'react-redux'
+import { layDanhSachServiceAction } from '../../redux/actions/QuanLyServiceAction';
+import { useEffect } from 'react';
 const ManageService = () => {
+    const { arrService } = useSelector(state => state.QuanLyServiceReducer);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const action = layDanhSachServiceAction();
+        dispatch(action); //dispatch function từ thunk
+
+
+
+    }, [dispatch])
     const columns = [
         { field: "id", headerName: "ID", align: "center", headerAlign: "center", flex: 0.25 },
 
@@ -28,7 +40,7 @@ const ManageService = () => {
             align: "center",
 
             renderCell: (params) => {
-                console.log(params);
+
                 return (
                     <>
                         <ToggleUpdate values={params} />
@@ -73,7 +85,7 @@ const ManageService = () => {
 
             >
                 <DataGrid
-                    rows={serviceData}
+                    rows={arrService}
                     columns={columns}
                     rowHeight={100}
                     style={{ minWidth: '1000px' }}

@@ -34,7 +34,7 @@ const ManageUsers = () => {
             cellClassName: "name-column--cell",
         },
         {
-            field: "full_name",
+            field: "fullname",
             headerName: "Họ và tên",
             headerAlign: "center",
             flex: 0.8,
@@ -48,7 +48,7 @@ const ManageUsers = () => {
             align: "center",
         },
         {
-            field: "phone_number",
+            field: "phone",
             headerName: "Số điện thoại",
             headerAlign: "center",
             flex: 0.8,

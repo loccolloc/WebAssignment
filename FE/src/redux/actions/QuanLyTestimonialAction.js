@@ -22,4 +22,22 @@ export const layDanhSachTestimonialAction = () => {
         }
     };
 }
+export const xoaTestimonialAction = (id) => {
+
+
+    return async (dispatch) => {
+        try {
+
+            const result = await quanLyTestimonialService.xoaTestimonial(id);
+
+            // console.log("result: ", result);
+            dispatch(layDanhSachTestimonialAction);
+            return result
+
+        } catch (errors) {
+            console.log('errors', errors)
+        }
+    };
+}
+
 

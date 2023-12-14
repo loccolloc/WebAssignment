@@ -22,4 +22,21 @@ export const layDanhSachServiceAction = () => {
         }
     };
 }
+export const xoaServiceAction = (id) => {
+
+
+    return async (dispatch) => {
+        try {
+            //Sử dụng tham số thamSo
+            const result = await quanLyServiceService.xoaService(id);
+
+
+            dispatch(layDanhSachServiceAction);
+            return result
+
+        } catch (errors) {
+            console.log('errors', errors)
+        }
+    };
+}
 

@@ -60,7 +60,7 @@ export default function Header(props) {
                                 className="object-cover w-8 h-8 rounded-full border-2 border-emerald-400  shadow-emerald-400 hidden md:block"
                                 alt={username}
                             />
-                            <NavLink to="/admin" className="hidden md:flex items-center -mb-0.5 border-b-2 border-transparent p-2" activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                            <NavLink to="/admin" className="hidden md:flex items-center -mb-0.5 border-b-2 border-transparent p-2 text-xl" activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
                         </div>                    
                     )}
                     <button onClick={handleLogout} className="self-center p-2 font-semibold  text-coolGray-50 hidden md:block"><i class="fa fa-sign-out" aria-hidden="true"></i>

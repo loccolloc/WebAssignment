@@ -1,4 +1,4 @@
-import { newsData } from '../../data/news'
+
 import * as React from "react";
 import ToggleCreate from './ToggleCreate'
 import ToggleUpdate from './ToggleUpdate'
@@ -7,8 +7,19 @@ import {
     DataGrid,
 
 } from '@mui/x-data-grid';
+import { useSelector, useDispatch } from 'react-redux'
+import { layDanhSachTeamAction } from '../../redux/actions/QuanLyTeamAction';
+import { useEffect } from 'react';
 const ManageTeam = () => {
-    console.log(newsData)
+    const { arrTeam } = useSelector(state => state.QuanLyTeamReducer);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const action = layDanhSachTeamAction();
+        dispatch(action); //dispatch function từ thunk
+
+
+
+    }, [dispatch])
     const columns = [
         { field: "id", headerName: "ID", align: "center", headerAlign: "center", flex: 0.25 },
 
@@ -30,7 +41,7 @@ const ManageTeam = () => {
             renderCell: (params) => {
                 return (
                     <div className="userItem w-100 h-100">
-                        <img src={params.row.img} className="imgItem object-contain h-100 w-100 p-2" />
+                        <img src={params.row.img} className="imgItem object-contain h-100 w-100 p-2" alt="img" />
                     </div>
                 );
             },
@@ -43,7 +54,7 @@ const ManageTeam = () => {
             align: "center",
 
             renderCell: (params) => {
-                console.log(params);
+
                 return (
                     <>
                         <ToggleUpdate values={params} />
@@ -88,7 +99,7 @@ const ManageTeam = () => {
 
             >
                 <DataGrid
-                    rows={newsData}
+                    rows={arrTeam}
                     columns={columns}
                     rowHeight={100}
                     style={{ minWidth: '1000px' }}

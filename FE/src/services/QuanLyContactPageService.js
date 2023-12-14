@@ -10,6 +10,10 @@ export class QuanLyContactPageService extends baseService {
 
         return this.get(`http://localhost/qlsvmvc/?c=contactPage&a=list`)
     }
+    xoaContactPage = (id) => {
+        return this.delete(`http://localhost/qlsvmvc/?c=contactPage&a=delete&id=${id}`)
+
+    }
 
 
 }

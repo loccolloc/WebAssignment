@@ -1,4 +1,4 @@
-import { userData } from "../../data/mockData";
+
 import * as React from "react";
 import ToggleCreate from './ToggleCreate'
 import ToggleUpdate from './ToggleUpdate'
@@ -7,8 +7,20 @@ import {
     DataGrid,
 
 } from '@mui/x-data-grid';
+import { useSelector, useDispatch } from 'react-redux'
+import { layDanhSachStatisticAction } from '../../redux/actions/QuanLyStatisticAction';
+import { useEffect } from 'react';
 const ManageStatistic = () => {
+    const { arrStatistic } = useSelector(state => state.QuanLyStatisticReducer);
 
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const action = layDanhSachStatisticAction();
+        dispatch(action); //dispatch function từ thunk
+
+
+
+    }, [dispatch])
     const columns = [
         { field: "id", headerName: "ID", align: "center", headerAlign: "center", flex: 0.25 },
 
@@ -30,7 +42,7 @@ const ManageStatistic = () => {
             align: "center",
 
             renderCell: (params) => {
-                console.log(params);
+
                 return (
                     <>
                         <ToggleUpdate values={params} />
@@ -75,7 +87,7 @@ const ManageStatistic = () => {
 
             >
                 <DataGrid
-                    rows={userData}
+                    rows={arrStatistic}
                     columns={columns}
                     rowHeight={100}
                     style={{ minWidth: '1000px' }}

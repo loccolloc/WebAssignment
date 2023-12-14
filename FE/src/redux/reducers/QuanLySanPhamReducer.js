@@ -4,15 +4,7 @@ import { SET_SAN_PHAM_IPHONESE, SET_SAN_PHAM_IPHONE11, SET_SAN_PHAM_IPHONE12, SE
 
 const stateDefault = {
     arrProduct: [
-        {
-            "id": 1,
-            "ptitle": "iphone15",
-            "pprice": "10000",
-            "pkind": "iphone15",
-            "pimg": "https://cdn.tgdd.vn/Products/Images/42/305658/iphone-15-pro-max-blue-thumbnew-600x600.jpg",
 
-
-        },
 
     ],
 

@@ -11,7 +11,10 @@ export class QuanLyUserService extends baseService {
     layThongTinUser = (id) => {
         return this.get(`http://localhost/qlsvmvc/?c=user&a=list&search=${id}`)
     }
+    xoaUser = (id) => {
+        return this.delete(`http://localhost/qlsvmvc/?c=user&a=delete&id=${id}`)
 
+    }
 
 }
 

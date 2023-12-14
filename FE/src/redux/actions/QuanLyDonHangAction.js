@@ -1,20 +1,20 @@
-import { quanLyUserService } from "../../services/QuanLyUserService";
-import { SET_DANH_SACH_USER, SET_CHI_TIET_USER } from "./types/QuanLyUserType";
+import { quanLyDonHangService } from "../../services/QuanLyDonHangService";
+import { SET_DANH_SACH_DON_HANG, SET_CHI_TIET_DON_HANG } from "./types/QuanLyDonHangType";
 
 
 
 
-export const layDanhSachUserAction = () => {
+export const layDanhSachDonHangAction = () => {
 
 
     return async (dispatch) => {
         try {
             //Sử dụng tham số thamSo
-            const result = await quanLyUserService.layDanhSachUser();
+            const result = await quanLyDonHangService.layDanhSachDonHang();
 
-            //Sau khi lấy dữ liệu từ api về => redux (reducer)
+
             dispatch({
-                type: SET_DANH_SACH_USER,
+                type: SET_DANH_SACH_DON_HANG,
                 arrProduct: result.data,
             })
         } catch (errors) {
@@ -23,17 +23,17 @@ export const layDanhSachUserAction = () => {
     };
 }
 
-export const layThongTinChiTietUser = (id) => {
+export const layThongTinChiTietDonHang = (id) => {
     return async dispatch => {
         try {
-            const result = await quanLyUserService.layThongTinUser(id);
+            const result = await quanLyDonHangService.layThongTinDonHang(id);
 
 
             //Lấy được dữ liệu từ api về  => reducer
 
             dispatch({
 
-                type: SET_CHI_TIET_USER,
+                type: SET_CHI_TIET_DON_HANG,
                 productDetail: result.data
 
             })
@@ -48,16 +48,16 @@ export const layThongTinChiTietUser = (id) => {
 
 
 }
-export const xoaUserAction = (id) => {
+export const xoaDonHangAction = (id) => {
 
 
     return async (dispatch) => {
         try {
+            //Sử dụng tham số thamSo
+            const result = await quanLyDonHangService.xoaDonHang(id);
 
-            const result = await quanLyUserService.xoaUser(id);
 
-            // console.log("result: ", result);
-            dispatch(layDanhSachUserAction);
+            dispatch(layDanhSachDonHangAction);
             return result
 
         } catch (errors) {
@@ -65,5 +65,4 @@ export const xoaUserAction = (id) => {
         }
     };
 }
-
 

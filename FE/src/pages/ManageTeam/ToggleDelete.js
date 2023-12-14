@@ -6,10 +6,12 @@ import {
     DialogBody,
     DialogFooter,
 } from "@material-tailwind/react";
-
+import { xoaTeamAction } from '../../redux/actions/QuanLyTeamAction';
+import { useDispatch } from 'react-redux';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from "@mui/material";
 export default function ToggleDelete(props) {
+    const dispatch = useDispatch();
     const [open, setOpen] = React.useState(false);
     const values = props.values;
     const handleOpen = () => setOpen(!open);
@@ -36,7 +38,12 @@ export default function ToggleDelete(props) {
                     >
                         <span>Không</span>
                     </Button>
-                    <Button variant="gradient" onClick={handleOpen}>
+                    <Button variant="gradient" onClick={() => {
+                        const action = xoaTeamAction(values.id);
+                        dispatch(action);
+                        handleOpen();
+                        window.location.reload();
+                    }}>
                         <span>Có</span>
                     </Button>
                 </DialogFooter>

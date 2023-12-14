@@ -12,7 +12,7 @@ export const layDanhSachStatisticAction = () => {
             //Sử dụng tham số thamSo
             const result = await quanLyStatisticService.layDanhSachStatistic();
 
-            //Sau khi lấy dữ liệu từ api về => redux (reducer)
+
             dispatch({
                 type: SET_DANH_SACH_STATISTIC,
                 arrStatistic: result.data,
@@ -22,4 +22,20 @@ export const layDanhSachStatisticAction = () => {
         }
     };
 }
+export const xoaStatisticAction = (id) => {
 
+
+    return async (dispatch) => {
+        try {
+            //Sử dụng tham số thamSo
+            const result = await quanLyStatisticService.xoaStatistic(id);
+
+            // console.log("result: ", result);
+            dispatch(layDanhSachStatisticAction);
+            return result
+
+        } catch (errors) {
+            console.log('errors', errors)
+        }
+    };
+}

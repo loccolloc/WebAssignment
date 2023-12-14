@@ -6,14 +6,15 @@ import {
     DialogBody,
     DialogFooter,
 } from "@material-tailwind/react";
-
+import { xoaUserAction } from '../../redux/actions/QuanLyUserAction';
+import { useDispatch } from 'react-redux';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from "@mui/material";
 export default function ToggleDelete(props) {
     const [open, setOpen] = React.useState(false);
     const values = props.values;
     const handleOpen = () => setOpen(!open);
-
+    const dispatch = useDispatch();
     return (
         <>
             <IconButton onClick={handleOpen} style={{ padding: '0', height: 'fit-content', alignSelf: 'center' }}>
@@ -32,7 +33,12 @@ export default function ToggleDelete(props) {
                     >
                         <span>Không</span>
                     </Button>
-                    <Button variant="gradient" onClick={handleOpen}>
+                    <Button variant="gradient" onClick={() => {
+                        const action = xoaUserAction(values.id);
+                        dispatch(action);
+                        handleOpen();
+                        window.location.reload();
+                    }}>
                         <span>Có</span>
                     </Button>
                 </DialogFooter>

@@ -10,7 +10,10 @@ export class QuanLyAboutImgService extends baseService {
 
         return this.get(`http://localhost/qlsvmvc/?c=aboutimg&a=list`)
     }
+    xoaAboutImg = (id) => {
+        return this.delete(`http://localhost/qlsvmvc/?c=aboutimg&a=delete&id=${id}`)
 
+    }
 }
 
 

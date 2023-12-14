@@ -22,4 +22,21 @@ export const layDanhSachContactPageAction = () => {
         }
     };
 }
+export const xoaContactPageAction = (id) => {
+
+
+    return async (dispatch) => {
+        try {
+            //Sử dụng tham số thamSo
+            const result = await quanLyContactPageService.xoaContactPage(id);
+
+
+            dispatch(layDanhSachContactPageAction);
+            return result
+
+        } catch (errors) {
+            console.log('errors', errors)
+        }
+    };
+}
 

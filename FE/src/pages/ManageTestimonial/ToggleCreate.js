@@ -1,4 +1,7 @@
 import React from "react";
+import axios from "axios";
+import * as Yup from "yup";
+import { useFormik } from "formik";
 import {
     Button,
     Dialog,
@@ -9,7 +12,42 @@ import {
 } from "@material-tailwind/react";
 export default function ToggleCreate() {
     const [open, setOpen] = React.useState(false);
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            content: "",
+            img: "",
 
+
+        },
+        onSubmit: (values) => {
+
+            const sendData = {
+                name: values.name,
+                content: values.content,
+                img: values.img,
+
+            };
+
+            axios
+                .post("http://localhost/qlsvmvc/?c=testimonial&a=save", sendData)
+                .then((result) => {
+                    if (result.data.Status === "Invalid") {
+                    } else {
+                        window.location.reload();
+                    }
+                });
+
+
+        },
+        validationSchema: Yup.object({
+            name: Yup.string().required("Không được để trống!"),
+            content: Yup.string().required("Không được để trống!"),
+            img: Yup.string().required("Không được để trống!"),
+
+
+        }),
+    });
     const handleOpen = () => setOpen(!open);
 
     return (
@@ -20,13 +58,23 @@ export default function ToggleCreate() {
             <Dialog open={open} size="xs" handler={handleOpen} className="flex flex-col justify-center items-center">
                 <DialogHeader>Thêm phản hồi</DialogHeader>
                 <DialogBody style={{ height: 'fit-content', overflow: 'auto', scrollbarWidth: '0px' }}>
-                    <form className="w-100 max-w-screen-lg sm:w-96" method="post">
+                    <form onSubmit={formik.handleSubmit} className="w-100 max-w-screen-lg sm:w-96" method="post">
                         <div className="mb-1 flex flex-col gap-3">
-                            <Input size="lg" type="text" name='title' label="Tên" required />
-
-                            <Input size="lg" type='text' name='img' label="Hình ảnh" required />
-
-                            <Textarea size="lg" type="text" name='content' label="Nội dung" required />
+                            <Input onChange={formik.handleChange}
+                                value={formik.values.name} size="lg" type="text" name='name' label="Tên" required />
+                            {formik.errors.name && formik.touched.name && (
+                                <p className="text-danger">{formik.errors.name}</p>
+                            )}
+                            <Input onChange={formik.handleChange}
+                                value={formik.values.img} size="lg" type='text' name='img' label="Hình ảnh" required />
+                            {formik.errors.img && formik.touched.img && (
+                                <p className="text-danger">{formik.errors.img}</p>
+                            )}
+                            <Textarea onChange={formik.handleChange}
+                                value={formik.values.content} size="lg" type="text" name='content' label="Nội dung" required />
+                            {formik.errors.content && formik.touched.content && (
+                                <p className="text-danger">{formik.errors.content}</p>
+                            )}
                         </div>
                         <Button className="mt-6" type="submit" fullWidth>
                             Tạo

@@ -30,21 +30,26 @@ class TestimonialRepository {
    
     function save($data) {
         global $conn;
-        $name= $data->name;
-$content= $data->content;
-
-$img= $data->img;
-
-if($name!="" and $content!="" and $img!="" )
-{
-        $sql = "INSERT INTO testimonials(name,content,img) VALUES('$name','$content','$img')";
-        if ($conn->query($sql)) {
-            return true;
+        if (isset($data->name) && isset($data->content) && isset($data->img)) {
+            $name= $data->name;
+            $content= $data->content;
+            
+            $img= $data->img;
+            
+            if($name!="" and $content!="" and $img!="" )
+            {
+                    $sql = "INSERT INTO testimonials(name,content,img) VALUES('$name','$content','$img')";
+                    if ($conn->query($sql)) {
+                        return true;
+                    }
+                    $this->error = "Error: $sql <br>" .$conn->error ;
+                    return false;
+                }
+                return false;
+        } else {
+            return false;
         }
-        $this->error = "Error: $sql <br>" .$conn->error ;
-        return false;
-    }
-    return false;
+    
     }
     function delete($id) {
         global $conn;
@@ -64,7 +69,7 @@ $content= $data->content;
 
 $img= $data->img;
        
-        $sql = "UPDATE testimonials SET name='$name', role='$content', img='$content'  WHERE id = $id";
+        $sql = "UPDATE testimonials SET name='$name', content='$content', img='$img'  WHERE id = '$id'";
         if ($conn->query($sql)) {
             return true;
         }
