@@ -1,23 +1,22 @@
-import { IconButton, Button } from "@mui/material";
-import { productData } from "../../data/mockData";
-import VisibilityIcon from "@mui/icons-material/Visibility";
+import { newsData } from '../../data/news'
 import * as React from "react";
-import DialogUpdate from './ToggleUpdate'
-import DialogDelete from './ToggleDelete';
 import {
     Dialog,
     DialogHeader,
     DialogBody,
+    Input
 } from "@material-tailwind/react";
+import ToggleUpdate from './ToggleUpdate';
+import { IconButton, Button } from "@mui/material";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import {
-  DataGrid,
+    DataGrid,
 
 } from '@mui/x-data-grid';
-const OrderHistory = () => {
-
-
-  const columns = [
+const ManageOrder = () => {
+    const columns = [
     { field: "id", headerName: "Mã đơn hàng",headerAlign: "center",align: "center", flex: 1 },
+    { field: "username", headerName: "Người dùng",headerAlign: "center",align: "center", flex: 1 },
     {
       field: "price",
       headerName: "Tổng thanh toán",
@@ -34,6 +33,22 @@ const OrderHistory = () => {
       align: "center",
     },
     {
+      field: "address",
+      headerName: "Địa chỉ nhận hàng",
+      headerAlign: "center",
+      flex: 1,
+      align: "center",
+
+    },
+    {
+      field: "note",
+      headerName: "Ghi chú",
+      headerAlign: "center",
+      flex: 1,
+      align: "center",
+
+    },
+    {
       field: "status",
       headerName: "Tình trạng",
       headerAlign: "center",
@@ -41,7 +56,6 @@ const OrderHistory = () => {
       align: "center",
 
     },
-
     {
       field: "action",
       headerName: "Action",
@@ -52,55 +66,52 @@ const OrderHistory = () => {
         return (
           <>
             {HandleView(params)}
-            <DialogUpdate values = {params}/>
-            <DialogDelete values = {params}/>
+            <ToggleUpdate values = {params}/>
           </>
         );
       },
     },
   ];
 
-  return (
-    <div className="grid mx-4 gap-y-4">
-      <div className="" style={{display:'flex',justifyContent:'space-between'}}>
-        <div 
-        
-          className="text-xl md:text-3xl font-semibold w-full text-center"
-          sx={{ m: "0 0 5px 0" }}
-        >
-          Danh sách đơn hàng
-        </div>
-      </div>
+    return (
+        <div className="grid mx-4 gap-y-4" >
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div
 
-      <div
-        m="40px 0 0 0"
-        height="80vh"
-        sx={{
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: "bg-dark",
-            color: "text-light",
-          },
-          "& .MuiDataGrid-footerContainer": {
-            backgroundColor: "bg-dark",
-            color: "text-light",
-          },
-        }}
-        style={{overflow: 'scroll'}}
-      >
-        <DataGrid
-          rows={productData}
-          columns={columns}
-          rowHeight={100}
-          style={{minWidth:'1000px'}}
-        />
-      </div>
-    </div>
-  );
+                    className="text-xl md:text-3xl font-semibold"
+                    sx={{ m: "0 0 5px 0" }}
+                >
+                    Danh sách đơn hàng
+                </div>
+            </div>
+            <div
+                m="40px 0 0 0"
+                height="80vh"
+                sx={{
+                    "& .MuiDataGrid-columnHeaders": {
+                        backgroundColor: "bg-dark",
+                        color: "text-light",
+                    },
+                    "& .MuiDataGrid-footerContainer": {
+                        backgroundColor: "bg-dark",
+                        color: "text-light",
+                    },
+                }}
+                style={{ overflow: 'scroll' }}
+
+            >
+                <DataGrid
+                    rows={newsData}
+                    columns={columns}
+                    rowHeight={100}
+                    style={{ minWidth: '1000px' }}
+                />
+            </div>
+        </div>
+    );
 };
 
-export default OrderHistory;
-
-
+export default ManageOrder;
 
 const HandleView = (params) => {
   const [open, setOpen] = React.useState(false);
@@ -117,6 +128,7 @@ const HandleView = (params) => {
             <DialogHeader>Đơn hàng {params.row.id}</DialogHeader>
             <DialogBody style={{ height: '400px', overflow: 'auto', scrollbarWidth: '0px' }}>
                     <p>Mã đơn hàng: {params.row.username}</p>
+                    <p>Người đặt hàng: {params.row.username}</p>
                     <p>Tổng thanh toán: {params.row.price}</p>
                     <p>Ngày đặt hàng: {params.row.date}</p>
                     <p>Địa chỉ nhận hàng: {params.row.address}</p>
@@ -164,4 +176,3 @@ const HandleView = (params) => {
     </React.Fragment>
     );
 };
-

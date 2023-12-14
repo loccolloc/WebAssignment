@@ -19,10 +19,10 @@ export default function DialogDelete(props) {
         <DeleteIcon/>
       </IconButton>
       <Dialog open={open} handler={handleOpen} >
-        <DialogHeader className="flex justify-center">Xóa sản phẩm</DialogHeader>
+        <DialogHeader className="flex justify-center">Xóa đơn hàng</DialogHeader>
         <DialogBody className="flex justify-center flex-wrap text-center">
-          Bạn có chắc chắn muốn xóa sản phẩm
-          <span className="px-1" style={{color:'red'}}>{values.row.title} {values.row.color} {values.row.rom} </span>
+          Bạn có chắc chắn muốn xóa đơn hàng
+          <span className="px-1" style={{color:'red'}}>{values.row.id}</span>
           không? 
         </DialogBody>
         <DialogFooter className="flex justify-evenly">

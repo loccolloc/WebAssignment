@@ -100,6 +100,16 @@ export const ProfileTemplate = (props) => { //path, exact, Component
                         </ListItemButton>
                     </ListItem>
                 </NavLink>
+                <NavLink to='manageOrder' className="text-dark">
+                    <ListItem key='manageOrder' disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <SupervisedUserCircleRoundedIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Quản lí đơn đạt hàng" />
+                        </ListItemButton>
+                    </ListItem>
+                </NavLink>
                 <NavLink to='manageContact' className="text-dark">
                     <ListItem key='manageContact' disablePadding>
                         <ListItemButton>

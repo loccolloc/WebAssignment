@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Button } from '@material-tailwind/react';
+
 import './Header.css';
 
 const { Option } = Select;
@@ -31,12 +32,9 @@ export default function Header(props) {
     }, [])
 
     const handleLogout = () => {
-
         localStorage.clear();
-        window.location.reload();
-
-
-
+        history.push('/home');
+        // window.location.reload();
     }
     function LogoutButton() {
         var username = localStorage.getItem('username');

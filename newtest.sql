@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 13, 2023 at 05:50 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th12 14, 2023 lúc 04:50 AM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `newtest`
+-- Cơ sở dữ liệu: `newtest`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aboutimg`
+-- Cấu trúc bảng cho bảng `aboutimg`
 --
 
 CREATE TABLE `aboutimg` (
@@ -33,7 +33,7 @@ CREATE TABLE `aboutimg` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `aboutimg`
+-- Đang đổ dữ liệu cho bảng `aboutimg`
 --
 
 INSERT INTO `aboutimg` (`id`, `img`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `aboutimg` (`id`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `account`
+-- Cấu trúc bảng cho bảng `account`
 --
 
 CREATE TABLE `account` (
@@ -55,22 +55,26 @@ CREATE TABLE `account` (
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `role` varchar(50) NOT NULL,
-  `image` mediumtext NOT NULL
+  `image` mediumtext NOT NULL,
+  `fullname` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `phonenumber` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `account`
+-- Đang đổ dữ liệu cho bảng `account`
 --
 
-INSERT INTO `account` (`id`, `username`, `password`, `role`, `image`) VALUES
-(49, 'loc', '123456', 'admin', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg'),
-(52, 'tamminh', '123456', 'user', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg'),
-(54, 'locloc', '123456', 'user', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg');
+INSERT INTO `account` (`id`, `username`, `password`, `role`, `image`, `fullname`, `email`, `address`, `phonenumber`) VALUES
+(49, 'loc', '123456', 'admin', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg', 'Xuân Lộc', 'loc@gmail.com', '1', '0123456789'),
+(52, 'tamminh', '123456', 'user', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg', 'Tâm Minh', 'tamminh@gmail.com', '1', '01234567899'),
+(54, 'locloc', '123456', 'user', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carousel`
+-- Cấu trúc bảng cho bảng `carousel`
 --
 
 CREATE TABLE `carousel` (
@@ -79,7 +83,7 @@ CREATE TABLE `carousel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `carousel`
+-- Đang đổ dữ liệu cho bảng `carousel`
 --
 
 INSERT INTO `carousel` (`id`, `hinhAnh`) VALUES
@@ -90,7 +94,7 @@ INSERT INTO `carousel` (`id`, `hinhAnh`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart`
+-- Cấu trúc bảng cho bảng `cart`
 --
 
 CREATE TABLE `cart` (
@@ -105,18 +109,18 @@ CREATE TABLE `cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `cart`
+-- Đang đổ dữ liệu cho bảng `cart`
 --
 
 INSERT INTO `cart` (`id`, `ptitle`, `pprice`, `pkind`, `pimg`, `sl`, `username`, `p_id`) VALUES
 (12563, 'iPhone 15 Pro', 28290000, 'iphone15', 'https://cdn.tgdd.vn/Products/Images/42/299033/iphone-15-pro-blue-thumbnew-600x600.jpg', 3, 'locloc', 2),
-(12578, 'iPhone 15 Pro Max', 33890000, 'iphone15', 'https://cdn.tgdd.vn/Products/Images/42/305658/iphone-15-pro-max-blue-thumbnew-600x600.jpg', 1, 'tamminh', 1),
-(12579, 'iPhone 15 Pro', 28290000, 'iphone15', 'https://cdn.tgdd.vn/Products/Images/42/299033/iphone-15-pro-blue-thumbnew-600x600.jpg', 5, 'tamminh', 2);
+(12581, 'iPhone 14 Pro Max', 27490000, 'iphone14', 'https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-tim-thumb-600x600.jpg', 3, 'tamminh', 5),
+(12582, 'iPhone 15 Pro Max', 33890000, 'iphone15', 'https://cdn.tgdd.vn/Products/Images/42/305658/iphone-15-pro-max-blue-thumbnew-600x600.jpg', 1, 'tamminh', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `commentdb`
+-- Cấu trúc bảng cho bảng `commentdb`
 --
 
 CREATE TABLE `commentdb` (
@@ -128,7 +132,7 @@ CREATE TABLE `commentdb` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `commentdb`
+-- Đang đổ dữ liệu cho bảng `commentdb`
 --
 
 INSERT INTO `commentdb` (`id`, `username`, `comment`, `time`, `productid`) VALUES
@@ -139,7 +143,7 @@ INSERT INTO `commentdb` (`id`, `username`, `comment`, `time`, `productid`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `commentnews`
+-- Cấu trúc bảng cho bảng `commentnews`
 --
 
 CREATE TABLE `commentnews` (
@@ -151,7 +155,7 @@ CREATE TABLE `commentnews` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `commentnews`
+-- Đang đổ dữ liệu cho bảng `commentnews`
 --
 
 INSERT INTO `commentnews` (`id`, `username`, `time`, `newsid`, `comment`) VALUES
@@ -160,7 +164,7 @@ INSERT INTO `commentnews` (`id`, `username`, `time`, `newsid`, `comment`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contact`
+-- Cấu trúc bảng cho bảng `contact`
 --
 
 CREATE TABLE `contact` (
@@ -171,7 +175,7 @@ CREATE TABLE `contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `contact`
+-- Đang đổ dữ liệu cho bảng `contact`
 --
 
 INSERT INTO `contact` (`id`, `name`, `email`, `message`) VALUES
@@ -180,7 +184,7 @@ INSERT INTO `contact` (`id`, `name`, `email`, `message`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contactpage`
+-- Cấu trúc bảng cho bảng `contactpage`
 --
 
 CREATE TABLE `contactpage` (
@@ -190,7 +194,7 @@ CREATE TABLE `contactpage` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `contactpage`
+-- Đang đổ dữ liệu cho bảng `contactpage`
 --
 
 INSERT INTO `contactpage` (`id`, `header`, `content`) VALUES
@@ -204,7 +208,7 @@ INSERT INTO `contactpage` (`id`, `header`, `content`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `news`
+-- Cấu trúc bảng cho bảng `news`
 --
 
 CREATE TABLE `news` (
@@ -218,7 +222,7 @@ CREATE TABLE `news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `news`
+-- Đang đổ dữ liệu cho bảng `news`
 --
 
 INSERT INTO `news` (`id`, `title`, `description`, `content`, `author`, `date`, `img`) VALUES
@@ -236,7 +240,7 @@ INSERT INTO `news` (`id`, `title`, `description`, `content`, `author`, `date`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
@@ -248,7 +252,7 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `product`
+-- Đang đổ dữ liệu cho bảng `product`
 --
 
 INSERT INTO `product` (`id`, `ptitle`, `pprice`, `pkind`, `pimg`) VALUES
@@ -262,7 +266,7 @@ INSERT INTO `product` (`id`, `ptitle`, `pprice`, `pkind`, `pimg`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `service`
+-- Cấu trúc bảng cho bảng `service`
 --
 
 CREATE TABLE `service` (
@@ -272,7 +276,7 @@ CREATE TABLE `service` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `service`
+-- Đang đổ dữ liệu cho bảng `service`
 --
 
 INSERT INTO `service` (`id`, `name`, `description`) VALUES
@@ -286,7 +290,7 @@ INSERT INTO `service` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `statistic`
+-- Cấu trúc bảng cho bảng `statistic`
 --
 
 CREATE TABLE `statistic` (
@@ -296,7 +300,7 @@ CREATE TABLE `statistic` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `statistic`
+-- Đang đổ dữ liệu cho bảng `statistic`
 --
 
 INSERT INTO `statistic` (`id`, `quantity`, `item`) VALUES
@@ -310,7 +314,7 @@ INSERT INTO `statistic` (`id`, `quantity`, `item`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `store`
+-- Cấu trúc bảng cho bảng `store`
 --
 
 CREATE TABLE `store` (
@@ -322,7 +326,7 @@ CREATE TABLE `store` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `store`
+-- Đang đổ dữ liệu cho bảng `store`
 --
 
 INSERT INTO `store` (`id`, `province`, `address`, `email`, `phone`) VALUES
@@ -333,7 +337,7 @@ INSERT INTO `store` (`id`, `province`, `address`, `email`, `phone`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_product`
+-- Cấu trúc bảng cho bảng `tbl_product`
 --
 
 CREATE TABLE `tbl_product` (
@@ -345,7 +349,7 @@ CREATE TABLE `tbl_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_product`
+-- Đang đổ dữ liệu cho bảng `tbl_product`
 --
 
 INSERT INTO `tbl_product` (`p_id`, `ptitle`, `pprice`, `pfile`, `pstatus`) VALUES
@@ -354,7 +358,7 @@ INSERT INTO `tbl_product` (`p_id`, `ptitle`, `pprice`, `pfile`, `pstatus`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `team`
+-- Cấu trúc bảng cho bảng `team`
 --
 
 CREATE TABLE `team` (
@@ -365,7 +369,7 @@ CREATE TABLE `team` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `team`
+-- Đang đổ dữ liệu cho bảng `team`
 --
 
 INSERT INTO `team` (`id`, `name`, `role`, `img`) VALUES
@@ -379,7 +383,7 @@ INSERT INTO `team` (`id`, `name`, `role`, `img`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `testimonials`
+-- Cấu trúc bảng cho bảng `testimonials`
 --
 
 CREATE TABLE `testimonials` (
@@ -390,7 +394,7 @@ CREATE TABLE `testimonials` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `testimonials`
+-- Đang đổ dữ liệu cho bảng `testimonials`
 --
 
 INSERT INTO `testimonials` (`id`, `name`, `content`, `img`) VALUES
@@ -400,201 +404,201 @@ INSERT INTO `testimonials` (`id`, `name`, `content`, `img`) VALUES
 (4, 'Lâm', 'Giao hàng nhanh chóng và bảo hành rõ ràng - đó là những gì tôi đã trải nghiệm khi mua iPhone từ trang web này. Tôi hài lòng với chất lượng sản phẩm và cảm thấy tin tưởng với các chính sách của họ.', 'https://www.worldphoto.org/sites/default/files/default-media/Piercy.jpg');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `aboutimg`
+-- Chỉ mục cho bảng `aboutimg`
 --
 ALTER TABLE `aboutimg`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `account`
+-- Chỉ mục cho bảng `account`
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `carousel`
+-- Chỉ mục cho bảng `carousel`
 --
 ALTER TABLE `carousel`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cart`
+-- Chỉ mục cho bảng `cart`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `commentdb`
+-- Chỉ mục cho bảng `commentdb`
 --
 ALTER TABLE `commentdb`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `commentnews`
+-- Chỉ mục cho bảng `commentnews`
 --
 ALTER TABLE `commentnews`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `contact`
+-- Chỉ mục cho bảng `contact`
 --
 ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `contactpage`
+-- Chỉ mục cho bảng `contactpage`
 --
 ALTER TABLE `contactpage`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `news`
+-- Chỉ mục cho bảng `news`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `product`
+-- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `service`
+-- Chỉ mục cho bảng `service`
 --
 ALTER TABLE `service`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `statistic`
+-- Chỉ mục cho bảng `statistic`
 --
 ALTER TABLE `statistic`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `store`
+-- Chỉ mục cho bảng `store`
 --
 ALTER TABLE `store`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_product`
+-- Chỉ mục cho bảng `tbl_product`
 --
 ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`p_id`);
 
 --
--- Indexes for table `team`
+-- Chỉ mục cho bảng `team`
 --
 ALTER TABLE `team`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `testimonials`
+-- Chỉ mục cho bảng `testimonials`
 --
 ALTER TABLE `testimonials`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `aboutimg`
+-- AUTO_INCREMENT cho bảng `aboutimg`
 --
 ALTER TABLE `aboutimg`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `account`
+-- AUTO_INCREMENT cho bảng `account`
 --
 ALTER TABLE `account`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
--- AUTO_INCREMENT for table `carousel`
+-- AUTO_INCREMENT cho bảng `carousel`
 --
 ALTER TABLE `carousel`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `cart`
+-- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12580;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12583;
 
 --
--- AUTO_INCREMENT for table `commentdb`
+-- AUTO_INCREMENT cho bảng `commentdb`
 --
 ALTER TABLE `commentdb`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT for table `commentnews`
+-- AUTO_INCREMENT cho bảng `commentnews`
 --
 ALTER TABLE `commentnews`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `contact`
+-- AUTO_INCREMENT cho bảng `contact`
 --
 ALTER TABLE `contact`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `contactpage`
+-- AUTO_INCREMENT cho bảng `contactpage`
 --
 ALTER TABLE `contactpage`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `news`
+-- AUTO_INCREMENT cho bảng `news`
 --
 ALTER TABLE `news`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `product`
+-- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `service`
+-- AUTO_INCREMENT cho bảng `service`
 --
 ALTER TABLE `service`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `statistic`
+-- AUTO_INCREMENT cho bảng `statistic`
 --
 ALTER TABLE `statistic`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `store`
+-- AUTO_INCREMENT cho bảng `store`
 --
 ALTER TABLE `store`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tbl_product`
+-- AUTO_INCREMENT cho bảng `tbl_product`
 --
 ALTER TABLE `tbl_product`
   MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `team`
+-- AUTO_INCREMENT cho bảng `team`
 --
 ALTER TABLE `team`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `testimonials`
+-- AUTO_INCREMENT cho bảng `testimonials`
 --
 ALTER TABLE `testimonials`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;

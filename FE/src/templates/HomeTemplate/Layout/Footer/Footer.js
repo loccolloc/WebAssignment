@@ -26,26 +26,22 @@ export default function Footer(props) {
                 <div className="grid grid-cols-12">
                     <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
                         <btn href="#" className="flex justify-center space-x-3 md:justify-start text-black">
-
                             <img src={logo} alt="cyberlearn.vn" />
                         </btn>
                     </div>
 
                     <div className="col-span-6 text-center md:text-left md:col-span-3">
-                        <p className="pb-1 text-lg font-medium text-white">PARTNER</p>
+                        <p className="pb-1 text-lg font-medium text-white">Thông tin liên hệ</p>
                         <p className='text-white'>
-                            {productDetail[0]?.address}</p>
+                            Địa chỉ: {productDetail[0]?.address}</p>
                         <p className='text-white'>Gọi số: <a href={`tel:${productDetail[0]?.phone}`}>{productDetail[0]?.phone}</a></p>
                         <div className="grid grid-cols-3" style={{ color: '#fff' }}>
-
                             <div >
-
                             </div>
-
                         </div>
                     </div>
                     <div className="col-span-6 text-center md:text-left md:col-span-3 text-white">
-                        <p className="pb-1 text-lg font-medium">Mobile app</p>
+                        <p className="pb-1 text-lg font-medium">Kết nối với chúng tôi</p>
                         <div className="flex text-white">
                             <div className="mr-5">
                                 <AppleOutlined className="text-2xl" />
@@ -53,20 +49,11 @@ export default function Footer(props) {
                             <div>
                                 <FacebookOutlined className="text-2xl" />
                             </div>
-
                         </div>
                     </div>
                 </div>
-                <div className="grid justify-center pt-6 lg:justify-between text-white">
-                    <div className="flex flex-col self-center text-sm text-center md:block lg:col-start-1 md:space-x-6">
-                        <span>©2023 All rights reserved</span>
-                    </div>
-
-                    <div className="">
-
-                    </div>
-
-
+                <div className="pt-6 lg:justify-between text-white" style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+                    <div>©2023 All rights reserved</div>
                 </div>
             </div>
         </footer>

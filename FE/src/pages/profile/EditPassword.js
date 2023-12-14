@@ -43,7 +43,7 @@ export default function EditPassword() {
 
     return (
         <>
-            <Button className="text-white bg-dark rounded py-2" onClick={handleOpen}>Thay đổi mật khẩu</Button>
+            <Button className="text-white bg-dark rounded py-3 flex items-center justify-center" onClick={handleOpen}>Thay đổi mật khẩu</Button>
             <Dialog
                 size="xs"
                 open={open}

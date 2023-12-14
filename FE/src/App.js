@@ -43,6 +43,7 @@ import ManageService from './pages/ManageService/ManageService';
 import ManageStatistic from './pages/ManageStatistic/ManageStatistic';
 import ManageAboutImg from './pages/ManageAboutImg/ManageAboutImg';
 import ManageContactPage from './pages/ManageContactPage/ManageContactPage';
+import ManageOrder from './pages/ManageOrder/ManageOrder';
 import { UserProfileTemplate } from './templates/HomeTemplate/UserProfileTemplate'
 import OrderHistory from './pages/OrderHistory/OrderHistory'; 
 export const history = createBrowserHistory();
@@ -59,6 +60,7 @@ function App() {
 
 
         <ProfileTemplate path='/admin' exact Component={Profile} />
+        <ProfileTemplate path='/manageOrder' exact Component={ManageOrder} />
         <ProfileTemplate path='/manageUsers' exact Component={ManageUser} />
         <ProfileTemplate path='/manageNews' exact Component={ManageNews} />
         <ProfileTemplate path='/manageContact' exact Component={ManageContact} />
