@@ -1,1 +1,0 @@
-export const SET_DANH_SACH_IMG = 'SET_DANH_SACH_IMG'
