@@ -33,8 +33,7 @@ export default function Header(props) {
 
     const handleLogout = () => {
         localStorage.clear();
-        history.push('/home');
-        // window.location.reload();
+        window.location.reload();
     }
     function LogoutButton() {
         var username = localStorage.getItem('username');

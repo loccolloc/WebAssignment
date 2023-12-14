@@ -13,31 +13,57 @@ import {Input} from '@material-tailwind/react';
 const Home = (props) => {
 
     const [displayCount, setDisplayCount] = useState(6);
-
     const { arrProduct } = useSelector(state => state.QuanLySanPhamReducer);
     const loadMoreArticles = () => {
         setDisplayCount(prevCount => prevCount + 6); // Load 6 more phones
     };
+    const [sortBy, setSortBy] = useState('pprice'); // Default sorting by pprice
+    const [sortOrder, setSortOrder] = useState('asc'); // Default sorting order is ascending    
     const renderFilms = () => {
-        if (arrProduct.length ===0 ) return <p className='my-5 text-3xl'>Không có sản phẩm nào</p>
-        else
-        return arrProduct.slice(0, displayCount).map((product, index) => {
-            return <Product key={index} product={product} />
-        })
+    let filteredProducts = arrProduct;
+
+    if (searchValue) {
+        filteredProducts = arrProduct.filter((item) =>
+            item.ptitle.toLowerCase().includes(searchValue.toLowerCase())
+        );
     }
+
+    // Sort the filtered products based on the selected criteria
+    filteredProducts.sort((a, b) => {
+        const valueA = a[sortBy];
+        const valueB = b[sortBy];
+
+        if (valueA < valueB) {
+            return sortOrder === 'asc' ? -1 : 1;
+        }
+        if (valueA > valueB) {
+            return sortOrder === 'asc' ? 1 : -1;
+        }
+        return 0;
+    });
+
+    if (filteredProducts.length === 0) {
+        return <p className='my-5 text-3xl'>Không có sản phẩm nào</p>;
+    } else {
+        return (
+            filteredProducts
+                .slice(0, displayCount)
+                .map((product, index) => {
+                    return <Product key={index} product={product} />;
+                })
+        );
+    }
+};
     const dispatch = useDispatch();
     useEffect(() => {
         const action = layDanhSachSanPhamAction();
         dispatch(action); //dispatch function từ thunk
-
-
-
     }, [dispatch])
 
     const [searchValue, setSearchValue] = useState();
     function handleChangeSearch(e) {
-        console.log(e.target.value);
-    } 
+        setSearchValue(e.target.value);
+    }    
 
     return (
         <div className='bg-white/10 backdrop-blur-md shadow-lg rounded-lg border border-gray-200'>
@@ -74,7 +100,20 @@ const Home = (props) => {
                         }}>Iphone SE series</button>
                     </div>
                     <h1 style={{ fontSize: "30px", textAlign: "center" ,width:'100%'}}>Điện thoại</h1>
-                    <Input className='w-2/4' value={searchValue} onChange={(e)=>handleChangeSearch(e)}/>
+                    <div className=' w-2/4 text-center'>
+                        <Input  value={searchValue} onChange={(e)=>handleChangeSearch(e)} placeholder='Tìm kiếm sản phẩm' icon={<i className="fas fa-search" />}/>
+                        <Button
+                            className='my-2'
+                            onClick={() => {
+                                setSortBy('pprice');
+                                setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+                            }}
+                            
+                        >
+                            Sắp xếp theo giá:
+                            {sortOrder === 'asc' ? 'Từ thấp đến cao' : 'Từ cao đến thấp'}
+                        </Button>
+                    </div>
                     <div className="flex flex-wrap -m-4" style={{ justifyContent: 'center' }}>
                         {renderFilms()}
                     </div>
