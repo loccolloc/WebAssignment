@@ -38,17 +38,33 @@ export default function Header(props) {
     }
     function LogoutButton() {
         var username = localStorage.getItem('username');
+        var avatar = localStorage.getItem('image');
+
         var role = localStorage.getItem('role');
         if (auth) {
             return (
                 <div className='flex items-center'>
                     {role === 'user' && (
-                        <NavLink to="/profile" className="hidden md:flex items-center -mb-0.5 border-b-2 border-transparent p-2" activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                        <div className='flex items-center gap-1 p-2'>
+                            <img
+                                src={avatar}
+                                className="object-cover w-8 h-8 rounded-full border-2 border-emerald-400  shadow-emerald-400 hidden md:block"
+                                alt={username}
+                            />
+                            <NavLink to="/profile" className="hidden md:flex items-center -mb-0.5 border-b-2 border-transparent p-2" activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                        </div>
                     )}
                     {role === 'admin' && (
-                        <NavLink to="/admin" className="hidden md:flex items-center -mb-0.5 border-b-2 border-transparent p-2" activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                        <div className='flex items-center gap-1 p-2'>
+                            <img
+                                src={avatar}
+                                className="object-cover w-8 h-8 rounded-full border-2 border-emerald-400  shadow-emerald-400 hidden md:block"
+                                alt={username}
+                            />
+                            <NavLink to="/admin" className="hidden md:flex items-center -mb-0.5 border-b-2 border-transparent p-2" activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                        </div>                    
                     )}
-                    <button onClick={handleLogout} className="self-center px-8 py-3 font-semibold  text-coolGray-50 hidden md:block"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <button onClick={handleLogout} className="self-center p-2 font-semibold  text-coolGray-50 hidden md:block"><i class="fa fa-sign-out" aria-hidden="true"></i>
                     </button>
                 </div>
 
@@ -59,18 +75,35 @@ export default function Header(props) {
 
     function LogoutButtonSM() {
         var username = localStorage.getItem('username');
+        var avatar = localStorage.getItem('image');
+
         var role = localStorage.getItem('role');
         if (auth) {
             return (
-                <div className='flex items-center bg-white text-dark'>
+                <div className='flex items-center justify-between bg-white text-dark w-full'>
                     {role === 'user' && (
-                        <NavLink to="/profile" className="-mb-0.5 border-b-2 border-transparent p-2 text-dark " activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                        <div className='flex items-center gap-1 p-2'> 
+                            <img
+                                    src={avatar}
+                                    className="object-cover w-8 h-8 rounded-full border-2 border-emerald-400  shadow-emerald-400"
+                                    alt={username}
+                            />
+                            <NavLink to="/profile" className="-mb-0.5 border-b-2 border-transparent p-2 text-dark " activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                        </div>
+
                     )}
                     {role === 'admin' && (
-                        <NavLink to="/admin" className="-mb-0.5 border-b-2 border-transparent p-2 text-dark " activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                        <div className='flex items-center gap-1 p-2'> 
+                            <img
+                                    src={avatar}
+                                    className="object-cover w-8 h-8 rounded-full border-2 border-emerald-400  shadow-emerald-400"
+                                    alt={username}
+                            />
+                            <NavLink to="/admin" className="-mb-0.5 border-b-2 border-transparent p-2 text-dark " activeClassName="border-b-2 border-white"><span>{username}</span></NavLink>
+                        </div>
                     )}
                     
-                    <button onClick={handleLogout} style={{color:'red'}} className="self-center px-8 py-3 font-semibold">Đăng xuất
+                    <button onClick={handleLogout} style={{color:'red'}} className="self-center p-3 font-semibold">Đăng xuất
                     </button>
                 </div>
 

@@ -23,7 +23,7 @@ if($num>=1)
 {
     http_response_code(200);
     $outp="";
-        $outp.= '{"username":"'. $rs["username"] . '",'.'"role":"'. $rs["role"] . '",';
+        $outp.= '{"username":"'. $rs["username"] . '",'.'"role":"'. $rs["role"] . '",  ' . '"image":"' . $rs["image"] . '", ';
         $outp.='"Status":"200"}';
     echo $outp;
     

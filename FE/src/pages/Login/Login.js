@@ -40,6 +40,8 @@ export default function Login(props) {
                 // window.localStorage.setItem('username', result.data.username);
                 localStorage.setItem("username", result.data.username);
                 localStorage.setItem("role", result.data.role);
+                localStorage.setItem("image", result.data.image);
+
                 var role = localStorage.getItem('role');
                 if (role === "user") {
                     history.push('/home');
