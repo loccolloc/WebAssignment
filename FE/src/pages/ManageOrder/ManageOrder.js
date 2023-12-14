@@ -31,7 +31,7 @@ const ManageOrder = () => {
     { field: "id", headerName: "Mã đơn hàng",headerAlign: "center",align: "center", flex: 1 },
     { field: "username", headerName: "Người dùng",headerAlign: "center",align: "center", flex: 1 },
     {
-      field: "price",
+      field: "total",
       headerName: "Tổng thanh toán",
       headerAlign: "center",
       flex: 1,
@@ -47,7 +47,7 @@ const ManageOrder = () => {
       align: "center",
     },
     {
-      field: "address",
+      field: "billing_address",
       headerName: "Địa chỉ nhận hàng",
       headerAlign: "center",
       flex: 1,
@@ -136,7 +136,33 @@ export default ManageOrder;
 
 
 const HandleView = (params) => {
-  const [open, setOpen] = React.useState(false);
+   const [open, setOpen] = React.useState(false);
+  var username = localStorage.getItem("username");
+
+
+
+
+    const [ptitle, setTitle] = useState("");
+    const [pprice, setPrice] = useState("");
+    const [pimg, setImg] = useState("");
+    const [sl, setSl] = useState("");
+    const [tonggia, setTonggia] = useState("");
+    const [orderDetail,setOrderDetail] =useState(null);
+   
+    useEffect(() => {
+      axios.post("http://localhost/qlsvmvc/?c=User&a=getCart", {
+        username: username,
+        id:params.row.id
+      }).then((res) => {
+        // console.log(res.data[0])
+        setOrderDetail(res.data);
+        setTitle(res.data[0]["ptitle"]);
+        setPrice(res.data[0]["pprice"]);
+        setImg(res.data[0]["pimg"]);
+        setSl(res.data[0]["sl"]);
+        setTonggia(res.data[0]["tonggia"]);
+      });
+    }, []);
 
 
     const handleOpen = () => setOpen(!open);
@@ -151,11 +177,11 @@ const HandleView = (params) => {
         <div className='p-3 w-full'>
             <DialogHeader>Đơn hàng {params.row.id}</DialogHeader>
             <DialogBody style={{ height: '400px', overflow: 'auto', scrollbarWidth: '0px' }}>
-                    <p>Mã đơn hàng: {params.row.username}</p>
+                    <p>Mã đơn hàng: {params.row.id}</p>
                     <p>Người đặt hàng: {params.row.username}</p>
-                    <p>Tổng thanh toán: {params.row.price}</p>
+                    <p>Tổng thanh toán: {params.row.total}</p>
                     <p>Ngày đặt hàng: {params.row.date}</p>
-                    <p>Địa chỉ nhận hàng: {params.row.address}</p>
+                    <p>Địa chỉ nhận hàng: {params.row.billing_address}</p>
                     <p>Ghi chú: {params.row.note}</p>
                     <div className='w-full overflow-x-auto'>
                         <table class="table" style={{minWidth:'600px'}}>
@@ -169,29 +195,19 @@ const HandleView = (params) => {
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                            <td>Malcolm Lockyer</td>
-                            <td>1961</td>
-                            <td>1961</td>
-                            <td>1961</td>
-                        </tr>
-                        <tr>
-                            <td>Witchy Woman</td>
-                            <td>The Eagles</td>
-                            <td>1972</td>
-                            <td>1961</td>
-                            <td>1961</td>
+                        {Array.isArray(orderDetail) && orderDetail.map((item,index) =>  {
+                          return (
+                            <tr >
+                                <td>{item.ptitle}</td>
+                                <td><img src={item.pimg} alt="anhsanpham" style={{height:'100px'}}></img></td>
+                                <td>{item.sl}</td>
+                                <td>{item.pprice}</td>
+                                <td>{item.tonggia}</td>
+                            </tr>
 
 
-                        </tr>
-                        <tr>
-                            <td>Shining Star</td>
-                            <td>Earth, Wind, and Fire</td>
-                            <td>1975</td>
-                            <td>1961</td>
-                            <td>1961</td>
-                        </tr>
+                          )
+                        })}
                         </tbody>
                         </table>
                     </div>

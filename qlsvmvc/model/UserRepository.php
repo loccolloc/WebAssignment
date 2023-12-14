@@ -208,7 +208,7 @@ class UserRepository
                 'pprice' => "{$row['pprice']}",
                 'pimg' => "{$row['pimg']}",
                 'sl' => "{$row['sl']}",
-                'tonggia' => "{$row['tonggia']}",
+                'tonggia' => "{$row['tonggia']}"
             ]);
         }
         return $myArray;
@@ -228,7 +228,8 @@ class UserRepository
                 'name' => "{$row['name']}",
                 'billing_address' => "{$row['billing_address']}",
                 'date' => "{$row['date']}",
-                'status' => "{$row['status']}"
+                'status' => "{$row['status']}",
+                'note' => "{$row['note']}"
             ]);
         }
         return $myArray;

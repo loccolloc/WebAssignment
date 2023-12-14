@@ -33,7 +33,7 @@ const OrderHistory = () => {
       axios.post("http://localhost/qlsvmvc/?c=User&a=getListOrder", {
         username: username
       }).then((res) => {
-        console.log(res.data[0])
+        // console.log(res.data[0])
         setListOrder(res.data)
       });
     }, []);
@@ -150,16 +150,12 @@ const HandleView = (params) => {
    
     useEffect(() => {
       axios.post("http://localhost/qlsvmvc/?c=User&a=getCart", {
-        username: username,
-        id:params.row.id
+        username: "tamminh",
+        id:3
       }).then((res) => {
-        // console.log(res.data[0])
-        setOrderDetail(res.data);
-        setTitle(res.data[0]["ptitle"]);
-        setPrice(res.data[0]["pprice"]);
-        setImg(res.data[0]["pimg"]);
-        setSl(res.data[0]["sl"]);
-        setTonggia(res.data[0]["tonggia"]);
+        console.log(res.data[0]);
+        setOrderDetail(res.data[0]);
+        
       });
     }, []);
 
@@ -192,7 +188,8 @@ const HandleView = (params) => {
                         </tr>
                         </thead>
                         <tbody>
-                        {typeof orderDetail === 'object' && Array.isArray(orderDetail) && orderDetail.map((item,index) =>  {
+                        { Array.isArray(orderDetail) && orderDetail.map((item,index) =>  {
+                          // console.log(item);
                           return (
                             <tr >
                                 <td>{item.ptitle}</td>

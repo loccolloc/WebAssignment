@@ -1,6 +1,6 @@
-<?php 
+<?php
 error_reporting(E_ALL);
-ini_set('display_errors',1);
+ini_set('display_errors', 1);
 header("Access-Control-Allow-Origin:* ");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
@@ -41,12 +41,12 @@ require "model/ContactPageRepository.php";
 require "model/Aboutimg.php";
 require "model/AboutimgRepository.php";
 
-
+require "model/Order.php";
+require "model/OrderRepository.php";
 //router
-$c = $_GET["c"] ?? "student";
+$c = $_GET["c"] ?? "user";
 $a = $_GET["a"] ?? "list";
-$controllerName = ucfirst($c). "Controller";
+$controllerName = ucfirst($c) . "Controller";
 require "controller/" . $controllerName . ".php";
 $controller = new $controllerName();
 $controller->$a();
-?>

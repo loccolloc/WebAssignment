@@ -16,21 +16,18 @@ export default function Checkout() {
             card_no: "",
             billing_address: "",
             billing_state: "",
-            billing_zip: "",
-            credit_expiry: "",
-            credit_cvc: "",
             note: "",
         },
         onSubmit: (values) => {
+            console.log(values)
             const sendData = {
                 name: values.name,
                 email: values.email,
                 billing_address: values.billing_address,
                 total: totalPrice,
                 username: username,
-                note: values.note,
+                note: values.note
             };
-
             axios
                 .post("http://localhost/qlsvmvc/?c=order&a=save", sendData)
                 .then((result) => {
@@ -274,7 +271,7 @@ export default function Checkout() {
                                     id="email"
                                     name="email"
                                     value={formik.values.email}
-                                    className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                    className="w-full rounded-md border border-gray-200 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                                     placeholder="your.email@gmail.com"
                                 />
                                 {formik.errors.email && formik.touched.email && (
@@ -310,7 +307,7 @@ export default function Checkout() {
                                     id="name"
                                     name="name"
                                     value={formik.values.name}
-                                    className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                    className="w-full rounded-md border border-gray-200 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                                     placeholder="Họ và tên"
                                 />
                                 {formik.errors.name && formik.touched.name && (
@@ -340,20 +337,21 @@ export default function Checkout() {
                                 Ghi chú
                             </label>
                             <div className="flex">
-                                <div className="relative w-7/12 flex-shrink-0">
-                                    <input
+                                <div className="relative w-full ">
+                                    <textarea
                                         type="text"
+                                        rows={3}
                                         onChange={formik.handleChange}
                                         id="note"
                                         name="note"
                                         value={formik.values.note}
-                                        className="w-full rounded-md border border-gray-200 px-2 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                                        placeholder="note"
+                                        className="w-full rounded-md border border-gray-200 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                        placeholder="Ghi chú"
                                     />
                                     {formik.errors.note && formik.touched.note && (
                                         <p className="text-danger">{formik.errors.note}</p>
                                     )}
-                                    <div className="pointer-events-none absolute inset-y-0 left-0 inline-flex items-center px-3">
+                                    <div className="pointer-events-none absolute inset-y-0 left-0 top-5  px-3">
                                         <svg
                                             className="h-4 w-4 text-gray-400"
                                             xmlns="http://www.w3.org/2000/svg"
@@ -367,18 +365,6 @@ export default function Checkout() {
                                         </svg>
                                     </div>
                                 </div>
-                                <input
-                                    type="text"
-                                    name="credit_expiry"
-                                    className="w-full rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                                    placeholder="MM/YY"
-                                />
-                                <input
-                                    type="text"
-                                    name="credit_cvc"
-                                    className="w-1/6 flex-shrink-0 rounded-md border border-gray-200 px-2 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                                    placeholder="CVC"
-                                />
                             </div>
                             <label
                                 htmlFor="billing-address"
@@ -393,8 +379,8 @@ export default function Checkout() {
                                         type="text"
                                         id="billing-address"
                                         name="billing_address"
-                                        className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                                        placeholder="Đường"
+                                        className="w-full rounded-md border border-gray-200 py-3 pl-11 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                        placeholder="Địa chỉ"
                                         value={formik.values.billing_address}
                                     />
                                     {formik.errors.billing_address &&
@@ -415,7 +401,7 @@ export default function Checkout() {
                                     type="text"
 
                                     name="billing_state"
-                                    className="w-full rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                    className="w-full rounded-md border border-gray-200 py-3 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
                                 >
                                     <option value="Tp. Hồ Chí Minh">Tp. Hồ Chí Minh</option>
                                     <option value="Tp. Hồ Chí Minh">Hà Nội</option>
@@ -479,13 +465,6 @@ export default function Checkout() {
                                     <option value="Vĩnh Phúc">Vĩnh Phúc</option>
                                     <option value="Yên Bái">Yên Bái</option>
                                 </select>
-                                <input
-                                    type="text"
-
-                                    name="billing_zip"
-                                    className="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 text-sm shadow-sm outline-none sm:w-1/6 focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                                    placeholder="ZIP"
-                                />
                             </div>
                             {/* Total */}
                             <div className="mt-6 border-t border-b py-2">
@@ -522,6 +501,8 @@ export default function Checkout() {
                             type="submit"
                             className="mt-4 mb-8 w-full rounded-md bg-gray-900 px-6 py-3 font-medium text-white"
                             value="Đặt hàng"
+
+
                         />
                     </form>
                 </div>
