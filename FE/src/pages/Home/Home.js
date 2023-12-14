@@ -1,26 +1,28 @@
-import React, { useEffect } from 'react'
-import HomeMenu from './HomeMenu/HomeMenu'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react';
+import HomeMenu from './HomeMenu/HomeMenu';
+import { useSelector, useDispatch } from 'react-redux';
+import { Button } from '@material-tailwind/react';
 import Product from '../../components/Product/Product';
 import { layDanhSachSanPhamAction } from '../../redux/actions/QuanLySanPhamAction';
 import { SET_SAN_PHAM_IPHONE15, SET_SAN_PHAM_IPHONE14, SET_SAN_PHAM_ALL, SET_SAN_PHAM_IPHONE13, SET_SAN_PHAM_IPHONE12, SET_SAN_PHAM_IPHONE11, SET_SAN_PHAM_IPHONESE } from '../../redux/actions/types/QuanLySanPhamType'
-
+import {Input} from '@material-tailwind/react';
 
 
 
 
 const Home = (props) => {
 
+    const [displayCount, setDisplayCount] = useState(6);
 
     const { arrProduct } = useSelector(state => state.QuanLySanPhamReducer);
-
+    const loadMoreArticles = () => {
+        setDisplayCount(prevCount => prevCount + 6); // Load 6 more phones
+    };
     const renderFilms = () => {
         if (arrProduct.length ===0 ) return <p className='my-5 text-3xl'>Không có sản phẩm nào</p>
         else
-        return arrProduct.slice(0, 12).map((product, index) => {
-
+        return arrProduct.slice(0, displayCount).map((product, index) => {
             return <Product key={index} product={product} />
-
         })
     }
     const dispatch = useDispatch();
@@ -32,6 +34,10 @@ const Home = (props) => {
 
     }, [dispatch])
 
+    const [searchValue, setSearchValue] = useState();
+    function handleChangeSearch(e) {
+        console.log(e.target.value);
+    } 
 
     return (
         <div className='bg-white/10 backdrop-blur-md shadow-lg rounded-lg border border-gray-200'>
@@ -68,10 +74,14 @@ const Home = (props) => {
                         }}>Iphone SE series</button>
                     </div>
                     <h1 style={{ fontSize: "30px", textAlign: "center" ,width:'100%'}}>Điện thoại</h1>
-                    <div className="flex flex-wrap -m-4 " style={{ justifyContent: 'center' }}>
+                    <Input className='w-2/4' value={searchValue} onChange={(e)=>handleChangeSearch(e)}/>
+                    <div className="flex flex-wrap -m-4" style={{ justifyContent: 'center' }}>
                         {renderFilms()}
                     </div>
-
+                    <div className="flex justify-center">
+                        {displayCount < arrProduct.length && (
+                        <Button onClick={loadMoreArticles} type="button" className="px-6 py-3 text-sm rounded-md hover:underline dark:dark:bg-gray-900 dark:dark:text-gray-400">Xem Thêm ...</Button>)}
+                    </div>
 
                 </div>
             </section>

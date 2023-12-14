@@ -246,22 +246,45 @@ INSERT INTO `news` (`id`, `title`, `description`, `content`, `author`, `date`, `
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `ptitle` varchar(250) NOT NULL,
+  `rating` float NOT NULL DEFAULT 0,
+  `pimg` varchar(250) NOT NULL,
   `pprice` varchar(250) NOT NULL,
-  `pkind` varchar(100) NOT NULL,
-  `pimg` varchar(250) NOT NULL
+  `pkind` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `product`
 --
 
-INSERT INTO `product` (`id`, `ptitle`, `pprice`, `pkind`, `pimg`) VALUES
-(1, 'iPhone 15 Pro Max', '33890000', 'iphone15', 'https://cdn.tgdd.vn/Products/Images/42/305658/iphone-15-pro-max-blue-thumbnew-600x600.jpg'),
-(2, 'iPhone 15 Pro', '28290000', 'iphone15', 'https://cdn.tgdd.vn/Products/Images/42/299033/iphone-15-pro-blue-thumbnew-600x600.jpg'),
-(3, 'iPhone 15 Plus', '25790000', 'iphone15', 'https://cdn.tgdd.vn/Products/Images/42/303891/iphone-15-plus-hong-128gb-thumb-600x600.jpg'),
-(4, 'iPhone 15', '22390000', 'iphone15', 'https://cdn.tgdd.vn/Products/Images/42/281570/iphone-15-xanh-thumb-600x600.jpg'),
-(5, 'iPhone 14 Pro Max', '27490000', 'iphone14', 'https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-tim-thumb-600x600.jpg'),
-(6, 'iPhone 13', '16490000', 'iphone13', 'https://cdn.tgdd.vn/Products/Images/42/223602/iphone-13-pink-2-600x600.jpg');
+INSERT INTO `product` (`id`, `ptitle`, `rating`, `pimg`, `pprice`, `pkind`) VALUES
+(1, 'iPhone 15 Pro Max 256GB Titan xanh', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/305658/s16/iphone-15-pro-max-blue-thumbtz-650x650.png', '34990000', 'iphone15'),
+(2, 'iPhone 15 Pro Max 256GB Titan tự nhiên', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/305658/s16/iphone-15-pro-max-gold-thumbtz-650x650.png', '34990000', 'iphone15'),
+(3, 'iPhone 15 Pro Max 256GB Titan trắng', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/305658/s16/iphone-15-pro-max-white-thumbtz-650x650.png', '34990000', 'iphone15'),
+(4, 'iPhone 15 Pro Max 256GB Titan đen', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/305658/s16/iphone-15-pro-max-black-thumbtz-650x650.png', '34990000', 'iphone15'),
+(5, 'iPhone 15 Plus 128GB Đen', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/303891/s16/iphone-15-plus-black-thumbtz-650x650.png', '25990000', 'iphone15'),
+(6, 'iPhone 15 Plus\r\n 128GB Xanh dương nhạt', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/303891/s16/iphone-15-plus-blue-thumbtz-1-650x650.png', '25990000', 'iphone15'),
+(7, 'iPhone 15 Plus\r\n 128GB Hồng nhạt', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/303891/s16/iphone-15-plus-pink-thumbtz-650x650.png', '25990000', 'iphone15'),
+(8, 'iPhone 15 Plus\r\n 128GB Vàng nhạt', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/303891/s16/iphone-15-plus-yellow-thumbtz-650x650.png', '25790000', 'iphone15'),
+(9, 'iPhone 15 Plus\r\n 128GB Xanh lá nhạt', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/303891/s16/iphone-15-plus-green-thumbtz-650x650.png', '25890000', 'iphone15'),
+(10, 'iPhone 15 512GB Xanh dương nhạt', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/303812/s16/iphone-15-blue-thumbtz_0-650x650.png', '31990000', 'iphone15'),
+(11, 'iPhone 15 512GB Hồng nhạt', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/303812/s16/iphone-15-pink-thumbtz_0-650x650.png', '31990000', 'iphone15'),
+(12, 'iPhone 15 Pro 1TB Titan trắng', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/303833/s16/iphone-15-pro-blue-thumbtz-650x650.png', '43590000', 'iphone15'),
+(13, 'iPhone 15 Pro 1TB Titan đen', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/303833/s16/iphone-15-pro-black-thumbtz-650x650.png', '43990000', 'iphone15'),
+(14, 'iPhone 14 Pro Max 512GB Tím', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289702/s16/iphone-14-pro-max-purple-thumbtz-650x650.png', '37390000', 'iphone14'),
+(15, 'iPhone 14 Pro Max 1TB Đen', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289705/s16/iphone-14-pro-max-black-thumbtz-650x650.png', '43990000', 'iphone14'),
+(16, 'iPhone 14 Pro Max 512GB Tím', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289702/s16/iphone-14-pro-max-purple-thumbtz-650x650.png', '37390000', 'iphone14'),
+(17, 'iPhone 14 Pro Max 1TB Đen', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289705/s16/iphone-14-pro-max-black-thumbtz-650x650.png', '43990000', 'iphone14'),
+(18, 'iPhone 14 Pro 128GB Bạc', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/247508/s16/iphone-14-pro-sliver-thumbtz-650x650.png', '27790000', 'iphone14'),
+(19, 'iPhone 14 Pro 256GB Vàng', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289691/s16/iphone-14-pro-gold-thumbtz-650x650.png', '29590000', 'iphone14'),
+(20, 'iPhone 14 Pro 128GB Bạc', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/247508/s16/iphone-14-pro-sliver-thumbtz-650x650.png', '27790000', 'iphone14'),
+(21, 'iPhone 14 Pro 256GB Vàng', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289691/s16/iphone-14-pro-gold-thumbtz-650x650.png', '29590000', 'iphone14'),
+(22, 'iPhone 14 Plus 128GB Tím nhạt', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/245545/s16/iphone-14-plus-purple-thumbtz-650x650.png', '24690000', 'iphone14'),
+(23, 'iPhone 14 Plus 256GB Xanh Dương', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289710/s16/iphone-14-plus-blue-thumbtz-650x650.png', '27990000', 'iphone14'),
+(24, 'iPhone 14 128GB Đỏ', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/240259/s16/iphone-14-red-thumbtz-650x650.png', '21790000', 'iphone14'),
+(25, 'iPhone 14 256GB Trắng', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289663/s16/iphone-14-white-thumbtz-650x650.png', '24990000', 'iphone14'),
+(26, 'iPhone 13 128GB Xanh lá', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/223602/s16/iphone-13-green-thumbtz-650x650.png', '18690000', 'iphone13'),
+(27, 'iPhone 13 256GB Đen', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/250258/s16/iphone-13-black-thumbtz-650x650.png', '20690000', 'iphone13'),
+(28, 'iPhone 13 256GB Trắng', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/250258/s16/iphone-13-white-thumbtz-650x650.png', '20690000', 'iphone13');
 
 -- --------------------------------------------------------
 

@@ -30,7 +30,7 @@ import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
 
 import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
 import PermPhoneMsgRoundedIcon from '@mui/icons-material/PermPhoneMsgRounded';
-import Avatar from '../../components/Avatar/Avatar'
+import Avatar from '../../components/Profile/Avatar'
 const drawerWidth = 250;
 
 export const ProfileTemplate = (props) => { //path, exact, Component
