@@ -23,7 +23,7 @@ export default function ToggleDelete(props) {
             <Dialog open={open} handler={handleOpen}>
                 <DialogHeader>Xóa tài khoản</DialogHeader>
                 <DialogBody>
-                    Bạn có chắc chắn muốn xóa tài khoản {values.row.usename} không?
+                    Bạn có chắc chắn muốn xóa tài khoản {values.row.username} không?
                 </DialogBody>
                 <DialogFooter>
                     <Button
@@ -34,7 +34,7 @@ export default function ToggleDelete(props) {
                         <span>Không</span>
                     </Button>
                     <Button variant="gradient" onClick={() => {
-                        const action = xoaUserAction(values.id);
+                        const action = xoaUserAction(values.row.id);
                         dispatch(action);
                         handleOpen();
                         window.location.reload();

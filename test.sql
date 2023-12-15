@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 14, 2023 lúc 04:50 AM
+-- Thời gian đã tạo: Th12 15, 2023 lúc 03:09 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `newtest`
+-- Cơ sở dữ liệu: `test`
 --
 
 -- --------------------------------------------------------
@@ -37,12 +37,12 @@ CREATE TABLE `aboutimg` (
 --
 
 INSERT INTO `aboutimg` (`id`, `img`) VALUES
-(1, 'https://plus.unsplash.com/premium_photo-1702226631881-72d0d0bfa05e?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
-(2, 'https://images.unsplash.com/photo-1578112010316-b44c50d27b2b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D'),
-(3, 'https://images.unsplash.com/photo-1638891759319-c89d072c4790?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D'),
-(4, 'https://images.unsplash.com/photo-1541630010955-6966d6ce9178?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D'),
-(5, 'https://images.unsplash.com/photo-1678705543115-78279c55abc5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8'),
-(6, 'https://images.unsplash.com/photo-1639148604856-0d8ffc69fa5f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8');
+(1, 'https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-14-iPhone-14-Plus-hero-220907.jpg.news_app_ed.jpg'),
+(2, 'https://product.hstatic.net/1000300544/product/iphone-11_fd9d7167413f44c2b93aaa8a00c42d56.jpg'),
+(3, 'https://media.baobinhphuoc.com.vn/upload/news/9_2022/0c706be9b3367dbd97ceae2cfc877c78.jpg'),
+(4, 'https://akm-img-a-in.tosshub.com/indiatoday/images/media_bank/202308/iphone-15-pro-leaks-090714-16x9.png?VersionId=t2lV_b1pvm1C1ziH8acRN8emGgaCXqNY&size=690:388'),
+(5, 'https://media.techz.vn/media2019/upload2019/2022/12/22/iphone-15-chip_22122022110329.jpg'),
+(6, 'https://media.vneconomy.vn/images/upload/2023/09/13/apple-iphone-15-pro-lineup-color-lineup-geo-230912-big-large-2x.jpg');
 
 -- --------------------------------------------------------
 
@@ -66,11 +66,9 @@ CREATE TABLE `account` (
 -- Đang đổ dữ liệu cho bảng `account`
 --
 
-INSERT INTO `account` (`id`, `username`, `password`, `role`, `image`, `fullname`, `email`, `address`, `phonenumber`) VALUES
-(49, 'loc', 'e10adc3949ba59abbe56e057f20f883e', 'admin', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg', 'Xuân Lộc', 'loc@gmail.com', '1', '0123456789'),
-(52, 'tamminh', 'e10adc3949ba59abbe56e057f20f883e', 'user', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg', 'Tâm Minh', 'tamminh@gmail.com', '1', '01234567899'),
-(54, 'locloc', 'e10adc3949ba59abbe56e057f20f883e', 'user', 'https://static.vecteezy.com/system/resources/previews/009/292/244/original/default-avatar-icon-of-social-media-user-vector.jpg', NULL, NULL, NULL, NULL);
 
+INSERT INTO account (id, username, password, role, image, fullname, email, address, phonenumber)
+VALUES (1, 'admin', MD5('password'), 'admin', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKjFyusP608dm1vwb-8IJfXyH3P615-BVoF7qUM8v3jQ&s', 'Admin', 'admin@gmail.com', '123 Street', '0123456789');
 -- --------------------------------------------------------
 
 --
@@ -105,17 +103,20 @@ CREATE TABLE `cart` (
   `pimg` varchar(150) NOT NULL,
   `sl` int(50) NOT NULL,
   `username` varchar(150) NOT NULL,
-  `p_id` int(50) NOT NULL
+  `p_id` int(50) NOT NULL,
+  `order_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `cart`
 --
 
-INSERT INTO `cart` (`id`, `ptitle`, `pprice`, `pkind`, `pimg`, `sl`, `username`, `p_id`) VALUES
-(12563, 'iPhone 15 Pro', 28290000, 'iphone15', 'https://cdn.tgdd.vn/Products/Images/42/299033/iphone-15-pro-blue-thumbnew-600x600.jpg', 3, 'locloc', 2),
-(12581, 'iPhone 14 Pro Max', 27490000, 'iphone14', 'https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-tim-thumb-600x600.jpg', 3, 'tamminh', 5),
-(12582, 'iPhone 15 Pro Max', 33890000, 'iphone15', 'https://cdn.tgdd.vn/Products/Images/42/305658/iphone-15-pro-max-blue-thumbnew-600x600.jpg', 1, 'tamminh', 1);
+INSERT INTO `cart` (`id`, `ptitle`, `pprice`, `pkind`, `pimg`, `sl`, `username`, `p_id`, `order_id`) VALUES
+(12563, 'iPhone 15 Pro Max 256GB Titan xanh', 28290000, 'iphone15', 'https://cdn.tgdd.vn/Products/Images/42/299033/iphone-15-pro-blue-thumbnew-600x600.jpg', 3, 'tamminh\n', 1, 2),
+(12582, 'iPhone 15 Plus 128GB Đen', 28290000, 'iphone15', 'https://cdn.tgdd.vn/Products/Images/42/299033/iphone-15-pro-blue-thumbnew-600x600.jpg', 8, 'tamminh\n', 5, 4),
+(12584, 'iPhone 13 256GB Đen', 20690000, 'iphone13', 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/250258/s16/iphone-13-black-thumbtz-650x650.png', 4, 'locloc', 27, 3),
+(12586, 'iPhone 12 256GB Xanh lá', 18190000, 'iphone12', 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/228737/s16/iphone-12-green-3-650x650.png', 1, 'locloc', 31, 4),
+(12587, 'iPhone 15 Plus\r\n 128GB Vàng nhạt', 25790000, 'iphone15', 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/303891/s16/iphone-15-plus-yellow-thumbtz-650x650.png', 1, 'tamminh', 8, 5);
 
 -- --------------------------------------------------------
 
@@ -138,7 +139,16 @@ CREATE TABLE `commentdb` (
 INSERT INTO `commentdb` (`id`, `username`, `comment`, `time`, `productid`) VALUES
 (23, 'tamminh', 'san pham qua xau', '2023-12-10', 5),
 (32, 'tamminh', 'sanpham qua te', '2023-12-11', 3),
-(36, 'tamminh', 'ljjljljk', '2023-12-13', 1);
+(36, 'tamminh', 'ljjljljk', '2023-12-13', 1),
+(37, 'hehe', 'abcd\n', '2023-12-14', 27),
+(38, 'tamminh', 'esdtdftcfyfgy', '2023-12-15', 24),
+(39, 'tamminh', 'abc', '2023-12-15', 28),
+(40, 'tamminh', 'abcde\n', '2023-12-15', 27),
+(41, 'tamminh', 'it ss a comment\n', '2023-12-15', 26),
+(42, 'locloc', 'abcsd\n', '2023-12-15', 31),
+(43, 'anhvu', 'it is a comment', '2023-12-15', 31),
+(44, 'anhvu', 'anhvu', '2023-12-15', 31),
+(45, 'quocvu', 'quocuv', '2023-12-15', 31);
 
 -- --------------------------------------------------------
 
@@ -159,7 +169,8 @@ CREATE TABLE `commentnews` (
 --
 
 INSERT INTO `commentnews` (`id`, `username`, `time`, `newsid`, `comment`) VALUES
-(6, 'tamminh', '2023-12-13', 2, 'joijljlk\n');
+(6, 'tamminh', '2023-12-13', 2, 'joijljlk\n'),
+(8, 'anhvu', '2023-12-15', 5, 'anhvu');
 
 -- --------------------------------------------------------
 
@@ -179,7 +190,8 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id`, `name`, `email`, `message`) VALUES
-(8, 'Phan Nguyễn Xuân Lộc', 'loc.phan2113971@hcmut.edu.vn', 'fsfsfsfsffsfff');
+(12, 'Lê Hoàng Anh Vũ', 'anhvu01032003@gmail.com', 'It is a message'),
+(13, 'Anh Vũ', 'anhvu01032003@gmail.com', 'it is a message');
 
 -- --------------------------------------------------------
 
@@ -234,8 +246,42 @@ INSERT INTO `news` (`id`, `title`, `description`, `content`, `author`, `date`, `
 (6, 'Vì một lỗi thuật toán chụp ảnh, cô dâu giật mình hoảng hốt vì \"bức ảnh ma\" trong iPhone', 'Có thể nói, thuật toán chụp ảnh trên iPhone đã \"uốn cong thực tế\" khiến cô dâu trong bức ảnh cũng giật mình khi nhìn lại.', 'Như thói quen thường thấy, một phụ nữ người Anh khi đang thử váy cưới đã tiện tay chụp lại bức ảnh của mình trong gương. Nhưng khi nhìn lại bức ảnh vừa chụp, cô giật mình nhận ra mình như đang sống trong một thế giới ma trận khi các hình ảnh phản chiếu lại không khớp nhau. Nhưng hóa ra, không có gì bí ẩn trong bức ảnh này cả.\r\n\r\nNhờ các tiến bộ công nghệ về thuật toán xử lý, nhiếp ảnh trên điện thoại đã tiến một bước dài để vượt qua các giới hạn về ánh sáng và cảm biến. Mỗi khi bạn ấn vào nút chụp ảnh trên iPhone hay các smartphone khác, hàng tỷ thao tác sẽ được bộ xử lý trên thiết bị thực hiện gần như ngay lập tức để đưa ra một bức ảnh mà bạn ưng ý. Thế nhưng đây chính là nguồn cơn cho \"bức ảnh ma\" của cô gái nói trên.\r\n\r\nBức ảnh nói trên là của nữ diễn viên hài người Anh Tessa Coates được cô chụp lại khi đang thử váy cưới và đăng lên PetaPixel. Trong bức ảnh có hình phản chiếu của cô ở 2 tấm gương khác nhau, nhưng điều khiến cô kinh ngạc là sự khác nhau giữa hình ảnh của cô và hình phản chiếu trong 2 tấm gương.\r\n\r\nTrong khi một hình phản chiếu cho thấy cô đang buông thõng 2 tay xuống, một hình phản chiếu khác lại thấy cô đang để 2 tay trước bụng, trong khi hình ảnh thật lại là tay trái thả xuống còn tay còn lại để trước bụng. Coates khẳng định bức ảnh này không hề trải qua photoshop hay được chỉnh sửa mà hoàn toàn do iPhone của cô tạo ra. \r\n\r\nTrên thực tế đây là một lỗi trong thuật toán nhiếp ảnh của Apple. Camera không nhận ra đây là các hình ảnh phản chiếu trong gương, thay vào đó nó xem các phiên bản của Coates trong gương như những người khác nhau xuất hiện trong khung hình.\r\n\r\nHơn thế nữa, Coates đã xoay người một chút khi chụp bức ảnh này ở chế độ panorama, do vậy, khi ấn nút chụp ảnh, hàng loạt bức ảnh đã được ghi lại ngay tức khắc. Thuật toán của Apple ghép nối các bức ảnh này lại với nhau, chọn ra các phiên bản ưng ý nhất khi đối chiếu về mức độ bão hòa, độ tương phản, chi tiết và độ nhòe của bức ảnh.\r\n\r\nKết quả cuối cùng đáng nhẽ sẽ là bức ảnh chân thực nhất, đẹp nhất của khoảnh khắc đó thế nhưng vì sự hiện diện của những chiếc gương, thuật toán đã nhận diện nhầm các chủ thể xuất hiện trong ảnh và tạo nên bức ảnh ma như trên. Thay vì hiển thị hình ảnh Coates được phản chiếu trong gương, hình ảnh cuối cùng lại tạo ra 3 phiên bản Coates với các động tác khác nhau.', 'Phan Nguyễn Xuân Lộc', '11/12/2023', 'https://cafefcdn.com/zoom/260_163/203337114487263232/2023/12/4/avatar1701700849390-1701700850447570549729.jpeg'),
 (8, 'Cách cài đặt quyền riêng tư trên iPhone', 'Màn hình quyền riêng tư iPhone bao gồm Dịch vụ Định vị, Danh bạ và Lịch mà các ứng dụng có thể truy cập được, cài đặt quyền riêng tư giúp bảo mật thông tin tốt hơn.', 'Để cài đặt quyền riêng tư, bạn nhấn vào ứng dụng Cài đặt -> chọn Quyền riêng tư. Mỗi khi bạn cài ứng dụng mới hãy truy cập vào quyền riêng tư để xem ứng dụng đó có muốn truy cập vào các thông tin cá nhân của bạn hay không.\r\n\r\nDữ liệu vị trí trên iPhone\r\n\r\nDịch vụ vị trí là tính năng GPS của iPhone hiển thị vị trí của bạn phục vụ việc chỉ đường, tìm kiếm các cửa hàng xung quanh… Dịch vụ Vị trí mang lại nhiều tính năng hữu ích nhưng những tính năng này cũng đồng thời theo dõi chuyển động của bạn.\r\n\r\nChính vì điều này nên bạn cần kiểm tra và cân nhắc dịch vụ nào thì bật và cái nào tắt để vừa tiết kiệm pin, vừa bảo vệ quyền riêng tư của bản thân. Trong màn hình Quyền riêng tư, chạm vào Dịch vụ Định vị để xem các tùy chọn.\r\n\r\nDịch vụ Định vị: Dịch vụ sử dụng GPS, Bluetooth và vị trí các cột phát sóng di động và điểm truy cập Wifi lấy nguồn từ cộng đồng để xác định vị trí gần đúng của bạn. Tắt nó đi để vô hiệu hóa GPS và nhiều tính năng cốt lõi của iPhone.\r\n\r\nChia sẻ vị trí của tôi: Là cách gửi vị trí GPS của thiết bị của bạn cho người khác, đây là giải pháp hữu ích giúp chia sẻ vị trí, tìm đường. Đối với các tùy chọn chia sẻ vị trí khác, hãy xem cách sử dụng Tìm bạn cho iPhone và iPad cũng như cách chia sẻ vị trí của bạn trên iPhone hoặc iPad. (Điều này áp dụng cho iOS 8 trở lên)\r\n\r\nỨng dụng: Là danh sách các ứng dụng có thể truy cập thông tin vị trí của bạn. Các ứng dụng này có thể sử dụng vị trí của bạn để thực hiện một số việc như giới thiệu các nhà hàng hoặc cửa hàng gần đó. Không phải ứng dụng nào cũng cần thiết phải biết vị trí của bạn để có thể hoạt động.\r\n\r\nĐể có thể kiểm soát quyền truy cập vào vị trí của bạn, hãy nhấn vào từng ứng dụng và chọn cho phép ứng dụng đó biết vị trí của bạn Luôn luôn, Không bao giờ hoặc Trong khi sử dụng ứng dụng.\r\n\r\nDịch vụ hệ thống: Dịch vụ hệ thống cấp thấp cung cấp nhiều tính năng cho iOS và các ứng dụng. Chúng cũng sử dụng thời lượng pin khi hoạt động ở chế độ nền và sử dụng dữ liệu.\r\n\r\nTrên đây là bài viết về cách cài đặt quyền riêng tư trên iPhone, mong rằng những thông tin này sẽ giúp ích cho các bạn.', 'Phan Nguyễn Xuân Lộc', '11/12/2023', 'https://cafefcdn.com/zoom/260_163/203337114487263232/2023/12/3/avatar1701563778759-1701563778885413075326-0-102-274-541-crop-17015638155521722731196.png'),
 (9, 'Mẫu iPhone giá 10 triệu vén màn thiết kế đẹp mê ly, ngỡ ngàng khi xịn chẳng kém iPhone 15?', 'Thế hệ iPhone SE mới được cho là sẽ đại tu hoàn toàn khi Apple tìm cách tái sử dụng thiết kế của iPhone 14 cho mẫu iPhone giá rẻ tiếp theo.', 'Sau khi Apple trình làng dòng iPhone 15 vào tháng 9 năm nay, một báo cáo đã tiết lộ công ty đang phát triển biến thể SE mới là iPhone SE 4, theo BGR. \r\n\r\nDựa trên các nguồn tin, kênh YouTube công nghệ 4RMD đã phác hoạ nên bản dụng iPhone SE 4 với ngoại hình cực kỳ cuốn hút. \r\n\r\n', 'Phan Nguyễn Xuân Lộc', '11/12/2023', 'https://cafefcdn.com/zoom/260_163/203337114487263232/2023/11/26/avatar1701015992787-17010159935291141021003-0-41-310-536-crop-17010160250211580213386.jpg'),
-(12, 'Đây là mức giá rẻ kỷ lục của iPhone 15 Pro Max tại Việt Nam: \"Rẻ hơn cả các loại rẻ\"', 'Sau giai đoạn khan hàng ban đầu, iPhone 15 Pro Max đã sẵn hàng và bắt đầu được giảm giá để kích cầu người tiêu dùng.', 'Loạt iPhone 15, trong đó bao gồm iPhone 15 Pro Max, chính thức được Apple mở bán tại Việt Nam vào ngày 29/09. Trong khoảng 1.5 tháng đầu tiên sau khi mở bán, do nhu cầu từ thị trường cao hơn gấp nhiều lần so với nguồn hàng được phân bổ, tình trạng khan hàng đã xảy ra. Người mua sẽ không thể nhận máy ngay mà buộc phải đặt cọc và đợi một khoảng thời gian nhất định. Trên thị trường \"chợ đen\", những chiếc iPhone 15 Pro Max cũng được giao dịch với mức giá cao hơn cả giá niêm yết của Apple.\r\n\r\nTuy nhiên, tình trạng khan hàng đã được Apple giải quyết ngay sau đó. Tính đến nay, toàn bộ các mẫu iPhone 15, trong đó bao gồm mẫu máy được quan tâm nhất là iPhone 15 Pro Max màu Titan tự nhiên, đã sẵn hàng. Người mua có thể dễ dàng sở hữu máy ở các hệ thống bán lẻ mà không cần phải đặt cọc hay chờ đợi.\r\n\r\nKhông chỉ sẵn hàng, hầu hết các hệ thống còn phải tiến hành giảm giá iPhone 15 để kích cầu tiêu dùng. Đặc biệt trong dịp Black Friday này, iPhone 15 Pro Max là một trong số những sản phẩm được các hệ thống tập trung điều chỉnh giá bán và quảng bá nhất.\r\n\r\nTham khảo nhiều hệ thống lớn như TGDĐ, CellphoneS, Viettel Store, Hoàng Hà Mobile…, người dùng chỉ cần phải bỏ ra khoảng 33 đến 33.5 triệu đồng là đã có thể sở hữu iPhone 15 Pro Max. Mức giá này rẻ hơn khoảng 1.5 đến 2 triệu đồng so với chỉ khoảng vài tuần trước đó.', 'Phan Nguyễn Xuân Lộc', '11/12/2023', 'https://cafefcdn.com/zoom/260_163/203337114487263232/2023/11/26/avatar1701007485440-17010074859142004718603-22-0-397-600-crop-17010075279011994630200.jpg'),
-(16, 'messi', 'fsfsf', 'fsfsdff', 'sfsf', '2023-12-12', 'https://baohagiang.vn/file/4028eaa4679b32c401679c0c74382a7e/122023/1_20231212092258.jpg');
+(12, 'Đây là mức giá rẻ kỷ lục của iPhone 15 Pro Max tại Việt Nam: \"Rẻ hơn cả các loại rẻ\"', 'Sau giai đoạn khan hàng ban đầu, iPhone 15 Pro Max đã sẵn hàng và bắt đầu được giảm giá để kích cầu người tiêu dùng.', 'Loạt iPhone 15, trong đó bao gồm iPhone 15 Pro Max, chính thức được Apple mở bán tại Việt Nam vào ngày 29/09. Trong khoảng 1.5 tháng đầu tiên sau khi mở bán, do nhu cầu từ thị trường cao hơn gấp nhiều lần so với nguồn hàng được phân bổ, tình trạng khan hàng đã xảy ra. Người mua sẽ không thể nhận máy ngay mà buộc phải đặt cọc và đợi một khoảng thời gian nhất định. Trên thị trường \"chợ đen\", những chiếc iPhone 15 Pro Max cũng được giao dịch với mức giá cao hơn cả giá niêm yết của Apple.\r\n\r\nTuy nhiên, tình trạng khan hàng đã được Apple giải quyết ngay sau đó. Tính đến nay, toàn bộ các mẫu iPhone 15, trong đó bao gồm mẫu máy được quan tâm nhất là iPhone 15 Pro Max màu Titan tự nhiên, đã sẵn hàng. Người mua có thể dễ dàng sở hữu máy ở các hệ thống bán lẻ mà không cần phải đặt cọc hay chờ đợi.\r\n\r\nKhông chỉ sẵn hàng, hầu hết các hệ thống còn phải tiến hành giảm giá iPhone 15 để kích cầu tiêu dùng. Đặc biệt trong dịp Black Friday này, iPhone 15 Pro Max là một trong số những sản phẩm được các hệ thống tập trung điều chỉnh giá bán và quảng bá nhất.\r\n\r\nTham khảo nhiều hệ thống lớn như TGDĐ, CellphoneS, Viettel Store, Hoàng Hà Mobile…, người dùng chỉ cần phải bỏ ra khoảng 33 đến 33.5 triệu đồng là đã có thể sở hữu iPhone 15 Pro Max. Mức giá này rẻ hơn khoảng 1.5 đến 2 triệu đồng so với chỉ khoảng vài tuần trước đó.', 'Phan Nguyễn Xuân Lộc', '11/12/2023', 'https://cafefcdn.com/zoom/260_163/203337114487263232/2023/11/26/avatar1701007485440-17010074859142004718603-22-0-397-600-crop-17010075279011994630200.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `total` mediumint(200) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `name` varchar(170) NOT NULL,
+  `billing_address` varchar(180) NOT NULL,
+  `date` varchar(100) NOT NULL,
+  `status` varchar(150) NOT NULL,
+  `note` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `orders`
+--
+
+INSERT INTO `orders` (`id`, `username`, `total`, `email`, `name`, `billing_address`, `date`, `status`, `note`) VALUES
+(2, 'tamminh', 8388607, 'loc@gmail.com', 'Phan Nguyễn Xuân Lộc', 'BÌnh thạnh', '14/12/2023', 'Hủy', ''),
+(3, 'tamminh', 8388607, 'loc@gmail.com', 'Loc', 'linh trung, thu duc', '14/12/2023', 'Đang tiếp nhận', ''),
+(4, 'tamminh', 8388607, 'loc@gmail.com', 'Phan Nguyeenx Xuan Loc', 'le duan', '14/12/2023', 'Đang tiếp nhận', ''),
+(5, 'tamminh', 8388607, 'loc@gmail.com', 'loc', 'dinh bo linh', '14/12/2023', 'Đang tiếp nhận', 'nhe tay thoi nha cha'),
+(6, 'tamminh', 8388607, 'diemmy@gmail.com', 'nguyen cao diem my', 'hai thuong lang ', '14/12/2023', 'Đang tiếp nhận', 'nhe tay'),
+(7, 'tamminh', 35, 'sdfdsf', 'dfdf', 'dfsf', '14/12/2023', 'Đang tiếp nhận', 'dfgdfgdg'),
+(8, 'tamminh', 35, 'sdfdsf', 'dfdf', 'dfsf', '14/12/2023', 'Đang tiếp nhận', 'dfgdfgdg'),
+(9, 'tamminh', 8388607, 'das', 'das', 'ads', '14/12/2023', 'Đang tiếp nhận', 'das'),
+(10, 'tamminh', 8388607, 'user1', 'iPhone12', 'ghjhgj', '15/12/2023', 'Đang tiếp nhận', 'sefsdf'),
+(11, 'tamminh', 8388607, 'aaaaaaaa', 'cbcb', 'aaaaaaaaaaa', '15/12/2023', 'Đang tiếp nhận', 'aaaaaaaaaa'),
+(12, 'tamminh', 8388607, 'levu01032003@gmail.com', 'Lê Hoàng Anh Vũ', 'HCM', '15/12/2023', 'Đang tiếp nhận', 'it is a note');
 
 -- --------------------------------------------------------
 
@@ -257,7 +303,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `ptitle`, `rating`, `pimg`, `pprice`, `pkind`) VALUES
-(1, 'iPhone 15 Pro Max 256GB Titan xanh', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/305658/s16/iphone-15-pro-max-blue-thumbtz-650x650.png', '34990000', 'iphone15'),
+(1, 'iPhone 15 Pro Max 256GB Titan', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/305658/s16/iphone-15-pro-max-blue-thumbtz-650x650.png', '34990000', 'iphone15'),
 (2, 'iPhone 15 Pro Max 256GB Titan tự nhiên', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/305658/s16/iphone-15-pro-max-gold-thumbtz-650x650.png', '34990000', 'iphone15'),
 (3, 'iPhone 15 Pro Max 256GB Titan trắng', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/305658/s16/iphone-15-pro-max-white-thumbtz-650x650.png', '34990000', 'iphone15'),
 (4, 'iPhone 15 Pro Max 256GB Titan đen', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/305658/s16/iphone-15-pro-max-black-thumbtz-650x650.png', '34990000', 'iphone15'),
@@ -284,7 +330,8 @@ INSERT INTO `product` (`id`, `ptitle`, `rating`, `pimg`, `pprice`, `pkind`) VALU
 (25, 'iPhone 14 256GB Trắng', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/289663/s16/iphone-14-white-thumbtz-650x650.png', '24990000', 'iphone14'),
 (26, 'iPhone 13 128GB Xanh lá', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/223602/s16/iphone-13-green-thumbtz-650x650.png', '18690000', 'iphone13'),
 (27, 'iPhone 13 256GB Đen', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/250258/s16/iphone-13-black-thumbtz-650x650.png', '20690000', 'iphone13'),
-(28, 'iPhone 13 256GB Trắng', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/250258/s16/iphone-13-white-thumbtz-650x650.png', '20690000', 'iphone13');
+(28, 'iPhone 13 256GB Trắng', 5, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/250258/s16/iphone-13-white-thumbtz-650x650.png', '20690000', 'iphone13'),
+(31, 'iPhone 12 256GB Xanh lá', 0, 'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/228737/s16/iphone-12-green-3-650x650.png', '18190000', 'iphone12');
 
 -- --------------------------------------------------------
 
@@ -332,7 +379,7 @@ INSERT INTO `statistic` (`id`, `quantity`, `item`) VALUES
 (3, 10, 'Dòng iPhone phủ sóng'),
 (4, 100, 'Chuyên gia tư vấn'),
 (5, 22, 'Năm kinh nghiệm'),
-(6, 10, 'Khóa học và workshop');
+(6, 101, 'Khóa học và workshop');
 
 -- --------------------------------------------------------
 
@@ -353,9 +400,9 @@ CREATE TABLE `store` (
 --
 
 INSERT INTO `store` (`id`, `province`, `address`, `email`, `phone`) VALUES
-(1, 'TP Hồ Chí Minh', '322 Trường Chinh, HCM', 'loc.phan2113971@hcmut.edu.vn', '0911111111'),
-(2, 'Hà Nội', '174 Quang Trung, HN', 'vu@gmail.com', '+47 333 78 901'),
-(3, 'Đà Nẵng', '58 Nguyễn Văn Linh, Quận Hải Châu, TP Đà Nẵng', 'dang@gmail.com', '+47 333 78 901');
+(1, 'TP Hồ Chí Minh', '322 Trường Chinh, HCM', 'loc.phan2113971@hcmut.edu.vn', '+84 333 78 912'),
+(2, 'Hà Nội', '174 Quang Trung, HN', 'vu@gmail.com', '+84 333 78 901'),
+(3, 'Đà Nẵng', '58 Nguyễn Văn Linh, Quận Hải Châu, TP Đà Nẵng', 'dang@gmail.com', '+84 333 78 901');
 
 -- --------------------------------------------------------
 
@@ -396,12 +443,10 @@ CREATE TABLE `team` (
 --
 
 INSERT INTO `team` (`id`, `name`, `role`, `img`) VALUES
-(1, 'Phan Nguyễn Xuân Lộc ', 'Developer', 'https://www.worldphoto.org/sites/default/files/default-media/Piercy.jpg'),
-(2, 'Lộc', 'fsfsdf', 'https://www.worldphoto.org/sites/default/files/default-media/Piercy.jpg'),
-(3, 'loc', 'fdfsf', 'https://www.worldphoto.org/sites/default/files/default-media/Piercy.jpg'),
-(4, 'loc', 'fdfsf', 'https://www.worldphoto.org/sites/default/files/default-media/Piercy.jpg'),
-(5, 'dfsdf', 'fsff', 'https://www.worldphoto.org/sites/default/files/default-media/Piercy.jpg'),
-(6, 'fdf', 'fsfsf', 'https://www.worldphoto.org/sites/default/files/default-media/Piercy.jpg');
+(1, 'Phan Nguyễn Xuân Lộcc', 'Developer', 'https://www.worldphoto.org/sites/default/files/default-media/Piercy.jpg'),
+(9, 'Lê Hoàng Anh Vũ', 'Developer', 'https://uploads.dailydot.com/2018/10/olli-the-polite-cat.jpg?q=65&auto=format&w=2270&ar=2:1&fit=crop'),
+(10, 'Lê Nguyễn Hải Đăng', 'Developer', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwiVPnxOoy-0BDqGn4k8_mDAURfZhBwwzo0Pua05aUYQ&s'),
+(11, 'Lê Phan Quốc Vũ', 'Developer', 'https://ih1.redbubble.net/image.3800727516.4531/flat,750x,075,f-pad,750x1000,f8f8f8.jpg');
 
 -- --------------------------------------------------------
 
@@ -424,7 +469,7 @@ INSERT INTO `testimonials` (`id`, `name`, `content`, `img`) VALUES
 (1, 'Minh Anh', 'Tôi vô cùng ấn tượng với dịch vụ khách hàng của trang web này. Họ luôn sẵn lòng hỗ trợ và giải đáp mọi thắc mắc của tôi. iPhone mà tôi mua đã hoạt động tốt không có vấn đề gì. Chắc chắn tôi sẽ quay lại đây mua sắm!', 'https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-762020.jpg&fm=jpg'),
 (2, 'Tâm', 'Mua iPhone ở đây thật sự là một trải nghiệm tuyệt vời. Hình ảnh và mô tả sản phẩm trên trang web rất chân thực, giúp tôi dễ dàng lựa chọn đúng mẫu tôi cần. Cảm ơn vì đã cung cấp dịch vụ tuyệt vời!', 'https://cc-prod.scene7.com/is/image/CCProdAuthor/portrait-photography_P6b_379x392?$pjpeg$&jpegSize=100&wid=378'),
 (3, 'Minh', 'Lần đầu tiên mua iPhone online và tôi cực kỳ hài lòng! Trang web dễ sử dụng, giá cả cạnh tranh, và điều tôi thích nhất là cách họ quan tâm đến khách hàng sau khi mua hàng. Hỗ trợ kỹ thuật rất nhanh và chuyên nghiệp!', 'https://images.pexels.com/photos/35065/homeless-man-color-poverty.jpg?cs=srgb&dl=pexels-pixabay-35065.jpg&fm=jpg'),
-(4, 'Lâm', 'Giao hàng nhanh chóng và bảo hành rõ ràng - đó là những gì tôi đã trải nghiệm khi mua iPhone từ trang web này. Tôi hài lòng với chất lượng sản phẩm và cảm thấy tin tưởng với các chính sách của họ.', 'https://www.worldphoto.org/sites/default/files/default-media/Piercy.jpg');
+(4, 'Lâm Ý', 'Giao hàng nhanh chóng và bảo hành rõ ràng - đó là những gì tôi đã trải nghiệm khi mua iPhone từ trang web này. Tôi hài lòng với chất lượng sản phẩm và cảm thấy tin tưởng với các chính sách của họ.', 'https://baohagiang.vn/file/4028eaa4679b32c401679c0c74382a7e/122023/1_20231212092258.jpg');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -434,12 +479,6 @@ INSERT INTO `testimonials` (`id`, `name`, `content`, `img`) VALUES
 -- Chỉ mục cho bảng `aboutimg`
 --
 ALTER TABLE `aboutimg`
-  ADD PRIMARY KEY (`id`);
-
---
--- Chỉ mục cho bảng `account`
---
-ALTER TABLE `account`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -482,6 +521,12 @@ ALTER TABLE `contactpage`
 -- Chỉ mục cho bảng `news`
 --
 ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `orders`
+--
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -534,13 +579,7 @@ ALTER TABLE `testimonials`
 -- AUTO_INCREMENT cho bảng `aboutimg`
 --
 ALTER TABLE `aboutimg`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT cho bảng `account`
---
-ALTER TABLE `account`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `carousel`
@@ -552,55 +591,61 @@ ALTER TABLE `carousel`
 -- AUTO_INCREMENT cho bảng `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12583;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12588;
 
 --
 -- AUTO_INCREMENT cho bảng `commentdb`
 --
 ALTER TABLE `commentdb`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT cho bảng `commentnews`
 --
 ALTER TABLE `commentnews`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `contactpage`
 --
 ALTER TABLE `contactpage`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT cho bảng `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT cho bảng `service`
 --
 ALTER TABLE `service`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `statistic`
 --
 ALTER TABLE `statistic`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `store`
@@ -618,13 +663,13 @@ ALTER TABLE `tbl_product`
 -- AUTO_INCREMENT cho bảng `team`
 --
 ALTER TABLE `team`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `testimonials`
 --
 ALTER TABLE `testimonials`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

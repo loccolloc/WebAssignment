@@ -48,7 +48,7 @@ const ManageUsers = () => {
             align: "center",
         },
         {
-            field: "phone",
+            field: "phonenumber",
             headerName: "Số điện thoại",
             headerAlign: "center",
             flex: 0.8,

@@ -83,7 +83,7 @@ const ManageOrder = () => {
         return (
           <>
             {HandleView(params)}
-            <ToggleUpdate values = {params}/>
+            {/* <ToggleUpdate values = {params}/> */}
           </>
         );
       },
@@ -156,11 +156,7 @@ const HandleView = (params) => {
       }).then((res) => {
         // console.log(res.data[0])
         setOrderDetail(res.data);
-        setTitle(res.data[0]["ptitle"]);
-        setPrice(res.data[0]["pprice"]);
-        setImg(res.data[0]["pimg"]);
-        setSl(res.data[0]["sl"]);
-        setTonggia(res.data[0]["tonggia"]);
+        
       });
     }, []);
 

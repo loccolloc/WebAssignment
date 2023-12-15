@@ -27,6 +27,7 @@ import FilterRoundedIcon from '@mui/icons-material/FilterRounded';
 import MiscellaneousServicesRoundedIcon from '@mui/icons-material/MiscellaneousServicesRounded';
 import PeopleOutlineRoundedIcon from '@mui/icons-material/PeopleOutlineRounded';
 import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
+import ReceiptIcon from '@mui/icons-material/Receipt';
 
 import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
 import PermPhoneMsgRoundedIcon from '@mui/icons-material/PermPhoneMsgRounded';
@@ -104,7 +105,7 @@ export const ProfileTemplate = (props) => { //path, exact, Component
                     <ListItem key='manageOrder' disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
-                                <SupervisedUserCircleRoundedIcon />
+                                <ReceiptIcon />
                             </ListItemIcon>
                             <ListItemText primary="Quản lí đơn đạt hàng" />
                         </ListItemButton>

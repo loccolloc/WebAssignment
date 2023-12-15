@@ -2,8 +2,7 @@ import { IconButton, Button } from "@mui/material";
 import { productData } from "../../data/mockData";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import * as React from "react";
-import DialogUpdate from './ToggleUpdate'
-import DialogDelete from './ToggleDelete';
+
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -78,8 +77,7 @@ const OrderHistory = () => {
         return (
           <>
             {HandleView(params)}
-            <DialogUpdate values = {params}/>
-            <DialogDelete values = {params}/>
+
           </>
         );
       },
@@ -151,10 +149,10 @@ const HandleView = (params) => {
     useEffect(() => {
       axios.post("http://localhost/qlsvmvc/?c=User&a=getCart", {
         username: "tamminh",
-        id:3
+        id:params.row.id
       }).then((res) => {
-        console.log(res.data[0]);
-        setOrderDetail(res.data[0]);
+        console.log(res.data);
+        setOrderDetail(res.data);
         
       });
     }, []);
@@ -192,7 +190,7 @@ const HandleView = (params) => {
                           // console.log(item);
                           return (
                             <tr >
-                                <td>{item.ptitle}</td>
+                                <td>{item["ptitle"]}</td>
                                 <td><img src={item.pimg} alt="anhsanpham" style={{height:'100px'}}></img></td>
                                 <td>{item.sl}</td>
                                 <td>{item.pprice}</td>

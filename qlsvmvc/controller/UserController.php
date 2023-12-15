@@ -28,15 +28,6 @@ class UserController
     {
         $data = json_decode(file_get_contents("php://input"));
         $userRepository = new UserRepository();
-        // $username = $data->taiKhoan;
-        // $row=$userRepository->getBySearch('$username');
-        // if($row > 0)
-        // {
-        //     echo json_encode(["success"=>"Da co username!"]);
-        //     exit();
-        // }
-
-
         if ($userRepository->register($data)) {
             echo json_encode("true");
         } else {
@@ -50,13 +41,8 @@ class UserController
     function save()
     {
         $data = json_decode(file_get_contents("php://input"));
-        global $conn;
         $username = $data->taiKhoan;
         $password = $data->matKhau;
-
-
-        $sql = "insert into account(username,password) values('$username','$password')";
-        $conn->query($sql);
         return true;
     }
 
@@ -81,8 +67,10 @@ class UserController
         $email = isset($_POST["email"]) ? $_POST["email"] : '';
         $phonenumber = isset($_POST["phonenumber"]) ? $_POST["phonenumber"] : '';
         $address = isset($_POST["address"]) ? $_POST["address"] : '';
+        $image = isset($_POST["image"]) ? $_POST["image"] : '';
+
         $user = new UserRepository();
-        $result = $user->updateInfo($username, $fullname, $email, $phonenumber, $address);
+        $result = $user->updateInfo($username, $fullname, $email, $phonenumber, $address,$image);
         echo json_encode($result);
     }
     public function updatePass()

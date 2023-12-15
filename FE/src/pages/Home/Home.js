@@ -7,24 +7,21 @@ import { layDanhSachSanPhamAction } from '../../redux/actions/QuanLySanPhamActio
 import { SET_SAN_PHAM_IPHONE15, SET_SAN_PHAM_IPHONE14, SET_SAN_PHAM_ALL, SET_SAN_PHAM_IPHONE13, SET_SAN_PHAM_IPHONE12, SET_SAN_PHAM_IPHONE11, SET_SAN_PHAM_IPHONESE } from '../../redux/actions/types/QuanLySanPhamType'
 import {Input} from '@material-tailwind/react';
 
-
-
-
 const Home = (props) => {
 
     const [displayCount, setDisplayCount] = useState(6);
     const { arrProduct } = useSelector(state => state.QuanLySanPhamReducer);
-    const loadMoreArticles = () => {
-        setDisplayCount(prevCount => prevCount + 6); // Load 6 more phones
+    const loaMoreProducts = () => {
+        setDisplayCount(prevCount => prevCount + 6);
     };
-    const [sortBy, setSortBy] = useState('pprice'); // Default sorting by pprice
-    const [sortOrder, setSortOrder] = useState('asc'); // Default sorting order is ascending    
-    const renderFilms = () => {
+    const [sortBy, setSortBy] = useState('pprice');
+    const [sortOrder, setSortOrder] = useState('asc');
+    const renderProducts = () => {
     let filteredProducts = arrProduct;
 
     if (searchValue) {
         filteredProducts = arrProduct.filter((item) =>
-            item.ptitle.toLowerCase().includes(searchValue.toLowerCase())
+        item.ptitle.toLowerCase().includes(searchValue.toLowerCase())
         );
     }
 
@@ -34,36 +31,35 @@ const Home = (props) => {
         const valueB = b[sortBy];
 
         if (valueA < valueB) {
-            return sortOrder === 'asc' ? -1 : 1;
+        return sortOrder === 'asc' ? -1 : 1;
         }
         if (valueA > valueB) {
-            return sortOrder === 'asc' ? 1 : -1;
+        return sortOrder === 'asc' ? 1 : -1;
         }
         return 0;
     });
 
     if (filteredProducts.length === 0) {
-        return <p className='my-5 text-3xl'>Không có sản phẩm nào</p>;
+        return <p className='my-5 text-3xl w-full'>Không có sản phẩm nào</p>;
     } else {
         return (
-            filteredProducts
-                .slice(0, displayCount)
-                .map((product, index) => {
-                    return <Product key={index} product={product} />;
-                })
+        filteredProducts.slice(0, displayCount).map((product, index) => {
+            return <Product key={index} product={product} />;
+        })
         );
     }
-};
+    };
     const dispatch = useDispatch();
     useEffect(() => {
         const action = layDanhSachSanPhamAction();
-        dispatch(action); //dispatch function từ thunk
+        dispatch(action); 
     }, [dispatch])
 
     const [searchValue, setSearchValue] = useState();
     function handleChangeSearch(e) {
         setSearchValue(e.target.value);
     }    
+    const shouldShowLoadMoreButton = arrProduct.length > displayCount;
 
     return (
         <div className='bg-white/10 backdrop-blur-md shadow-lg rounded-lg border border-gray-200'>
@@ -100,7 +96,7 @@ const Home = (props) => {
                         }}>Iphone SE series</button>
                     </div>
                     <h1 style={{ fontSize: "30px", textAlign: "center" ,width:'100%'}}>Điện thoại</h1>
-                    <div className=' w-2/4 text-center'>
+                    <div className=' w-full text-center'>
                         <Input  value={searchValue} onChange={(e)=>handleChangeSearch(e)} placeholder='Tìm kiếm sản phẩm' icon={<i className="fas fa-search" />}/>
                         <Button
                             className='my-2'
@@ -108,20 +104,21 @@ const Home = (props) => {
                                 setSortBy('pprice');
                                 setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
                             }}
-                            
                         >
                             Sắp xếp theo giá:
                             {sortOrder === 'asc' ? 'Từ thấp đến cao' : 'Từ cao đến thấp'}
                         </Button>
                     </div>
                     <div className="flex flex-wrap -m-4" style={{ justifyContent: 'center' }}>
-                        {renderFilms()}
+                        {renderProducts()}
                     </div>
-                    <div className="flex justify-center">
-                        {displayCount < arrProduct.length && (
-                        <Button onClick={loadMoreArticles} type="button" className="px-6 py-3 text-sm rounded-md hover:underline dark:dark:bg-gray-900 dark:dark:text-gray-400">Xem Thêm ...</Button>)}
+                    <div className="flex justify-center w-full">
+                    {shouldShowLoadMoreButton && (
+                        <Button onClick={loaMoreProducts} type="button" className="px-6 py-3 text-sm rounded-md hover:underline dark:dark:bg-gray-900 dark:dark:text-gray-400">
+                        Xem Thêm ...
+                        </Button>
+                    )}
                     </div>
-
                 </div>
             </section>
 

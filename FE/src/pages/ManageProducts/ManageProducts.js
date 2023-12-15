@@ -44,23 +44,8 @@ const ManageProducts = () => {
 
         },
         {
-            field: "rom",
-            headerName: "ROM",
-            headerAlign: "center",
-            flex: 0.8,
-            align: "center",
-        },
-        {
             field: "pprice",
             headerName: "Giá thành",
-            headerAlign: "center",
-            flex: 1,
-            align: "center",
-
-        },
-        {
-            field: "remain_amount",
-            headerName: "Số lượng",
             headerAlign: "center",
             flex: 1,
             align: "center",
@@ -81,15 +66,6 @@ const ManageProducts = () => {
                 );
             },
         },
-        {
-            field: "description",
-            headerName: "Mô tả",
-            headerAlign: "center",
-            flex: 2,
-            align: "center",
-
-        },
-
         {
             field: "action",
             headerName: "Action",
@@ -184,11 +160,8 @@ const HandleView = (params) => {
                     <h3>{formatter.format(params.row.pprice)}</h3>
                 </DialogTitle>
                 <DialogContent display="flex" overflowy="auto">
-                    <DialogContentText>
-                        <h5>{params.row.description}</h5>
-                    </DialogContentText>
                     <img
-                        src={params.row.img}
+                        src={params.row.pimg}
                         width="80%"
                         height="80%"
                         alt={params.row.ptitle}

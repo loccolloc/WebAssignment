@@ -1,56 +1,38 @@
 import { useState } from "react";
 import { Button, Input } from "@material-tailwind/react";
-import Header from "../../templates/HomeTemplate/Layout/Header/Header";
 import EditPassword from './EditPassword'
-// import EditUsername from './EditUsername'
 import axios from "axios";
-import * as Yup from "yup";
-import { useFormik } from "formik";
 import { useEffect } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import { useSelector, useDispatch } from "react-redux";
-import { layThongTinChiTietUser } from "../../redux/actions/QuanLyUserAction";
+import { toast } from 'react-toastify';
 const Profile = () => {
-   
-
-
-    var role = localStorage.getItem('role');
     var username = localStorage.getItem("username");
-    const dispatch = useDispatch();
 
-
-    const UserDetail = useSelector(
-        (state) => state.QuanLyUserReducer.productDetail
-    );
     const [fullname, setFullname] = useState("");
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [address, setAddress] = useState("");
+
+    const [image, setImage] = useState("");
+
     const [onEdit, setOnEdit] = useState(true);
     useEffect(() => {
       axios.post("http://localhost/qlsvmvc/?c=User&a=getUser", {
         username: username,
       }).then((res) => {
-        setFullname(res.data[0]["fullname"]);
-        setEmail(res.data[0]["email"]);
-        setPhoneNumber(res.data[0]["phonenumber"]);
-        setAddress(res.data[0]["address"]);
+        if (res) {
+          setFullname(res.data[0]["fullname"]);
+          setEmail(res.data[0]["email"]);
+          setPhoneNumber(res.data[0]["phonenumber"]);
+          setAddress(res.data[0]["address"]);
+          setImage(res.data[0]["image"]);
+          localStorage.setItem("image", res.data[0]["image"])
+        }
       });
     }, []);
-
-
-
-
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form submitted");
-
-
-        console.log("Fullname:", fullname);
-        console.log("Email:", email);
-        console.log("Phone Number:", phoneNumber);
-        console.log("Address:", address);
-      };
+    function handleChangeEdit(e) {
+      e.preventDefault();
+      setOnEdit(!onEdit);
+    }
       const handleEditInfo = async (e) => {
         e.preventDefault();
         setOnEdit(!onEdit);
@@ -62,16 +44,13 @@ const Profile = () => {
             email: email,
             phonenumber: phoneNumber,
             address: address,
+            image: image,
           })
           .then((res) => {
             if (res.data) {
-              toast.success("Update Info successfully!!!", {
-                position: toast.POSITION.TOP_CENTER,
-              });
+              toast.success("Cập nhật thông tin thành công")
             } else {
-              toast.warning("Update failed!!!", {
-                position: toast.POSITION.TOP_CENTER,
-              });
+              toast.error("Bị lỗi trong quá trình cập nhật")
             }
           });
       };
@@ -79,8 +58,6 @@ const Profile = () => {
         <div className="grid m-4 gap-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div
-
-
                     className="text-3xl md:text-5xl font-semibold"
                     sx={{ m: "0 0 5px 0" }}
                 >
@@ -96,8 +73,8 @@ const Profile = () => {
                 <div>
                   <Input
                     size="lg"
-                    label="Email"
-                    name="email"
+                    label="Họ và tên"
+                    name="fullname"
                     value={fullname}
                     onChange={(e) => setFullname(e.target.value)}
                     disabled={onEdit}
@@ -133,17 +110,32 @@ const Profile = () => {
                     disabled={onEdit}
                   />
                 </div>
+                <div>
+                  <Input
+                    size="lg"
+                    label="Ảnh đại diện"
+                    name="image"
+                    value={image}
+                    onChange={(e) => setImage(e.target.value)}
+                    disabled={onEdit}
+                  />
+                </div>
               </div>
               <div className="grid grid-cols-1 gap-4">
                 <div className="flex justify-end">
-                  <Button type="submit">
-                    {!onEdit ? `Lưu thông tin` : `Chỉnh sửa thông tin`}
-                  </Button>
+                  {
+                    !onEdit ? 
+                    <Button type="submit" onClick={(e) => handleEditInfo(e)}>
+                      Lưu thông tin
+                    </Button> :
+                    <Button type="submit" onClick={(e) => handleChangeEdit(e)}>
+                      Chỉnh sửa thông tin
+                    </Button>
+                  }
                 </div>
               </div>
             </div>
           </form>
-          {/* <ToastContainer/>; */}
         </div>
     );
 };

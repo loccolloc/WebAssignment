@@ -14,7 +14,9 @@ export const layDanhSachGioHangAction = (username) => {
             dispatch({
                 type: SET_DANH_SACH_GIO_HANG,
                 arrProduct: result.data,
+                
             })
+        
         } catch (errors) {
             console.log('errors', errors)
         }

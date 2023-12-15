@@ -12,12 +12,13 @@ import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import PowerSettingsNewRoundedIcon from '@mui/icons-material/PowerSettingsNewRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 export default function Sidebar() {
+    var username = localStorage.getItem('username');
     return (
         <Card className=" w-full max-w-[20rem] p-4 shadow-xl bg-black shadow-black rounded-none" style={{ minHeight: '100vh' }}>
             <div className="mb-2 p-4">
                 <Avatar />
                 <Typography variant="h4" className="text-gray-300">
-                    Admin01
+                    {username}
                 </Typography>
             </div>
             <List>

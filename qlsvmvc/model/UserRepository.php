@@ -89,10 +89,10 @@ class UserRepository
 
 
 
-    public function updateInfo($username, $fullname, $email, $phonenumber, $address)
+    public function updateInfo($username, $fullname, $email, $phonenumber, $address,$image)
     {
         global $conn;
-        $sql = "UPDATE account SET `fullname`='$fullname', `email`='$email', `phonenumber`='$phonenumber', `address`='$address' WHERE `username`= '$username'";
+        $sql = "UPDATE account SET `fullname`='$fullname', `email`='$email', `phonenumber`='$phonenumber', `address`='$address', `image`='$image'  WHERE `username`= '$username'";
         if ($conn->query($sql)) {
             return true;
         }
@@ -194,11 +194,12 @@ class UserRepository
                         ON
                             `orders`.`id` = `cart`.`order_id`
                         WHERE
-                            `cart`.`username` = '$username' AND `orders`.`id`='$id'
+                            -- `cart`.`username` = '$username' 
+                            `orders`.`id`='$id'
                         GROUP BY
                             `cart`.`p_id`";
 
-
+// AND 
 
 
         $result = mysqli_query($conn, $selectCart);

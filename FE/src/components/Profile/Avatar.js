@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Avatar } from '@mui/material';
 import CameraAltRoundedIcon from '@mui/icons-material/CameraAltRounded';
 const AvatarInput = () => {
+        var avatar = localStorage.getItem('image');
+
     const [selectedAvatar, setSelectedAvatar] = useState('https://i.pinimg.com/236x/54/12/11/541211d3d6faf98854cb9b3da2373c4e.jpg');
     const [uploadedAvatar, setUploadedAvatar] = useState(null);
     const [isHovered, setIsHovered] = useState(false);
@@ -38,7 +40,7 @@ const AvatarInput = () => {
                     onMouseLeave={handleMouseLeave}
                 >
                     <Avatar
-                        src={selectedAvatar}
+                        src={avatar}
                         alt="Avatar"
                         className="w-12 h-12 cursor-pointer"
                         style={{ height: '110px', width: '110px', marginBottom: '15px' }}
